@@ -1,0 +1,85 @@
+C*******************************************************************************
+C
+C                  INTEGRATED WATER FLOW MODEL (IWFM)
+C
+C*******************************************************************************
+C
+C                 RETURN FLOW FRACTIONS DATA FILE
+C                       Root Zone Component
+C                       *** Version 4.11 ***
+C
+C
+C             Project:  C2VSim: California Central Valley Groundwater-Surface Water Simulation Model
+C             Filename: CVRZ_ReturnFlowFrac_v411.dat
+C             Version:  R385-2015 2016.11.01
+C
+C***********************************************************************
+C  California Central Valley Groundwater-Surface Water Flow Model (C2VSim)
+C  Copyright (C) 2012-2017
+C  State of California, Department of Water Resources
+C
+C  This model is free. You can redistribute it and/or modify it
+C  under the terms of the GNU General Public License as published
+C  by the Free Software Foundation; either version 2 of the License,
+C  or (at your option) any later version.
+C
+C  This model is distributed WITHOUT ANY WARRANTY; without even
+C  the implied warranty of MERCHANTABILITY or FITNESS FOR A
+C  PARTICULAR PURPOSE.  See the GNU General Public License for
+C  more details. (http://www.gnu.org/licenses/gpl.html)
+C
+C  The GNU General Public License is available from the Free Software
+C  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+C
+C  For tecnical support, e-mail: IWFMtechsupport@water.ca.gov
+C
+C
+C  Principal Contact:
+C    Tariq N. Kadir, PE, Senior Engineer, DWR
+C       (916) 653-3513, kadir@water.ca.gov
+C
+C  Principal Developer and Technical Support:
+C    Charles F. Brush, PhD, PE, Engineer, DWR
+C       (916) 651-8705, cbrush@water.ca.gov
+C
+C
+C*******************************************************************************
+C                           File Description
+C
+C   This data file contains a set of return flows given as fractions of irrigation
+C   water.
+C
+C*******************************************************************************
+C               Return Flow Fractions Data Specifications
+C
+C   NCOLRT ; Number of return flow fractions data columns
+C   NSPRT  ; Number of time steps to update the return flow fractions
+C             * Enter any number if time-tracking option is on
+C   NFQRT  ; Repetition frequency of the return flow fractions data
+C             * Enter 0 if full time series data is supplied
+C             * Enter any number if time-tracking option is on
+C   DSSFL  ; The name of the DSS file for data input
+C             * Leave blank if DSS file is not used for data input
+C
+C-------------------------------------------------------------------------------
+C         VALUE                                      DESCRIPTION
+C-------------------------------------------------------------------------------
+          22                                         / NCOLRT
+          1                                          / NSPRT
+          0                                          / NFQRT
+                                                     / DSSFL
+C----------------------------------------------------------------------------------------------
+C                            Return Flow Fractions
+C                            (READ FROM THIS FILE)
+C
+C   List the return flow fractions data below, if it will not be read from
+C   a DSS file (i.e. DSSFL is left blank above).
+C
+C   TIME ;  Time
+C   RTRNF;  Return flows as a fraction of applied water; [dimensionless]
+C
+C----------------------------------------------------------------------------------------------
+C  TIME  RTRNF[1]  RTRNF[2]  RTRNF[3] ... RTRNF[NCOLRT]
+C----------------------------------------------------------------------------------------------
+C                       1       2       3       4       5       6       7       8       9       10      11      12      13      14      15      16      17      18      19      20      21      22(urban)
+12/31/2100_24:00      .12189500000	.30000000000	9.7810870E-4	.03594588000	.00128100800	.09212407000	.10617700000	.01052600000	.30000000000	.00160646100	.11742900000	.00290424900	.30000000000	.00157184100	.00116540800	.00361166300	9.3661760E-4	.03417860000	3.4559980E-4	6.4737380E-4	.00235750400	.30000000000

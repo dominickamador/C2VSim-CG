@@ -1,0 +1,58 @@
+        ษออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+        บ             Integrated Water Flow Model              บ
+        บ                       IWFM                           บ
+        บ           Program: IWFM Demand Calculator            บ
+        วฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤถ
+        บ                 Version: 2015.0.0063                 บ
+        บ               Copyright (C) 2005-2017                บ
+        บ  State of California, Department of Water Resources  บ
+        บฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤถ
+        บ This program is free software; you can redistribute  บ
+        บ it and/or modify it under the terms of the GNU       บ
+        บ General Public License as published by the Free      บ
+        บ Software Foundation; either version 2 of the         บ
+        บ License or (at your option) any later version.       บ
+        บ                                                      บ
+        บ This program is distributed in the hope that it      บ
+        บ will be useful, but WITHOUT ANY WARRANTY; without    บ
+        บ even the implied warranty of MERCHANTABILITY or      บ
+        บ FITNESS FOR A PARTICULAR PURPOSE.                    บ
+        บ See the GNU General Public License for more details. บ
+        บ (http://www.gnu.org/copyleft/gpl.html)               บ
+        บ                                                      บ
+        บ You should have received a copy of the GNU           บ
+        บ General Public License along with this program;      บ
+        บ if not, write to the                                 บ
+        บ Free Software Foundation, Inc.,                      บ
+        บ 59 Temple Place - Suite 330, Boston, MA              บ
+        บ                      02111-1307, USA.                บ
+        บ                                                      บ
+        บ For technical support, e-mail:                       บ
+        บ IWFMtechsupport@water.ca.gov                         บ
+        บ                                                      บ
+        บ   Principal Contact:                                 บ
+        บ       Tariq N. Kadir, PE .... Senior Engineer, DWR   บ
+        บ                  (916) 653 3513                      บ
+        บ                  kadir@water.ca.gov                  บ
+        บ                                                      บ
+        บ   Principal Programmer and Technical Support:        บ
+        บ       Dr. Emin Can Dogrul ... Engineer, DWR          บ
+        บ                  (916) 654 7018                      บ
+        บ                  dogrul@water.ca.gov                 บ
+        บ                                                      บ
+        บ                                                      บ
+        ศออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+
+VERSION NUMBERS FOR IDC AND ITS COMPONENTS:
+
+  IDC                            : 2015.0.0063
+  IWFM_Util.lib                  : 1.0.0205
+  Package_Misc.lib               : 4.0.0078
+  Package_Discretization.lib     : 4.0.0076
+  Package_ComponentConnectors.lib: 4.0.0132
+  Package_Budget.lib             : 4.0.0085
+  Package_ZBudget.lib            : 4.0.0070
+  Package_Matrix.lib             : 4.0.0050
+  Package_PrecipitationET.lib    : 4.0.0028
+  Package_UnsatZone.lib          : 4.0.0035
+  Package_RootZone.lib           : 4.0.0209 (Interface) ; 5.0.0139, 4.0.0183, 4.01.0019, 4.1.0161, 4.11.0016 (Components)

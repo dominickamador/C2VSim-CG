@@ -1,0 +1,222 @@
+#4.0
+C *** DO NOT DELETE ABOVE LINE ***
+C
+C*******************************************************************************
+C
+C                  INTEGRATED WATER FLOW MODEL (IWFM)
+C                         *** Version 2015 ***
+C
+C*******************************************************************************
+C
+C              TILE DRAIN AND SUB_IRRIGATION PARAMETER DATA FILE
+C                         Tile Drain Component
+C                         *** Version 4.0 ***
+C
+C
+C             Project:  C2VSim: California Central Valley Groundwater-Surface Water Simulation Model
+C             Filename: CVGW_Tiledrain_MAIN.dat
+C             Version:  R385-2015-CG 2015.10.22
+C
+C***********************************************************************
+C  California Central Valley Groundwater-Surface Water Flow Model (C2VSim)
+C  Copyright (C) 2012-2017
+C  State of California, Department of Water Resources 
+C
+C  This model is free. You can redistribute it and/or modify it 
+C  under the terms of the GNU General Public License as published 
+C  by the Free Software Foundation; either version 2 of the License, 
+C  or (at your option) any later version.
+C
+C  This model is distributed WITHOUT ANY WARRANTY; without even 
+C  the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+C  PARTICULAR PURPOSE.  See the GNU General Public License for 
+C  more details. (http://www.gnu.org/licenses/gpl.html)
+C
+C  The GNU General Public License is available from the Free Software
+C  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+C
+C  For tecnical support, e-mail: IWFMtechsupport@water.ca.gov 
+C
+C
+C  Principal Contact:
+C    Tariq N. Kadir, PE, Senior Engineer, DWR
+C       (916) 653-3513, kadir@water.ca.gov
+C
+C  Principal Developer and Technical Support:
+C    Charles F. Brush, PhD, PE, Engineer, DWR
+C       (916) 651-8705, cbrush@water.ca.gov
+C
+C
+C*******************************************************************************
+C                          File Description:
+C
+C   This data file contains tile drain and subsurface irrigation parameter values.
+C
+C*******************************************************************************
+C                  Tile Drain Data Specifications
+C
+C   NTD    ; Number of groundwater nodes with tile drains
+C   FACTH  ; Conversion factor for tile drain elevations
+C   FACTCDC; Conversion factor for tile drain conductances
+C            It is used to convert only the spatial component of the unit; 
+C             DO NOT include the conversion factor for time component of the unit.
+C             * e.g. Unit of conductance listed in this file = AC/MONTH
+C                    Consistent unit used in simulation      = SQ.FT/DAY 
+C                    Enter FACTQ (AC/MONTH -> SQ.FT/MONTH)   = 2.29568E-05 
+C                     (conversion of MONTH -> DAY is performed automatically) 
+C   TUNITDR; Time unit of conductance.  This should be one of the units 
+C            recognized by HEC-DSS that are listed in the Main Control File.  
+C-------------------------------------------------------------------------------
+C       VALUE                   DESCRIPTION
+C-------------------------------------------------------------------------------
+        16                       /NTD
+        1.0                      /FACTH
+        60.0                     /FACTCDC  (convert ft^2/sec to ft^2/min)
+        1MIN                     /TUNITDR
+C-------------------------------------------------------------------------------
+C                     Tile Drain Parameters
+C
+C   The following lists the groundwater node number, elevation and conductance 
+C   for each tile drain. The destination type and destination ID that the tile  
+C   drain flows into is also listed.
+C
+C   IDDR   ; Tile drain ID in sequential order
+C   NODEDR ; Groundwater node number corresponding to the tile drain
+C   ELEVDR ; Elevation of the drain; [L]
+C   CDCDR  ; Hydraulic conductance of the interface between the aquifer and 
+C             the drain; [L^2/T]
+C   TYPDST ; Destination type for drain flow
+C              0 = Drain flow goes outside the model domain
+C              1 = Drain flow goes to stream node DST (see below)
+C   DST   ;  Destination number for drain flow
+C              * Note: Enter any number if TYPDST is 0
+C
+C-------------------------------------------------------------------------------
+C   	IDDR  	NODEDR	ELEVDR	CDCDR	TYPDST  DST
+C-------------------------------------------------------------------------------
+	1	794	113.17	0.1	1	114
+	2	815	188.55	0.1	1	114
+	3	816	116.98	0.1	1	114
+	4	827	136.99	0.1	1	114
+	5	828	133.23	0.1	1	114
+	6	840	189.40	0.1	1	114
+	7	841	168.70	0.1	1	114
+	8	842	152.32	0.1	1	114
+	9	843	136.64	0.1	1	114
+	10	854	338.77	0.1	1	114
+	11	855	191.46	0.1	1	114
+	12	856	192.15	0.1	1	114
+	13	857	189.29	0.1	1	114
+	14	863	263.69	0.1	1	114
+	15	867	223.95	0.1	1	114
+	16	871	179.18	0.1	1	114
+C*******************************************************************************
+C                  Subsurface Irrigation Data Specifications
+C
+C   NSI      ;  Number of groundwater nodes with subsurface irrigation
+C   FACTHSI  ;  Conversion factor for subsurface irrigation elevations
+C   FACTCDCSI;  Conversion factor for subsurface irrigation conductances
+C               It is used to convert only the spatial component of the unit; 
+C               DO NOT include the conversion factor for time component of the unit.
+C               * e.g. Unit of conductance listed in this file = AC/MONTH
+C                      Consistent unit used in simulation      = SQ.FT/DAY 
+C                      Enter FACTQ (AC/MONTH -> SQ.FT/MONTH)   = 2.29568E-05 
+C                       (conversion of MONTH -> DAY is performed automatically) 
+C   TUNITSI  ; Time unit of conductance.  This should be one of the units 
+C               recognized by HEC-DSS that are listed in the Main Control File.  
+C
+C-------------------------------------------------------------------------------
+C       VALUE                   DESCRIPTION
+C-------------------------------------------------------------------------------
+         0                       / NSI
+         1.0                     / FACTHSI
+         1.0                     / FACTCDCSI
+         1MON                    / TUNITSI
+C-------------------------------------------------------------------------------
+C                     Subsurface Irrigation Parameters
+C
+C   The following lists the groundwater node number, elevation and conductance 
+C   for each subsurface irrigation. 
+C
+C   IDSI   ; Subsurface irrigation in sequential order
+C   NODESI ; Groundwater node number corresponding to the subsurface irrigation
+C   ELEVSI ; Elevation of the subsurface irrigation; [L]
+C   CDCSI  ; Hydraulic conductance of the interface between the aquifer and 
+C             subsurface irrigation; [L^2/T]
+C
+C-------------------------------------------------------------------------------
+C   IDSI  NODESI    ELEVSI    CDCSI         
+C-------------------------------------------------------------------------------
+*
+*
+C*******************************************************************************
+C                      Hydrograph Print Control
+C
+C   The following lists the tile drain and subsurface irrigation IDs for which 
+C   a hydrograph printing is needed, as well as output control options.
+C
+C   NOUTTD  ;  Number of hydrographs to be printed
+C   FACTVLOU; Factor to convert simulation unit of tile drain/subsurface irrigation
+C                flows into intented output unit 
+C   UNITVLOU; Output unit of flows (max. 10 characters long)
+C   TDOUTFL ;  Filename for tile drain/subsurface irrigation hydrograph output
+C                (max. 1000 characters)
+C
+C-------------------------------------------------------------------------------
+C   VALUE                   			/ DESCRIPTION
+C---------------------------------------------------------------------------
+     16                       			/ NOUTTD
+     2.29568E-05              			/ FACTVLOU
+     ac.ft.                   			/ UNITVLOU
+     ..\Results\C2VSimCG_TileDrains.out   	/ TDOUTFL
+C-------------------------------------------------------------------------------
+C
+C   ID      ;  Tile drain or subsurface irrigation ID for hydrograph printing
+C   IDTYP   ;  Type of hydrograph
+C                1 = Tile drain hydrograph
+C                2 = Subsurface irrigation hydrograph
+C
+C-------------------------------------------------------------------------------
+C  ID    IDTYP       
+C-------------------------------------------------------------------------------
+    1       1     Tiledrain_1
+    2       1     Tiledrain_2
+    3       1     Tiledrain_3
+    4       1     Tiledrain_4
+    5       1     Tiledrain_5
+    6       1     Tiledrain_6
+    7       1     Tiledrain_7
+    8       1     Tiledrain_8
+    9       1     Tiledrain_9
+    10      1     Tiledrain_10
+    11      1	  Tiledrain_11
+    12	    1	  Tiledrain_12
+    13	    1	  Tiledrain_13
+    14	    1	  Tiledrain_14
+    15	    1	  Tiledrain_15
+    16	    1	  Tiledrain_16
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

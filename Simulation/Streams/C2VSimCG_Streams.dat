@@ -1,0 +1,801 @@
+#4.2
+C *** DO NOT DELETE ABOVE LINE ***
+C
+C*******************************************************************************
+C
+C                  INTEGRATED WATER FLOW MODEL (IWFM)
+C                         *** Version 2015 ***
+C
+C*******************************************************************************
+C
+C                      STREAM PARAMETERS DATA FILE
+C                           Stream Component
+C                          *** Version 4.2 ***
+C
+C
+C             Project:  C2VSim: California Central Valley Groundwater-Surface Water Simulation Model
+C             Filename: CVstreams.dat
+C             Version:  R385-2015-CG 2015.10.16
+C
+C***********************************************************************
+C  California Central Valley Groundwater-Surface Water Flow Model (C2VSim)
+C  Copyright (C) 2012-2017
+C  State of California, Department of Water Resources
+C
+C  This model is free. You can redistribute it and/or modify it
+C  under the terms of the GNU General Public License as published
+C  by the Free Software Foundation; either version 2 of the License,
+C  or (at your option) any later version.
+C
+C  This model is distributed WITHOUT ANY WARRANTY; without even
+C  the implied warranty of MERCHANTABILITY or FITNESS FOR A
+C  PARTICULAR PURPOSE.  See the GNU General Public License for
+C  more details. (http://www.gnu.org/licenses/gpl.html)
+C
+C  The GNU General Public License is available from the Free Software
+C  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+C
+C  For tecnical support, e-mail: IWFMtechsupport@water.ca.gov
+C
+C
+C  Principal Contact:
+C    Tariq N. Kadir, PE, Senior Engineer, DWR
+C       (916) 653-3513, kadir@water.ca.gov
+C
+C  Principal Developer and Technical Support:
+C    Charles F. Brush, PhD, PE, Engineer, DWR
+C       (916) 651-8705, cbrush@water.ca.gov
+C
+C
+C*******************************************************************************
+C                              File Description
+C
+C    This file contains parameters and data file names for the simulation
+C    of stream flows.
+C
+C*******************************************************************************
+C
+C                        Input and Output Data File Names
+C
+C  INFLOWFL    ; Stream inflow data file (max. 1000 characters)
+C                 * Leave blank if no stream inflow data exists
+C  DIVSPECFL   ; Diversion specifications data file (max. 1000 characters)
+C                 * Leave blank if diversions are not simulated
+C  BYPSPECFL   ; Bypass specifications data file (max. 1000 characters)
+C                 * Leave blank if bypasses are not simulated
+C  DIVFL       ; Diversion data file (max. 1000 characters)
+C                 * Leave blank if diversions are not simulated
+C  STRMRCHBUDFL; Binary output file for stream flow budget at each
+C                 stream reach (max. 1000 characters)
+C                 * Leave blank if this output is not required
+C  DIVDTLBUDFL ; Binary output file for diversion details (max. 1000 characters)
+C                 * Leave blank if this output is not required
+C------------------------------------------------------------------------------
+C   VALUE                                     	/ DESCRIPTION
+C------------------------------------------------------------------------------
+    Streams\C2VSimCG_StreamInflow.dat		/ INFLOWFL
+    Streams\C2VSimCG_DiversionSpec.dat		/ DIVSPECFL
+    Streams\C2VSimCG_BypassSpec.dat		/ BYPSPECFL
+    Streams\C2VSimCG_Diversions.dat		/ DIVFL
+    ..\Results\C2VSimCG_Streams_Budget.hdf	/ STRMRCHBUDFL
+    ..\Results\C2VSimCG_Diversions.hdf		/ DIVDTLBUDFL
+C*******************************************************************************
+C                       Stream Flow Hydrograph Output Data
+C
+C  NOUTR      ; Total number of hydrographs to be printed
+C                (NOUTR = 0 if no stream hydrograph data is to be printed)
+C  IHSQR      ; Switch for the output of stream surface elevations or stream flows;
+C                IHSQR = 0 if output of stream flows is desired,
+C                IHSQR = 1 if output of stream stage is desired
+C  FACTVROU   ; Factor to convert simulation unit of stream flows into
+C                intented output unit
+C  UNITVROU   ; Output unit of stream flow (max. 10 characters long)
+C  FACTLTOU   ; Factor to convert simulation unit of stream surface
+C                elevations into intented output unit
+C  UNITLTOU   ; Output unit of stream surface elevation (max. 10 characters long)
+C  STHYDOUTFL ; File name for stream hydrograph output (max. 1000 characters)
+C                 * Leave blank if this output is not required
+C
+C------------------------------------------------------------------------------
+C   VALUE                         		/ DESCRIPTION
+C------------------------------------------------------------------------------
+       57                         		/ NOUTR
+       0                          		/ IHSQR
+       0.000022957                		/ FACTVROU
+       AC-FT/MON                  		/ UNITVROU
+       1                          		/ FACTLTOU
+       FEET                       		/ UNITLTOU
+       ..\Results\C2VSimCG_Hydrographs_SW.out   / STHYDOUTFL
+C-------------------------------------------------------------------------------
+C
+C   The following lists the stream node number for hydrograph to be printed
+C   (skip if no hydrographs are to be printed, ie. NOUTR = 0)
+C
+C   IOUTR;   Stream node number for printing hydrograph output
+C   NAME ;   Name of hydrograph location (max. 30 characters)
+C
+C	509		11447000				/American River at Sacramento                           USGS:11447000				
+C	185		11260000				/San Joaquin River near El Nido                         USGS:11260000				
+C	225		11271500				/Merced River near Livingston                           USGS:11271500				
+C	535		11455000				/Putah Creek at Davis                                   USGS:11455000				
+C	143		11253000				/San Joaquin River near Biola                           USGS:11253000				
+C	398		11388500				/Stony Creek near Hamilton City                         USGS:11388500				
+C	351		11378000				/Sacramento River at Red Bluff                          USGS:11378000				
+C	341		11376500				/Battle C Nr Cottonwood Ca                              USGS:11376500_and_CDEC:BAT	
+C	503		11426000				/Sacramento Weir Spill To Yolo Bypass Nr Sac Ca         USGS:11426000_and_CDEC:SRW	
+C	430		11390480				/Tisdale Weir Nr Grimes Ca                              USGS:11390480				
+C	449		11391021				/Fremont Weir Spill To Yolo Bypass Nr Verona Ca         USGS:11391021				
+C	409		11389470				/Colusa Weir Spill To Butte Basin Nr Colusa Ca          USGS:11389470				
+C	407		11389350				/Moulton Weir Spill To Butte Basin Ca                   USGS:11389350				
+C	210		ORD					/Sacramento River at Ords Ferry                         CDEC:ORD					
+C	149		CBP					/Chowchilla Bypass                                      CDEC:CBP					
+C-------------------------------------------------------------------------------
+C    IOUTR		     NAME
+C-------------------------------------------------------------------------------
+	228		11274000				/San Joaquin River at Newman                            USGS:11274000				
+	434		11391000				/Sacramento River at Knights Landing                    USGS:11391000_and_CDEC:KNL	
+	490		11424000				/Bear River at Wheatland                                USGS:11424000_and_CDEC:BRW	
+	282		11325500				/Mokelumne River at Woodbridge                          USGS:11325500_and_CDEC:WBR	
+	460		11390395				/Butte Slough Nr Meridian Ca                            USGS:11390395_and_CDEC:BSL	
+	255		11303000				/Stanislaus River at Ripoon                             USGS:11303000				
+	320		11374000				/Cow C Nr Millville Ca                                  USGS:11374000_and_CDEC:COW	
+	233		11274538				/Orestimba Creek at River Road near Crows Landing       USGS:11274538_and_CDEC:OCL	
+	217		11261500				/San Joaquin R A Fremont Ford Bridge Ca                 USGS:11261500_and_CDEC:FFB	
+	507		11446500				/American River at Fair Oaks                            USGS:11446500				
+	426		11389500				/Sacramento R A Colusa Ca                               USGS:11389500_and_CDEC:COL	
+	485		11421700				/Feather River at Olivehurst                            USGS:11421700_and_CDEC:FSB	
+	500		11425500				/Sacramento River at Verona                             USGS:11425500_and_CDEC:VON	
+	295		11336000				/Cosumnes River at McConnell                            USGS:11336000_and_CDEC:MCC	
+	339		11376000				/Cottonwood C Nr Cottonwood Ca                          USGS:11376000_and_CDEC:COT	
+	524		11452500				/Cache C A Yolo Ca                                      USGS:11452500_and_CDEC:CCY	
+	466		11391050				/Sutter Bypass Nr Nicolaus Ca                           USGS:11391050				
+	471		11407150				/Feather R Nr Gridley Ca                                USGS:11407150_and_CDEC:GRL	
+	146		SJB						/San Joaquin River Below Bifurcation                    CDEC:SJB					
+	430		11390500				/Sacramento R Bl Wilkins Slough Nr Grimes Ca            USGS:11390500_and_CDEC:WLK	
+	378		11383600				/Deer C A Red Bridge Nr Vina Ca                         USGS:11383600				
+	244		11290000				/Tuolumne R A Modesto Ca                                USGS:11290000_and_CDEC:MOD	
+	481		11421000				/Yuba R Nr Marysville Ca                                USGS:11421000_and_CDEC:MRY	
+	288		11329500				/Dry Creek near Galt                                    USGS:11329500_and_CDEC:DCG	
+	515		11447650				/Sacramento River at Freeport                           USGS:11447650_and_CDEC:FPT	
+	533		11454000				/Putah Creek at Winters                                 USGS:11454000				
+	495		11425000				/Feather R Nr Nicolaus                                  USGS:11425000_and_CDEC:NIC	
+	479		11407700				/Feather River at Yuba City                             USGS:11407700_and_CDEC:YUB	
+	226		11272500				/Merced River at Stevinson                              USGS:11272500_and_CDEC:MST	
+	165		11254000				/San Joaquin River near Mendota                         USGS:11254000_and_CDEC:MEN	
+	133		11253500				/James Bypass flow to Mendota Pool                      USGS:11253500_and_CDEC:JBP	
+	234		11274550				/San Joaquin River at Crows Landing                     USGS:11274550_and_CDEC:SCL	
+	258		11303500				/San Joaquin River at Vernalis                          USGS:11303500_and_CDEC:VNS	
+	168		11256000				/San Joaquin River near Dos Palos                       USGS:11256000_and_CDEC:SDP	
+	406		11389000				/Sacramento R A Butte City Ca                           USGS:11389000_and_CDEC:BTC	
+	278		11323500				/MOKELUMNE R BL CAMANCHE DAM CA                         USGS:11323500				
+	330		11375810				/COTTONWOOD C NR OLINDA CA                              USGS:11375810				
+	335		11375870				/SF COTTONWOOD C NR OLINDA CA                           USGS:11375870				
+	394		11388000				/STONY C BL BLACK BUTTE DAM NR ORLAND CA                USGS:11388000				
+	470		11406920				/THERMALITO AFTERBAY REL TO FEATHER R NR OROVILLE       USGS:11406920				
+	534		11454210				/11454210 PUTAH SOUTH CN NR WINTERS CA                  USGS:11454210				
+	438		CDR					/Colusa Drain Nr Hwy 20                                 CDEC:CDR					
+	378		DVD					/Deer Creek Below Stanford Vina Dam                     CDEC:DVD					
+	199		EBM					/Eastside Bypass Below Mariposa Bypass                  CDEC:EBM					
+	183		ELN					/Eastside Bypass Near El Nido                           CDEC:ELN					
+	366		MCH					/Mill Creek Below Hwy 99                                CDEC:MCH					
+	382		HMC					/Sacramento River At Hamilton City - Main Channel       CDEC:HMC					
+	380		VIN					/Sacramento River At Vina Bridge - Main Channel         CDEC:VIN					
+	141		DNB					/San Joaquin R At Donny Bridge                          CDEC:DNB					
+	228		SJN					/San Joaquin R At San Mateo Rd Nr Mendota               CDEC:SJN					
+	144		GRF					/San Joaquin River At Gravelly Ford                     CDEC:GRF					
+	235		SJP					/San Joaquin River Near Patterson                       CDEC:SJP					
+	216		SJS					/San Joaquin River Near Stevinson                       CDEC:SJS					
+	170		SWA					/San Joaquin River Near Washington Road                 CDEC:SWA					
+	256		KOT					/Stanislaus R At Koetitz Ranch                          CDEC:KOT					
+	124		AMW					/Kings River Below Army Weir                            CDEC:AMW					
+	126		CSW					/Kings River Below Crescent Weir                        CDEC:CSW					
+C*******************************************************************************
+C                       Stream Flow Budget at Selected Nodes
+C
+C  NBUDR      ; Total number of stream nodes for which budget output is desired
+C                (NBUDR = 0 if no stream node budget is required)
+C  STNDBUDFL  ; Binary output file for stream node budget (max. 1000 characters)
+C                 * Leave blank if this output is not required
+C
+C------------------------------------------------------------------------------
+C   VALUE                         DESCRIPTION
+C------------------------------------------------------------------------------
+        0                         / NBUDR
+                                  / STNDBUDFL
+C-------------------------------------------------------------------------------
+C
+C   The following lists the stream nodes for budget output
+C   (skip if no budget output is required, ie. NBUDR = 0)
+C
+C   IBUDR;   Stream node for budget output
+C-------------------------------------------------------------------------------
+C    IBUDR
+C-------------------------------------------------------------------------------
+*
+*
+C*******************************************************************************
+C                       STREAM BED PARAMETERS
+C
+C     The following lists the parameters to model streams.
+C
+C   FACTK ;   Conversion factor for stream bed conductivity
+C              It is used to convert only the spatial component of the unit;
+C              DO NOT include the conversion factor for time component of the unit.
+C              * e.g. Unit of conductivity listed in this file = IN/DAY
+C                     Consistent unit used in simulation       = FT/MONTH
+C                     Enter FACTK (IN/MONTH -> FT/MONTH)       = 8.33333E-02
+C                      (conversion of DAY -> MONTH is performed automatically)
+C   TUNITSK;  Time unit of conductivity.  This should be one of the units
+C              recognized by HEC-DSS that are listed in the Main Control File.
+C   FACTL ;   Conversion factor for stream bed thickness, stream length and wetted perimeter
+C   IR    ;   Stream node number
+C   WETPR ;   Wetted perimeter; [L]
+C   IRGW  :   Corresponding groundwater node(s)
+C              (List all the groundwater nodes corresponding to stream node IR)
+C   CSTRM ;   Hydraulic conductivity of stream bed at groundwater node IRGW; [L/T]
+C   DSTRM ;   Thickness of stream bed at groundwater node IRGW; [L]
+C
+C------------------------------------------------------------------------------
+C   VALUE                 DESCRIPTION
+C------------------------------------------------------------------------------
+    1.0                   / FACTK
+    1DAY                  / TUNITSK
+    1.0                   / FACTL
+C------------------------------------------------------------------------------
+C    IR      WETPR     IRGW      CSTRM       DSTRM
+C------------------------------------------------------------------------------
+1	300	1304	2.501	.45008284	      / REACH 1 - Kern River
+2	300	1315	2.592	.45008284	
+3	300	1317	2.769	.45008284	
+4	300	1326	3.835	.45008284	
+5	300	1325	3.102	.45008284	
+6	300	1333	2.364	.45008284	
+7	300	1332	2.176	.45008284	
+8	300	1331	1.593	.45008284	
+9	300	1342	1.414	.45008284	
+10	150	1292	1.249	.93482202	      / REACH 2 - Poso Creek
+11	150	1291	1.081	.93482202	
+12	150	1277	1.947	.93482202	
+13	150	1276	3.774	.93482202	
+14	150	1262	1.848	.93482202	
+15	150	1238	1.925	.93482202	
+16	150	1237	1.99	.93482202	
+17	150	1236	1.867	.93482202	
+18	150	1235	2.083	.93482202	
+19	150	1218	1.695	.93482202	
+20	150	1217	1.66	.93482202	
+21	300	1342	1.414	1.0924041	      / REACH 3 - Kern River Flood Channel
+22	300	1331	1.593	1.0924041	
+23	300	1322	1.952	1.0924041	
+24	300	1308	1.88	1.0924041	
+25	300	1296	1.966	1.0924041	
+26	300	1283	1.977	1.0924041	
+27	300	1270	1.776	1.0924041	
+28	300	1258	1.954	1.0924041	
+29	300	1249	1.835	1.0924041	
+30	300	1233	2.163	1.0924041	
+31	300	1217	1.66	1.0924041	
+32	300	1196	1.275	1.0924041	
+33	300	1189	1.246	1.0924041	
+34	300	1177	1.287	1.0924041	
+35	300	1178	1.391	1.0924041	
+36	300	1157	1.297	1.0924041	
+37	300	1138	1.259	1.0924041	
+38	300	1128	1.292	1.0924041	
+39	150	1186	2.077	.93482202	      / REACH 4 - White River
+40	150	1185	2.267	.93482202	
+41	150	1172	2.498	.93482202	
+42	150	1184	2.549	.93482202	
+43	150	1193	2.186	.93482202	
+44	150	1192	1.669	.93482202	
+45	150	1191	1.486	.93482202	
+46	150	1190	1.8	.93482202	
+47	150	1179	1.686	.93482202	
+48	150	1159	1.258	.93482202	
+49	150	1151	1.754	.98765196	      / REACH 5 - Deer Creek
+50	150	1150	2.486	.98765196	
+51	150	1165	2.415	.98765196	
+52	150	1170	2.503	.98765196	
+53	150	1182	1.98	.98765196	
+54	150	1181	1.543	.98765196	
+55	150	1180	1.11	.98765196	
+56	150	1159	1.258	.98765196	
+57	150	1140	1.558	.98765196	
+58	150	1129	1.468	.98765196	
+59	420	1148	1.872	.93482202	      / REACH 6 - Tule River
+60	420	1147	3.288	.93482202	
+61	420	1146	3.17	.93482202	
+62	420	1133	2.346	.93482202	
+63	420	1132	2.284	.93482202	
+64	420	1131	2.201	.93482202	
+65	420	1130	2.019	.93482202	
+66	420	1120	1.973	.93482202	
+67	420	1129	1.468	.93482202	
+68	420	1128	1.292	.93482202	
+69	200	1098	1.871	.45008284	      / REACH 7 - Kaweah River
+70	200	1096	2.028	.45008284	
+71	200	1095	2.762	.45008284	
+72	200	1100	2.213	.45008284	
+73	200	1108	2.167	.45008284	
+74	200	1107	2.04	.45008284	
+75	200	1106	1.892	.45008284	
+76	200	1105	1.419	.45008284	
+77	200	1068	1.385	.45008284	
+78	200	1067	1.389	.45008284	
+79	475	1002	2.085	.45008284	      / REACH 8 - Kings River
+80	475	1001	2.94	.45008284	
+81	475	1000	3.172	.45008284	
+82	475	1032	3.027	.45008284	
+83	475	1031	2.773	.45008284	
+84	475	1030	3.871	.45008284	
+85	475	1029	2.607	.45008284	
+86	475	1028	2.079	.45008284	
+87	475	1027	2.122	.45008284	
+88	475	1026	1.647	.45008284	
+89	475	1026	1.647	.45008284	      / REACH 9 - Kings River (South Fork)
+90	475	1024	1.644	.45008284	
+91	475	1023	1.493	.45008284	
+92	475	1041	1.314	.45008284	
+93	475	1056	1.098	.45008284	
+94	475	1056	1.098	1.0924041	      / REACH 10 - Tulare Lake Bed Canal
+95	475	1064	1.32	1.0924041	
+96	475	1115	1.228	1.0924041	
+97	475	1115	1.228	1.0924041	      / REACH 11 - Tulare Lake Bed Canal
+98	475	1116	1.277	1.0924041	
+99	475	1117	1.33	1.0924041	
+100	475	1128	1.292	1.0924041	
+101	475	1128	1.292	1.0924041	      / REACH 12 - Tulare Lake Bed Canal
+102	475	1118	1.36	1.0924041	
+103	475	1067	1.389	1.0924041	
+104	475	1056	1.098	1.0924041	
+105	100	1035	1.26	1.0953690	      / REACH 13 - Zapata Chino Creek
+106	125	1018	1.357	1.0953690	
+107	150	1008	1.647	1.0953690	
+108	100	1003	1.316	1.0953690	      / REACH 14 - Los Gatos Creek
+109	100	1006	1.268	1.0953690	
+110	125	1007	1.3	1.0953690	
+111	150	1008	1.647	1.0953690	
+112	150	1008	1.647	1.0953690	      / REACH 15 - Zapata Chino Creek
+113	200	1009	1.198	1.0953690	
+114	100	944	1.288	1.0953690	      / REACH 16 - Cantua Creek
+115	125	945	1.23	1.0953690	
+116	150	946	1.227	1.0953690	
+117	100	864	1.609	1.0953690	      / REACH 17 - Panoche Creek
+118	125	868	1.222	1.0953690	
+119	150	866	1.283	1.0953690	
+120	200	867	1.59	1.0953690	
+121	100	852	1.472	1.0953690	      / REACH 18 - Little Panoche Creek
+122	125	839	2.012	1.0953690	
+123	150	855	1.308	1.0953690	
+124	260	1026	1.647	.45008284	      / REACH 19 - Fresno Slough
+125	260	1025	1.732	.45008284	
+126	260	1012	1.857	.45008284	
+127	260	993	1.682	.45008284	
+128	260	981	1.601	.45008284	
+129	260	965	1.617	.45008284	
+130	260	957	1.627	.45008284	
+131	260	950	1.708	.45008284	
+132	260	942	1.674	.45008284	
+133	260	924	1.55	.45008284	
+134	260	908	1.556	.45008284	
+135	260	892	1.668	.45008284	
+136	260	886	1.927	.45008284	
+137	260	872	2.223	.45008284	
+138	290	880	1.91	1.2002289	      / REACH 20 - San Joaquin River
+139	290	879	2.244	1.2002289	
+140	290	878	2.724	1.2002289	
+141	290	877	2.346	1.2002289	
+142	290	876	2.562	1.2002289	
+143	290	875	2.559	1.2002289	
+144	290	874	2.067	1.2002289	
+145	290	873	1.941	1.2002289	
+146	290	873	1.941	1.2002289	      / REACH 21 - San Joaquin River
+147	290	872	2.223	1.2002289	
+148	400	873	1.941	.951081282	      / REACH 22 - East Side Bypass
+149	400	859	1.576	.951081282	
+150	400	845	1.714	.951081282	
+151	400	831	1.617	.951081282	
+152	400	820	1.612	.951081282	
+153	730	826	2.221	1.87894912	      / REACH 23 - Fresno River
+154	730	825	1.452	1.87894912	
+155	730	824	1.976	1.87894912	
+156	730	823	2.113	1.87894912	
+157	730	822	2.712	1.87894912	
+158	730	821	1.995	1.87894912	
+159	730	820	1.612	1.87894912	
+160	400	820	1.612	.951081282	      / REACH 24 - East Side Bypass
+161	400	807	1.824	.951081282	
+162	400	799	1.754	.951081282	
+163	400	785	1.811	.951081282	
+164	290	872	2.223	.97610613	      / REACH 25 - San Joaquin River
+165	290	858	1.893	.97610613	
+166	290	843	1.767	.97610613	
+167	290	829	1.758	.97610613	
+168	290	818	1.776	.97610613	
+169	290	798	1.781	.97610613	
+170	350	784	1.924	.97610613	
+171	1340	792	1.791	1.00553718	      / REACH 26 - Chowchilla River
+172	1340	791	2.405	1.00553718	
+173	1340	790	2.586	1.00553718	
+174	1340	789	2.321	1.00553718	
+175	1340	788	2.165	1.00553718	
+176	1340	787	1.786	1.00553718	
+177	1340	786	1.794	1.00553718	
+178	1340	785	1.811	1.00553718	
+179	1340	785	1.811	1.00553718	      / REACH 27 - Chowchilla River
+180	1340	784	1.924	1.00553718	
+181	400	785	1.811	.951081282	      / REACH 28 - East Side Bypass
+182	400	771	1.566	.951081282	
+183	400	770	1.746	.951081282	
+184	400	750	1.835	.951081282	
+185	260	784	1.924	.97610613	      / REACH 29 - San Joaquin River
+186	260	769	1.974	.97610613	
+187	260	768	1.906	.97610613	
+188	260	749	2.043	.97610613	
+189	110	757	1.98	1.00553718	      / REACH 30 - Deadman's Creek
+190	110	756	2.112	1.00553718	
+191	110	755	2.155	1.00553718	
+192	110	754	2.383	1.00553718	
+193	110	753	2.098	1.00553718	
+194	110	752	1.978	1.00553718	
+195	110	751	1.719	1.00553718	
+196	110	750	1.835	1.00553718	
+197	110	749	2.043	1.00553718	
+198	400	750	1.835	.951081282	      / REACH 31 - East Side Bypass
+199	400	742	2.072	.951081282	
+200	400	729	2.388	.951081282	
+201	350	749	2.043	.97610613	      / REACH 32 - San Joaquin River
+202	350	728	2.066	.97610613	
+203	350	715	2.252	.97610613	
+204	110	741	1.979	1.87894912	      / REACH 33 - Bear Creek
+205	110	740	2.347	1.87894912	
+206	110	739	2.397	1.87894912	
+207	110	738	2.239	1.87894912	
+208	110	737	2.584	1.87894912	
+209	110	736	2.143	1.87894912	
+210	110	729	2.388	1.87894912	
+211	110	715	2.252	1.87894912	
+212	400	729	2.388	.951081282	      / REACH 34 - East Side Bypass
+213	400	716	2.403	.951081282	
+214	400	703	2.29	.951081282	
+215	400	702	2.14	.951081282	
+216	350	715	2.252	.97610613	      / REACH 35 - San Joaquin River
+217	350	702	2.14	.97610613	
+218	350	693	2.443	.97610613	
+219	210	701	1.559	1.2318140	      / REACH 36 - Merced River
+220	210	700	1.523	1.2318140	
+221	150	699	2.051	1.2318140	
+222	150	698	2.321	1.2318140	
+223	150	697	2.98	1.2318140	
+224	150	696	3.224	1.2318140	
+225	290	695	2.136	1.2318140	
+226	290	694	2.399	1.2318140	
+227	290	693	2.443	1.2318140	
+228	350	693	2.443	.97610613	      / REACH 37 - San Joaquin River
+229	350	683	2.06	.97610613	
+230	350	671	2.163	.97610613	
+231	560	681	2.318	.967882261	      / REACH 38 - Orestimba Creek
+232	560	682	1.839	.967882261	
+233	560	671	2.163	.967882261	
+234	350	671	2.163	.97610613	      / REACH 39 - San Joaquin River
+235	350	660	2.866	.97610613	
+236	350	649	2.335	.97610613	
+237	350	633	1.993	.97610613	
+238	550	657	1.625	1.2318140	      / REACH 40 - Tuolumne River
+239	550	656	1.917	1.2318140	
+240	550	655	1.713	1.2318140	
+241	550	654	1.933	1.2318140	
+242	1000	653	1.794	1.2318140	
+243	1000	652	2.248	1.2318140	
+244	1000	651	2.267	1.2318140	
+245	1000	650	2.282	1.2318140	
+246	1000	633	1.993	1.2318140	
+247	310	633	1.993	.97610613	      / REACH 41 - San Joaquin River
+248	310	615	1.913	.97610613	
+249	280	623	1.626	1.2318140	      / REACH 42 - Stanislaus River
+250	280	622	1.663	1.2318140	
+251	280	621	1.811	1.2318140	
+252	280	620	1.682	1.2318140	
+253	280	619	1.799	1.2318140	
+254	420	618	1.889	1.2318140	
+255	420	617	1.887	1.2318140	
+256	420	616	1.836	1.2318140	
+257	420	615	1.913	1.2318140	
+258	310	615	1.913	.97610613	      / REACH 43 - San Joaquin River
+259	310	605	1.821	.97610613	
+260	310	592	1.718	.97610613	
+261	310	576	1.636	.97610613	
+262	310	567	1.515	.97610613	
+263	400	558	1.44	.97610613	
+264	140	564	1.277	1.87894912	      / REACH 44 - Calaveras River
+265	140	563	1.388	1.87894912	
+266	140	562	1.267	1.87894912	
+267	140	561	1.051	1.87894912	
+268	140	560	1.256	1.87894912	
+269	140	559	1.37	1.87894912	
+270	400	558	1.44	1.87894912	
+271	400	558	1.44	.97610613	      / REACH 45 - San Joaquin River
+272	400	553	1.565	.97610613	
+273	400	543	1.65	.97610613	
+274	400	540	1.685	.97610613	
+275	400	520	1.949	.97610613	
+276	100	551	1.966	1.2318140	      / REACH 46 - Mokelumne River
+277	100	550	1.966	1.2318140	
+278	100	516	1.568	1.2318140	
+279	100	515	1.434	1.2318140	
+280	100	514	2.079	1.2318140	
+281	100	513	1.886	1.2318140	
+282	100	512	1.438	1.2318140	
+283	100	497	1.261	1.2318140	
+284	100	479	1.571	1.2318140	
+285	180	506	1.529	1.00553718	      / REACH 47 - Dry Creek
+286	180	505	1.471	1.00553718	
+287	180	499	1.471	1.00553718	
+288	180	498	1.443	1.00553718	
+289	180	480	1.631	1.00553718	
+290	180	479	1.571	1.00553718	
+291	210	443	1.619	1.2318140	      / REACH 48 - Cosumnes River
+292	210	426	1.819	1.2318140	
+293	210	425	1.746	1.2318140	
+294	210	439	1.471	1.2318140	
+295	210	454	1.469	1.2318140	
+296	210	466	1.447	1.2318140	
+297	210	479	1.571	1.2318140	
+298	210	479	1.571	1.2318140	      / REACH 49 - Mokelumne (South)
+299	210	478	1.415	1.2318140	
+300	210	494	1.303	1.2318140	
+301	400	495	1.598	1.2318140	
+302	400	520	1.949	1.2318140	
+303	400	520	1.949	.97610613	      / REACH 50 - San Joaquin River
+304	400	534	2.9	.97610613	
+305	400	533	1.73	.97610613	
+306	400	532	1.57	.97610613	
+307	400	531	1.555	.97610613	
+308	200	13	1.25	1.96787350	      / REACH 51 - Clear Creek
+309	200	14	2.077	1.96787350	
+310	200	15	1.974	1.96787350	
+311	500	1	5.372	.858162117	      / REACH 52 - Sacramento River
+312	500	5	4.602	.858162117	
+313	500	9	2.184	.858162117	
+314	500	15	1.974	.858162117	
+315	500	15	1.974	.858162117	      / REACH 53 - Sacramento River
+316	500	22	2.16	.858162117	
+317	500	23	1.895	.858162117	
+318	400	12	1.744	2.75600276	      / REACH 54 - Cow Creek
+319	400	11	1.369	2.75600276	
+320	400	17	1.453	2.75600276	
+321	400	23	1.895	2.75600276	
+322	500	23	1.895	.858162117	      / REACH 55 - Sacramento River
+323	500	29	3.568	.858162117	
+324	500	37	2.61	.858162117	
+325	100	25	1.245	1.96787350	      / REACH 56 - Cottonwood Creek North
+326	100	32	1.275	1.96787350	
+327	100	31	1.308	1.96787350	      / REACH 57 - Cottonwood Creek Middle
+328	100	32	1.275	1.96787350	
+329	150	32	1.275	1.96787350	      / REACH 58 - Cottonwood Creek North
+330	150	33	1.299	1.96787350	
+331	150	34	1.288	1.96787350	
+332	150	35	1.424	1.96787350	
+333	150	57	1.2	1.96787350	      / REACH 59 - Cottonwood Creek South
+334	150	51	1.337	1.96787350	
+335	150	41	1.614	1.96787350	
+336	150	42	1.257	1.96787350	
+337	150	35	1.424	1.96787350	
+338	200	35	1.424	9.03479313	      / REACH 60 - Cottonwood Creek
+339	200	36	2.92	9.03479313	
+340	200	37	2.61	9.03479313	
+341	400	38	1.675	2.75600276	      / REACH 61 - Battle Creek
+342	400	37	2.61	2.75600276	
+343	500	37	2.61	.858162117	      / REACH 62 - Sacramento River
+344	500	45	5.467	.858162117	
+345	500	56	2.191	.858162117	
+346	150	46	1.329	1.44632128	      / REACH 63 - Paynes Creek
+347	150	56	2.191	1.44632128	
+348	500	56	2.191	.858162117	      / REACH 64 - Sacramento River
+349	500	55	2.828	.858162117	
+350	500	67	2.713	.858162117	
+351	500	68	2.069	.858162117	
+352	500	72	2.903	.858162117	
+353	500	79	2.147	.858162117	
+354	100	73	3.388	2.75600276	      / REACH 65 - Antelope Creek
+355	100	79	2.147	2.75600276	
+356	500	79	2.147	.858162117	      / REACH 66 - Sacramento River
+357	500	86	2.253	.858162117	
+358	150	81	1.355	1.96787350	      / REACH 67 - Elder Creek
+359	150	82	1.296	1.96787350	
+360	150	83	1.298	1.96787350	
+361	150	84	1.49	1.96787350	
+362	150	85	1.871	1.96787350	
+363	150	86	2.253	1.96787350	
+364	100	88	1.589	2.75600276	      / REACH 68 - Mill Creek
+365	100	87	1.851	2.75600276	
+366	100	86	2.253	2.75600276	
+367	500	86	2.253	.858162117	      / REACH 69 - Sacramento River
+368	500	94	2.148	.858162117	
+369	250	108	1.42	2.75600276	      / REACH 70 - Thomes Creek
+370	250	101	1.429	2.75600276	
+371	250	91	1.404	2.75600276	
+372	250	92	1.431	2.75600276	
+373	250	93	1.551	2.75600276	
+374	250	94	2.148	2.75600276	
+375	500	94	2.148	.858162117	      / REACH 71 - Sacramento River
+376	500	99	3.773	.858162117	
+377	150	96	1.627	2.75600276	      / REACH 72 - Deer Creek Group
+378	150	100	2.46	2.75600276	
+379	150	99	3.773	2.75600276	
+380	550	99	3.773	.858162117	      / REACH 73 - Sacramento River
+381	550	105	4.573	.858162117	
+382	550	113	3.918	.858162117	
+383	550	129	2.825	.858162117	
+384	125	132	1.606	1.44632128	      / REACH 74 - Big Chico Creek
+385	125	131	2.25	1.44632128	
+386	125	130	1.699	1.44632128	
+387	125	129	2.825	1.44632128	
+388	150	133	2.146	1.96787350	      / REACH 75 - Stoney Creek North
+389	150	123	3.214	1.96787350	
+390	150	124	3.29	1.96787350	
+391	150	165	3.098	9.03479313	      / REACH 76 - Stoney Creek South
+392	150	134	3.239	9.03479313	
+393	150	124	3.29	9.03479313	
+394	200	124	3.29	9.03479313	      / REACH 77 - Stoney Creek
+395	200	125	3.964	9.03479313	
+396	200	126	2.864	9.03479313	
+397	200	127	1.943	9.03479313	
+398	200	128	2.496	9.03479313	
+399	200	129	2.825	9.03479313	
+400	550	129	2.825	.858162117	      / REACH 78 - Sacramento River
+401	550	140	3.283	.858162117	
+402	550	144	3.505	.858162117	
+403	550	155	2.817	.858162117	
+404	550	171	1.393	.858162117	
+405	550	186	1.335	.858162117	
+406	550	202	1.25	.858162117	
+407	550	221	1.223	.858162117	
+408	550	240	1.295	.858162117	
+409	550	254	1.548	.858162117	
+410	200	113	0	1.0000000	      / REACH 79 - Glenn-Colusa Canal
+411	200	128	0	1.0000000	
+412	200	139	0	1.0000000	
+413	200	154	0	1.0000000	
+414	200	169	0	1.0000000	
+415	200	183	0	1.0000000	
+416	200	198	0	1.0000000	
+417	200	211	0	1.0000000	
+418	200	216	0	1.0000000	
+419	200	227	0	1.0000000	
+420	200	236	0	1.0000000	
+421	200	250	0	1.0000000	
+422	200	258	0	1.0000000	
+423	200	266	0	1.0000000	
+424	200	267	0	1.0000000	
+425	200	268	0	1.0000000	
+426	575	254	1.548	.858162117	      / REACH 80 - Sacramento River
+427	575	262	1.764	.858162117	
+428	575	269	1.65	.858162117	
+429	575	277	1.638	.858162117	
+430	575	291	1.672	.858162117	
+431	575	303	1.244	.858162117	
+432	575	315	1.289	.858162117	
+433	575	327	1.455	.858162117	
+434	575	339	2.245	.858162117	
+435	200	220	1.166	1.23692165	      / REACH 81 - Colusa Basin Drainage Canal
+436	200	239	1.129	1.23692165	
+437	200	253	1.126	1.23692165	
+438	200	260	1.106	1.23692165	
+439	200	268	1.127	1.23692165	
+440	200	268	1.127	1.23692165	      / REACH 82 - Colusa Basin Drainage Canal
+441	200	275	1.092	1.23692165	
+442	200	289	1.336	1.23692165	
+443	200	302	1.305	1.23692165	
+444	200	314	1.43	1.23692165	
+445	200	326	1.258	1.23692165	
+446	200	339	2.245	1.23692165	
+447	550	339	2.245	.858162117	      / REACH 83 - Sacramento River
+448	550	349	1.444	.858162117	
+449	550	350	1.482	.858162117	
+450	110	143	2.031	2.75600276	      / REACH 84 - Sutter Bypass/Butte Slough
+451	110	147	1.647	2.75600276	
+452	110	157	1.275	2.75600276	
+453	110	173	1.16	2.75600276	
+454	110	188	1.211	2.75600276	
+455	110	204	1.139	2.75600276	
+456	110	223	1.109	2.75600276	
+457	110	242	1.131	2.75600276	
+458	110	255	1.293	2.75600276	
+459	110	263	1.441	2.75600276	
+460	110	263	1.441	1.18129224	      / REACH 85 - Sutter Bypass
+461	110	270	1.338	1.18129224	
+462	110	278	1.352	1.18129224	
+463	110	281	1.631	1.18129224	
+464	110	293	1.174	1.18129224	
+465	110	305	1.207	1.18129224	
+466	110	317	1.291	1.18129224	
+467	110	329	1.536	1.18129224	
+468	300	162	2.377	1.18129224	      / REACH 86 - Feather River
+469	300	161	2.437	1.18129224	
+470	300	177	2.196	1.18129224	
+471	300	192	2.11	1.18129224	
+472	300	208	1.34	1.18129224	
+473	150	234	1.591	1.44632128	      / REACH 87 - Honcut Creek
+474	150	209	1.928	1.44632128	
+475	150	208	1.34	1.44632128	
+476	300	208	1.34	1.18129224	      / REACH 88 - Feather River
+477	300	232	1.75	1.18129224	
+478	300	246	1.314	1.18129224	
+479	300	283	1.689	1.18129224	
+480	400	285	1.763	1.18129224	      / REACH 89 - Yuba River
+481	400	284	1.837	1.18129224	
+482	400	283	1.689	1.18129224	
+483	300	283	1.689	1.18129224	      / REACH 90 - Feather River
+484	300	295	2.154	1.18129224	
+485	300	307	2.266	1.18129224	
+486	300	318	1.57	1.18129224	
+487	300	330	1.484	1.18129224	
+488	150	334	1.513	2.75600276	      / REACH 91 - Bear River
+489	150	333	1.533	2.75600276	
+490	150	332	1.653	2.75600276	
+491	150	331	1.583	2.75600276	
+492	150	330	1.484	2.75600276	
+493	300	330	1.484	1.18129224	      / REACH 92 - Feather River
+494	300	329	1.536	1.18129224	
+495	300	329	1.536	1.18129224	      / REACH 93 - Feather River
+496	300	340	1.771	1.18129224	
+497	300	350	1.482	1.18129224	
+498	600	350	1.482	.858162117	      / REACH 94 - Sacramento River
+499	600	351	1.603	.858162117	
+500	600	363	2.085	.858162117	
+501	600	362	1.512	.858162117	
+502	600	361	1.397	.858162117	
+503	600	372	1.705	.858162117	
+504	600	373	1.991	.858162117	
+505	425	389	2.233	1.18129224	      / REACH 95 - American River
+506	425	385	2.788	1.18129224	
+507	425	384	2.81	1.18129224	
+508	425	380	1.923	1.18129224	
+509	425	375	3.211	1.18129224	
+510	425	374	2.736	1.18129224	
+511	425	373	1.991	1.18129224	
+512	600	373	1.991	.858162117	      / REACH 96 - Sacramento River
+513	600	416	2.384	.858162117	
+514	600	435	2.764	.858162117	
+515	600	451	1.855	.858162117	
+516	600	463	2.277	.858162117	
+517	600	475	1.61	.858162117	
+518	600	476	1.492	.858162117	
+519	600	493	1.52	.858162117	
+520	600	492	1.696	.858162117	
+521	50	335	1.779	1.96787350	      / REACH 97 - Cache Creek
+522	50	336	2.207	1.96787350	
+523	50	347	1.505	1.96787350	
+524	50	348	1.45	1.96787350	
+525	50	358	1.224	1.96787350	
+526	50	359	1.224	1.96787350	
+527	400	360	1.248	1.96787350	
+528	400	360	1.248	1.96787350	
+529	400	401	1.332	1.23692165	      / REACH 98 - Yolo Bypass
+530	400	407	1.412	1.23692165	
+531	400	414	1.338	1.23692165	
+532	125	428	2.219	9.03479313	      / REACH 99 - Putah Creek
+533	125	410	1.805	9.03479313	
+534	125	411	1.738	9.03479313	
+535	125	412	1.293	9.03479313	
+536	125	413	1.149	9.03479313	
+537	125	414	1.338	9.03479313	
+538	400	414	1.338	1.23692165	      / REACH 100 - Yolo Bypass
+539	400	433	1.473	1.23692165	
+540	400	432	1.473	1.23692165	
+541	400	448	1.676	1.23692165	
+542	400	460	1.672	1.23692165	
+543	400	473	1.756	1.23692165	
+544	400	492	1.696	1.23692165	
+545	400	492	1.696	.858162117	      / REACH 101 - Sacramento River
+546	400	527	1.829	.858162117	
+547	400	526	1.44	.858162117	
+548	400	525	1.381	.858162117	
+549	400	531	1.555	.858162117	
+550	400	523	1.801	.858162117	      / REACH 102 - Suisun Marsh
+551	400	529	1.801	.858162117	
+552	400	531	1.555	.858162117	      / REACH 103 - Sacramento & San Joaquin Rivers
+553	400	530	1.76	.858162117	
+554	400	529	1.801	.858162117	
+555	400	528	1.351	.858162117	

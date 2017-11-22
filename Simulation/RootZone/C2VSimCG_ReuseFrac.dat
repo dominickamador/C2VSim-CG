@@ -1,0 +1,85 @@
+C*******************************************************************************
+C
+C                  INTEGRATED WATER FLOW MODEL (IWFM)
+C
+C*******************************************************************************
+C
+C                    RE-USE FRACTIONS DATA FILE
+C                       Root Zone Component
+C                       *** Version 4.11 ***
+C
+C
+C             Project:  C2VSim: California Central Valley Groundwater-Surface Water Simulation Model
+C             Filename: CVRZ_ReuseFrac_v411.dat
+C             Version:  R385-2015 2016.11.01
+C
+C***********************************************************************
+C  California Central Valley Groundwater-Surface Water Flow Model (C2VSim)
+C  Copyright (C) 2012-2017  
+C  State of California, Department of Water Resources 
+C
+C  This model is free. You can redistribute it and/or modify it 
+C  under the terms of the GNU General Public License as published 
+C  by the Free Software Foundation; either version 2 of the License, 
+C  or (at your option) any later version.
+C
+C  This model is distributed WITHOUT ANY WARRANTY; without even 
+C  the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+C  PARTICULAR PURPOSE.  See the GNU General Public License for 
+C  more details. (http://www.gnu.org/licenses/gpl.html)
+C
+C  The GNU General Public License is available from the Free Software
+C  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+C
+C  For tecnical support, e-mail: IWFMtechsupport@water.ca.gov 
+C
+C
+C  Principal Contact:
+C    Tariq N. Kadir, PE, Senior Engineer, DWR
+C       (916) 653-3513, kadir@water.ca.gov
+C
+C  Principal Developer and Technical Support:
+C    Charles F. Brush, PhD, PE, Engineer, DWR
+C       (916) 651-8705, cbrush@water.ca.gov
+C
+C
+C*******************************************************************************
+C                           File Description
+C
+C   This data file contains a set of re-use data given as fractions of irrigation
+C   water.  
+C
+C*******************************************************************************
+C               Re-Use Fractions Data Specifications
+C
+C   NCOLRUF ; Number of re-use fractions data columns
+C   NSPRUF  ; Number of time steps to update the re-use fractions
+C              * Enter any number if time-tracking option is on
+C   NFQRUF  ; Repetition frequency of the re-use fractions data 
+C              * Enter 0 if full time series data is supplied
+C              * Enter any number if time-tracking option is on
+C   DSSFL   ; The name of the DSS file for data input 
+C              * Leave blank if DSS file is not used for data input
+C
+C-------------------------------------------------------------------------------
+C         VALUE                                      DESCRIPTION
+C-------------------------------------------------------------------------------
+          22                                         / NCOLRUF
+          1                                          / NSPRUF  
+          0                                          / NFQRUF
+                                                     / DSSFL
+C----------------------------------------------------------------------------------------------
+C                              Re-Use Fractions 
+C                            (READ FROM THIS FILE)
+C
+C   List the re-use fractions data below, if it will not be read from
+C   a DSS file (i.e. DSSFL is left blank above).
+C
+C   TIME ;  Time
+C   RUF  ;  Re-use as a fraction of applied water; [dimensionless]
+C
+C----------------------------------------------------------------------------------------------
+C  TIME  RUF[1]  RUF[2]  RUF[3] ... RUF[NCOLRUF] 
+C----------------------------------------------------------------------------------------------
+C			SR1	SR2	SR3	SR4	SR5	SR6	SR7	SR8	SR9	SR10	SR11	SR12	SR13	SR14	SR15	SR16	SR17	SR18	SR19	SR20	SR21	Urban
+12/31/2100_24:00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00

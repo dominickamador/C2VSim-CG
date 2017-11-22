@@ -1,0 +1,904 @@
+C*******************************************************************************
+C
+C                  INTEGRATED WATER FLOW MODEL (IWFM)
+C                         *** Version 2015 ***
+C
+C*******************************************************************************
+C
+C                           BUDGET INPUT FILE
+C                       for IWFM Post-Processing
+C
+C
+C             Project : C2VSIM: Water years 1922-2013
+C             Filename: CVBudget.in
+C             Version:  R385-2015-CG 2015.10.15
+C
+C***********************************************************************
+C  California Central Valley Groundwater-Surface Water Flow Model (C2VSim)
+C  Copyright (C) 2012-2017
+C  State of California, Department of Water Resources 
+C
+C  This model is free. You can redistribute it and/or modify it 
+C  under the terms of the GNU General Public License as published 
+C  by the Free Software Foundation; either version 2 of the License, 
+C  or (at your option) any later version.
+C
+C  This model is distributed WITHOUT ANY WARRANTY; without even 
+C  the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+C  PARTICULAR PURPOSE.  See the GNU General Public License for 
+C  more details. (http://www.gnu.org/licenses/gpl.html)
+C
+C  The GNU General Public License is available from the Free Software
+C  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+C
+C  For tecnical support, e-mail: IWFMtechsupport@water.ca.gov 
+C
+C
+C  Principal Contact:
+C    Tariq N. Kadir, PE, Senior Engineer, DWR
+C       (916) 653-3513, kadir@water.ca.gov
+C
+C  Principal Developer and Technical Support:
+C    Charles F. Brush, PhD, PE, Engineer, DWR
+C       (916) 651-8705, cbrush@water.ca.gov
+C
+C
+C*******************************************************************************
+c
+C                            File Description
+C
+C    This file contains the the names of all binary input files,
+C    conversion factors and output control options for running the post-processor.
+C    
+C*******************************************************************************                     
+C                   Output Unit Control
+C
+C    FACTLTOU; Factor to convert simulation unit of length to output unit of length
+C    UNITLTOU; Output unit of length (8 characters max.)
+C    FACTAROU; Factor to convert simulation unit of area to output unit of area
+C    UNITAROU; Output unit of area (8 characters max.) 
+C    FACTVLOU; Factor to convert simulation unit of volume to output unit of volume
+C    UNITVLOU; Output unit of volume (8 characters max.)
+C
+C-----------------------------------------------------------------------------
+C   VALUE                         DESCRIPTION
+C-----------------------------------------------------------------------------
+    1.0                           / FACTLTOU
+    FEET                          / UNITLTOU
+    0.000022957                   / FACTAROU       (0.000022957 = 1/43560)
+    AC                            / UNITAROU
+    0.000022957                   / FACTVLOU         
+    AC.FT.                        / UNITVLOU  
+C*******************************************************************************
+C                   Output Cache Size
+C
+C    CACHE;   Cache size in terms of number of values stored for time series 
+C             data output
+C
+C-----------------------------------------------------------------------------------
+C   VALUE                         DESCRIPTION
+C-------------------------------------------------------------------------------
+    500000                        / CACHE
+C*******************************************************************************
+C                       Budget Output Control Options
+C                   (Simulation Date and Time NOT Tracked)
+C
+C    If the actual simulation date and time is NOT tracked enter the following 
+C    variables. Otherwise, comment out the following variables and use the 
+C    "Simulation Date and Time NOT Tracked" option below.
+C
+C    TBEGIN ; Beginning time for the budget tables
+C              * Use ##.# format
+C    TLAST  ; Ending time for the budget tables
+C              * Use ##.# format
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+*                               / TBEGIN
+*                               / TLAST
+C-------------------------------------------------------------------------------
+C                       Budget Output Control Options
+C                    (Simulation Date and Time Tracked)
+C
+C    If the actual simulation date and time is tracked enter the following 
+C    variables. Otherwise, comment out the following variables and use the 
+C    "Simulation Date and Time NOT Tracked" option above.
+C
+C    BDT    ; Begining date and time for the budget output  
+C              * Use MM/DD/YYYY_HH:MM format
+C              * Midnight is 24:00
+C    EDT    ; Ending date and time for the budget output 
+C              * Use MM/DD/YYYY_HH:MM format
+C              * Midnight is 24:00
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+    09/30/1997_24:00            / BDT
+    09/30/2014_24:00            / EDT     
+C*******************************************************************************
+C                         Budget Output Data
+C
+C   List below the number of budget classes (i.e. groundwater budget, stream 
+C   budget, small watershed budget, etc.), and for each budget class list the  
+C   input file, output file and the locations for which a budget table will 
+C   be generated.
+C
+C   NBUDGET ;  Number of budget classes to be printed
+C
+C   BINFILE ;  Name of the input binary budget file (max. 1000 characters)
+C   OUTFILE ;  Name of the budget output file (max. 1000 characters)
+C   INTPRNT ;  Interval for budget print out (e.g. 1DAY, 1MON, etc.). The interval
+C                must be a one of those listed in the Main Input File for the 
+C                executable that generated the input binary files. 
+C                * Leave blank to use the same interval as the data.
+C                * This interval will only be used for simulation with
+C                  date and time tracked 
+C   NLPRNT  ;  Number of location indices for budget table print-out
+C   LPRNT   ;  Index for locations (i.e. subregions, lakes, stream reaches, etc. 
+C                depending on the budget class) for which a budget table will be
+C                generated.  For budget tables at subregions, the index for the 
+C                entire domain is the number of subregions plus 1.  
+C                * Enter -1: to print budget tables for all locations
+C                         0: to suppress printing of any budget tables
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+    3                           / NBUDGET
+C*******************************************************************************
+C                          Data for Budget Class 3 - Root Zone Budget
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+ ..\Results\C2VSimCG_RZ_Budget.hdf      / BINFILE 
+ ..\Results\C2VSimCG_RZ_Budget_1997-2014.bud      / OUTFILE 
+                                / INTPRNT
+  21                            / NLPRNT  
+  -1                            / LPRNT[ 1]
+  -1                            / LPRNT[ 2]
+  -1                            / LPRNT[ 3]
+  -1                            / LPRNT[ 4]
+  -1                            / LPRNT[ 5]
+  -1                            / LPRNT[ 6]
+  -1                            / LPRNT[ 7]
+  -1                            / LPRNT[ 8]
+  -1                            / LPRNT[ 9]
+  -1                            / LPRNT[10]
+  -1                            / LPRNT[11]
+  -1                            / LPRNT[12]
+  -1                            / LPRNT[13]
+  -1                            / LPRNT[14]
+  -1                            / LPRNT[15]
+  -1                            / LPRNT[16]
+  -1                            / LPRNT[17]
+  -1                            / LPRNT[18]
+  -1                            / LPRNT[19]
+  -1                            / LPRNT[20]
+  -1                            / LPRNT[21]
+C*******************************************************************************
+C                          Data for Budget Class 3 - Root Zone Budget - Non-Ponded Crop Budget
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+ ..\Results\CVrootzone_NPCrops.hdf      / BINFILE 
+ ..\Results\CVrootzone_NPCrops_1997-2014.bud      / OUTFILE 
+                                / INTPRNT
+  21                            / NLPRNT  
+  -1                            / LPRNT[ 1]
+  -1                            / LPRNT[ 2]
+  -1                            / LPRNT[ 3]
+  -1                            / LPRNT[ 4]
+  -1                            / LPRNT[ 5]
+  -1                            / LPRNT[ 6]
+  -1                            / LPRNT[ 7]
+  -1                            / LPRNT[ 8]
+  -1                            / LPRNT[ 9]
+  -1                            / LPRNT[10]
+  -1                            / LPRNT[11]
+  -1                            / LPRNT[12]
+  -1                            / LPRNT[13]
+  -1                            / LPRNT[14]
+  -1                            / LPRNT[15]
+  -1                            / LPRNT[16]
+  -1                            / LPRNT[17]
+  -1                            / LPRNT[18]
+  -1                            / LPRNT[19]
+  -1                            / LPRNT[20]
+  -1                            / LPRNT[21]
+C*******************************************************************************
+C                          Data for Budget Class 3 - Root Zone Budget - Non-Ponded Crop Budget
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+ ..\Results\CVrootzone_PondedCrops.hdf      / BINFILE 
+ ..\Results\CVrootzone_PondedCrops_1997-2014.bud      / OUTFILE 
+                                / INTPRNT
+  21                            / NLPRNT  
+  -1                            / LPRNT[ 1]
+  -1                            / LPRNT[ 2]
+  -1                            / LPRNT[ 3]
+  -1                            / LPRNT[ 4]
+  -1                            / LPRNT[ 5]
+  -1                            / LPRNT[ 6]
+  -1                            / LPRNT[ 7]
+  -1                            / LPRNT[ 8]
+  -1                            / LPRNT[ 9]
+  -1                            / LPRNT[10]
+  -1                            / LPRNT[11]
+  -1                            / LPRNT[12]
+  -1                            / LPRNT[13]
+  -1                            / LPRNT[14]
+  -1                            / LPRNT[15]
+  -1                            / LPRNT[16]
+  -1                            / LPRNT[17]
+  -1                            / LPRNT[18]
+  -1                            / LPRNT[19]
+  -1                            / LPRNT[20]
+  -1                            / LPRNT[21]
+
+
+
+
+
+
+
+C*******************************************************************************
+C                          Data for Budget Class 2 - Land and Water Use Budget
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+ ..\Results\C2VSimCG_L&WU_Budget.hdf     / BINFILE 
+ ..\Results\L&WU_Budget_1997-2014.bud          / OUTFILE 
+                                / INTPRNT
+  21                            / NLPRNT  
+  -1                            / LPRNT[ 1]
+  -1                            / LPRNT[ 2]
+  -1                            / LPRNT[ 3]
+  -1                            / LPRNT[ 4]
+  -1                            / LPRNT[ 5]
+  -1                            / LPRNT[ 6]
+  -1                            / LPRNT[ 7]
+  -1                            / LPRNT[ 8]
+  -1                            / LPRNT[ 9]
+  -1                            / LPRNT[10]
+  -1                            / LPRNT[11]
+  -1                            / LPRNT[12]
+  -1                            / LPRNT[13]
+  -1                            / LPRNT[14]
+  -1                            / LPRNT[15]
+  -1                            / LPRNT[16]
+  -1                            / LPRNT[17]
+  -1                            / LPRNT[18]
+  -1                            / LPRNT[19]
+  -1                            / LPRNT[20]
+  -1                            / LPRNT[21]
+C*******************************************************************************
+C                          Data for Budget Class 1 - Groundwater Budget
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+  ..\Results\CVground.hdf       / BINFILE 
+  ..\Results\CVground.bud       / OUTFILE 
+                                / INTPRNT
+  21                            / NLPRNT  
+  -1                            / LPRNT[ 1]
+  -1                            / LPRNT[ 2]
+  -1                            / LPRNT[ 3]
+  -1                            / LPRNT[ 4]
+  -1                            / LPRNT[ 5]
+  -1                            / LPRNT[ 6]
+  -1                            / LPRNT[ 7]
+  -1                            / LPRNT[ 8]
+  -1                            / LPRNT[ 9]
+  -1                            / LPRNT[10]
+  -1                            / LPRNT[11]
+  -1                            / LPRNT[12]
+  -1                            / LPRNT[13]
+  -1                            / LPRNT[14]
+  -1                            / LPRNT[15]
+  -1                            / LPRNT[16]
+  -1                            / LPRNT[17]
+  -1                            / LPRNT[18]
+  -1                            / LPRNT[19]
+  -1                            / LPRNT[20]
+  -1                            / LPRNT[21]
+C*******************************************************************************
+C                          Data for Budget Class 4 - Groundwater Budget
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+  ..\Results\CVunsat.hdf        / BINFILE 
+  ..\Results\CVunsat.bud        / OUTFILE 
+                                / INTPRNT
+  21                            / NLPRNT  
+  -1                            / LPRNT[ 1]
+  -1                            / LPRNT[ 2]
+  -1                            / LPRNT[ 3]
+  -1                            / LPRNT[ 4]
+  -1                            / LPRNT[ 5]
+  -1                            / LPRNT[ 6]
+  -1                            / LPRNT[ 7]
+  -1                            / LPRNT[ 8]
+  -1                            / LPRNT[ 9]
+  -1                            / LPRNT[10]
+  -1                            / LPRNT[11]
+  -1                            / LPRNT[12]
+  -1                            / LPRNT[13]
+  -1                            / LPRNT[14]
+  -1                            / LPRNT[15]
+  -1                            / LPRNT[16]
+  -1                            / LPRNT[17]
+  -1                            / LPRNT[18]
+  -1                            / LPRNT[19]
+  -1                            / LPRNT[20]
+  -1                            / LPRNT[21]
+C*******************************************************************************
+C                          Data for Budget Class 5 - Steams
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+ ..\Results\CVstreamrch.hdf     / BINFILE 
+ ..\Results\CVstreamrch.bud     / OUTFILE 
+                                / INTPRNT
+  75                            / NLPRNT  
+  -1                            / LPRNT[ 1]
+  -1                            / LPRNT[ 2]
+  -1                            / LPRNT[ 3]
+  -1                            / LPRNT[ 4]
+  -1                            / LPRNT[ 5]
+  -1                            / LPRNT[ 6]
+  -1                            / LPRNT[ 7]
+  -1                            / LPRNT[ 8]
+  -1                            / LPRNT[ 9]
+  -1                            / LPRNT[10]
+  -1                            / LPRNT[11]
+  -1                            / LPRNT[12]
+  -1                            / LPRNT[13]
+  -1                            / LPRNT[14]
+  -1                            / LPRNT[15]
+  -1                            / LPRNT[16]
+  -1                            / LPRNT[17]
+  -1                            / LPRNT[18]
+  -1                            / LPRNT[19]
+  -1                            / LPRNT[20]
+  -1                            / LPRNT[21]
+  -1                            / LPRNT[22]
+  -1                            / LPRNT[23]
+  -1                            / LPRNT[24]
+  -1                            / LPRNT[25]
+  -1                            / LPRNT[26]
+  -1                            / LPRNT[27]
+  -1                            / LPRNT[28]
+  -1                            / LPRNT[29]
+  -1                            / LPRNT[30]
+  -1                            / LPRNT[31]
+  -1                            / LPRNT[32]
+  -1                            / LPRNT[33]
+  -1                            / LPRNT[34]
+  -1                            / LPRNT[35]
+  -1                            / LPRNT[36]
+  -1                            / LPRNT[37]
+  -1                            / LPRNT[38]
+  -1                            / LPRNT[39]
+  -1                            / LPRNT[40]
+  -1                            / LPRNT[41]
+  -1                            / LPRNT[42]
+  -1                            / LPRNT[43]
+  -1                            / LPRNT[44]
+  -1                            / LPRNT[45]
+  -1                            / LPRNT[46]
+  -1                            / LPRNT[47]
+  -1                            / LPRNT[48]
+  -1                            / LPRNT[49]
+  -1                            / LPRNT[50]
+  -1                            / LPRNT[51]
+  -1                            / LPRNT[52]
+  -1                            / LPRNT[53]
+  -1                            / LPRNT[54]
+  -1                            / LPRNT[55]
+  -1                            / LPRNT[56]
+  -1                            / LPRNT[57]
+  -1                            / LPRNT[58]
+  -1                            / LPRNT[59]
+  -1                            / LPRNT[60]
+  -1                            / LPRNT[61]
+  -1                            / LPRNT[62]
+  -1                            / LPRNT[63]
+  -1                            / LPRNT[64]
+  -1                            / LPRNT[65]
+  -1                            / LPRNT[66]
+  -1                            / LPRNT[67]
+  -1                            / LPRNT[68]
+  -1                            / LPRNT[69]
+  -1                            / LPRNT[70]
+  -1                            / LPRNT[71]
+  -1                            / LPRNT[72]
+  -1                            / LPRNT[73]
+  -1                            / LPRNT[74]
+  -1                            / LPRNT[75]
+C*******************************************************************************
+C                          Data for Budget Class 6 - Small-Stream Watersheds
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+ ..\Results\CVsmwshed.hdf       / BINFILE 
+ ..\Results\CVsmwshed.bud       / OUTFILE 
+                                / INTPRNT
+ 210                            / NLPRNT  
+  -1                            / LPRNT[  1]
+  -1                            / LPRNT[  2]
+  -1                            / LPRNT[  3]
+  -1                            / LPRNT[  4]
+  -1                            / LPRNT[  5]
+  -1                            / LPRNT[  6]
+  -1                            / LPRNT[  7]
+  -1                            / LPRNT[  8]
+  -1                            / LPRNT[  9]
+  -1                            / LPRNT[ 10]
+  -1                            / LPRNT[ 11]
+  -1                            / LPRNT[ 12]
+  -1                            / LPRNT[ 13]
+  -1                            / LPRNT[ 14]
+  -1                            / LPRNT[ 15]
+  -1                            / LPRNT[ 16]
+  -1                            / LPRNT[ 17]
+  -1                            / LPRNT[ 18]
+  -1                            / LPRNT[ 19]
+  -1                            / LPRNT[ 20]
+  -1                            / LPRNT[ 21]
+  -1                            / LPRNT[ 22]
+  -1                            / LPRNT[ 23]
+  -1                            / LPRNT[ 24]
+  -1                            / LPRNT[ 25]
+  -1                            / LPRNT[ 26]
+  -1                            / LPRNT[ 27]
+  -1                            / LPRNT[ 28]
+  -1                            / LPRNT[ 29]
+  -1                            / LPRNT[ 30]
+  -1                            / LPRNT[ 31]
+  -1                            / LPRNT[ 32]
+  -1                            / LPRNT[ 33]
+  -1                            / LPRNT[ 34]
+  -1                            / LPRNT[ 35]
+  -1                            / LPRNT[ 36]
+  -1                            / LPRNT[ 37]
+  -1                            / LPRNT[ 38]
+  -1                            / LPRNT[ 39]
+  -1                            / LPRNT[ 40]
+  -1                            / LPRNT[ 41]
+  -1                            / LPRNT[ 42]
+  -1                            / LPRNT[ 43]
+  -1                            / LPRNT[ 44]
+  -1                            / LPRNT[ 45]
+  -1                            / LPRNT[ 46]
+  -1                            / LPRNT[ 47]
+  -1                            / LPRNT[ 48]
+  -1                            / LPRNT[ 49]
+  -1                            / LPRNT[ 50]
+  -1                            / LPRNT[ 51]
+  -1                            / LPRNT[ 52]
+  -1                            / LPRNT[ 53]
+  -1                            / LPRNT[ 54]
+  -1                            / LPRNT[ 55]
+  -1                            / LPRNT[ 56]
+  -1                            / LPRNT[ 57]
+  -1                            / LPRNT[ 58]
+  -1                            / LPRNT[ 59]
+  -1                            / LPRNT[ 60]
+  -1                            / LPRNT[ 61]
+  -1                            / LPRNT[ 62]
+  -1                            / LPRNT[ 63]
+  -1                            / LPRNT[ 64]
+  -1                            / LPRNT[ 65]
+  -1                            / LPRNT[ 66]
+  -1                            / LPRNT[ 67]
+  -1                            / LPRNT[ 68]
+  -1                            / LPRNT[ 69]
+  -1                            / LPRNT[ 70]
+  -1                            / LPRNT[ 71]
+  -1                            / LPRNT[ 72]
+  -1                            / LPRNT[ 73]
+  -1                            / LPRNT[ 74]
+  -1                            / LPRNT[ 75]
+  -1                            / LPRNT[ 76]
+  -1                            / LPRNT[ 77]
+  -1                            / LPRNT[ 78]
+  -1                            / LPRNT[ 79]
+  -1                            / LPRNT[ 80]
+  -1                            / LPRNT[ 81]
+  -1                            / LPRNT[ 82]
+  -1                            / LPRNT[ 83]
+  -1                            / LPRNT[ 84]
+  -1                            / LPRNT[ 85]
+  -1                            / LPRNT[ 86]
+  -1                            / LPRNT[ 87]
+  -1                            / LPRNT[ 88]
+  -1                            / LPRNT[ 89]
+  -1                            / LPRNT[ 90]
+  -1                            / LPRNT[ 91]
+  -1                            / LPRNT[ 92]
+  -1                            / LPRNT[ 93]
+  -1                            / LPRNT[ 94]
+  -1                            / LPRNT[ 95]
+  -1                            / LPRNT[ 96]
+  -1                            / LPRNT[ 97]
+  -1                            / LPRNT[ 98]
+  -1                            / LPRNT[ 99]
+  -1                            / LPRNT[100]
+  -1                            / LPRNT[101]
+  -1                            / LPRNT[102]
+  -1                            / LPRNT[103]
+  -1                            / LPRNT[104]
+  -1                            / LPRNT[105]
+  -1                            / LPRNT[106]
+  -1                            / LPRNT[107]
+  -1                            / LPRNT[108]
+  -1                            / LPRNT[109]
+  -1                            / LPRNT[110]
+  -1                            / LPRNT[111]
+  -1                            / LPRNT[112]
+  -1                            / LPRNT[113]
+  -1                            / LPRNT[114]
+  -1                            / LPRNT[115]
+  -1                            / LPRNT[116]
+  -1                            / LPRNT[117]
+  -1                            / LPRNT[118]
+  -1                            / LPRNT[119]
+  -1                            / LPRNT[120]
+  -1                            / LPRNT[121]
+  -1                            / LPRNT[122]
+  -1                            / LPRNT[123]
+  -1                            / LPRNT[124]
+  -1                            / LPRNT[125]
+  -1                            / LPRNT[126]
+  -1                            / LPRNT[127]
+  -1                            / LPRNT[128]
+  -1                            / LPRNT[129]
+  -1                            / LPRNT[130]
+  -1                            / LPRNT[131]
+  -1                            / LPRNT[132]
+  -1                            / LPRNT[133]
+  -1                            / LPRNT[134]
+  -1                            / LPRNT[135]
+  -1                            / LPRNT[136]
+  -1                            / LPRNT[137]
+  -1                            / LPRNT[138]
+  -1                            / LPRNT[139]
+  -1                            / LPRNT[140]
+  -1                            / LPRNT[141]
+  -1                            / LPRNT[142]
+  -1                            / LPRNT[143]
+  -1                            / LPRNT[144]
+  -1                            / LPRNT[145]
+  -1                            / LPRNT[146]
+  -1                            / LPRNT[147]
+  -1                            / LPRNT[148]
+  -1                            / LPRNT[149]
+  -1                            / LPRNT[150]
+  -1                            / LPRNT[151]
+  -1                            / LPRNT[152]
+  -1                            / LPRNT[153]
+  -1                            / LPRNT[154]
+  -1                            / LPRNT[155]
+  -1                            / LPRNT[156]
+  -1                            / LPRNT[157]
+  -1                            / LPRNT[158]
+  -1                            / LPRNT[159]
+  -1                            / LPRNT[160]
+  -1                            / LPRNT[161]
+  -1                            / LPRNT[162]
+  -1                            / LPRNT[163]
+  -1                            / LPRNT[164]
+  -1                            / LPRNT[165]
+  -1                            / LPRNT[166]
+  -1                            / LPRNT[167]
+  -1                            / LPRNT[168]
+  -1                            / LPRNT[169]
+  -1                            / LPRNT[170]
+  -1                            / LPRNT[171]
+  -1                            / LPRNT[172]
+  -1                            / LPRNT[173]
+  -1                            / LPRNT[174]
+  -1                            / LPRNT[175]
+  -1                            / LPRNT[176]
+  -1                            / LPRNT[177]
+  -1                            / LPRNT[178]
+  -1                            / LPRNT[179]
+  -1                            / LPRNT[180]
+  -1                            / LPRNT[181]
+  -1                            / LPRNT[182]
+  -1                            / LPRNT[183]
+  -1                            / LPRNT[184]
+  -1                            / LPRNT[185]
+  -1                            / LPRNT[186]
+  -1                            / LPRNT[187]
+  -1                            / LPRNT[188]
+  -1                            / LPRNT[189]
+  -1                            / LPRNT[190]
+  -1                            / LPRNT[191]
+  -1                            / LPRNT[192]
+  -1                            / LPRNT[193]
+  -1                            / LPRNT[194]
+  -1                            / LPRNT[195]
+  -1                            / LPRNT[196]
+  -1                            / LPRNT[197]
+  -1                            / LPRNT[198]
+  -1                            / LPRNT[199]
+  -1                            / LPRNT[200]
+  -1                            / LPRNT[201]
+  -1                            / LPRNT[202]
+  -1                            / LPRNT[203]
+  -1                            / LPRNT[204]
+  -1                            / LPRNT[205]
+  -1                            / LPRNT[206]
+  -1                            / LPRNT[207]
+  -1                            / LPRNT[208]
+  -1                            / LPRNT[209]
+  -1                            / LPRNT[210]
+C*******************************************************************************
+C                          Data for Budget Class 7 - Diversions
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+ ..\Results\CVdiverdtl.hdf      / BINFILE 
+ ..\Results\CVdiverdtl.bud      / OUTFILE 
+                                / INTPRNT
+ 247                            / NLPRNT  
+  -1                            / LPRNT[  1]
+  -1                            / LPRNT[  2]
+  -1                            / LPRNT[  3]
+  -1                            / LPRNT[  4]
+  -1                            / LPRNT[  5]
+  -1                            / LPRNT[  6]
+  -1                            / LPRNT[  7]
+  -1                            / LPRNT[  8]
+  -1                            / LPRNT[  9]
+  -1                            / LPRNT[ 10]
+  -1                            / LPRNT[ 11]
+  -1                            / LPRNT[ 12]
+  -1                            / LPRNT[ 13]
+  -1                            / LPRNT[ 14]
+  -1                            / LPRNT[ 15]
+  -1                            / LPRNT[ 16]
+  -1                            / LPRNT[ 17]
+  -1                            / LPRNT[ 18]
+  -1                            / LPRNT[ 19]
+  -1                            / LPRNT[ 20]
+  -1                            / LPRNT[ 21]
+  -1                            / LPRNT[ 22]
+  -1                            / LPRNT[ 23]
+  -1                            / LPRNT[ 24]
+  -1                            / LPRNT[ 25]
+  -1                            / LPRNT[ 26]
+  -1                            / LPRNT[ 27]
+  -1                            / LPRNT[ 28]
+  -1                            / LPRNT[ 29]
+  -1                            / LPRNT[ 30]
+  -1                            / LPRNT[ 31]
+  -1                            / LPRNT[ 32]
+  -1                            / LPRNT[ 33]
+  -1                            / LPRNT[ 34]
+  -1                            / LPRNT[ 35]
+  -1                            / LPRNT[ 36]
+  -1                            / LPRNT[ 37]
+  -1                            / LPRNT[ 38]
+  -1                            / LPRNT[ 39]
+  -1                            / LPRNT[ 40]
+  -1                            / LPRNT[ 41]
+  -1                            / LPRNT[ 42]
+  -1                            / LPRNT[ 43]
+  -1                            / LPRNT[ 44]
+  -1                            / LPRNT[ 45]
+  -1                            / LPRNT[ 46]
+  -1                            / LPRNT[ 47]
+  -1                            / LPRNT[ 48]
+  -1                            / LPRNT[ 49]
+  -1                            / LPRNT[ 50]
+  -1                            / LPRNT[ 51]
+  -1                            / LPRNT[ 52]
+  -1                            / LPRNT[ 53]
+  -1                            / LPRNT[ 54]
+  -1                            / LPRNT[ 55]
+  -1                            / LPRNT[ 56]
+  -1                            / LPRNT[ 57]
+  -1                            / LPRNT[ 58]
+  -1                            / LPRNT[ 59]
+  -1                            / LPRNT[ 60]
+  -1                            / LPRNT[ 61]
+  -1                            / LPRNT[ 62]
+  -1                            / LPRNT[ 63]
+  -1                            / LPRNT[ 64]
+  -1                            / LPRNT[ 65]
+  -1                            / LPRNT[ 66]
+  -1                            / LPRNT[ 67]
+  -1                            / LPRNT[ 68]
+  -1                            / LPRNT[ 69]
+  -1                            / LPRNT[ 70]
+  -1                            / LPRNT[ 71]
+  -1                            / LPRNT[ 72]
+  -1                            / LPRNT[ 73]
+  -1                            / LPRNT[ 74]
+  -1                            / LPRNT[ 75]
+  -1                            / LPRNT[ 76]
+  -1                            / LPRNT[ 77]
+  -1                            / LPRNT[ 78]
+  -1                            / LPRNT[ 79]
+  -1                            / LPRNT[ 80]
+  -1                            / LPRNT[ 81]
+  -1                            / LPRNT[ 82]
+  -1                            / LPRNT[ 83]
+  -1                            / LPRNT[ 84]
+  -1                            / LPRNT[ 85]
+  -1                            / LPRNT[ 86]
+  -1                            / LPRNT[ 87]
+  -1                            / LPRNT[ 88]
+  -1                            / LPRNT[ 89]
+  -1                            / LPRNT[ 90]
+  -1                            / LPRNT[ 91]
+  -1                            / LPRNT[ 92]
+  -1                            / LPRNT[ 93]
+  -1                            / LPRNT[ 94]
+  -1                            / LPRNT[ 95]
+  -1                            / LPRNT[ 96]
+  -1                            / LPRNT[ 97]
+  -1                            / LPRNT[ 98]
+  -1                            / LPRNT[ 99]
+  -1                            / LPRNT[100]
+  -1                            / LPRNT[101]
+  -1                            / LPRNT[102]
+  -1                            / LPRNT[103]
+  -1                            / LPRNT[104]
+  -1                            / LPRNT[105]
+  -1                            / LPRNT[106]
+  -1                            / LPRNT[107]
+  -1                            / LPRNT[108]
+  -1                            / LPRNT[109]
+  -1                            / LPRNT[110]
+  -1                            / LPRNT[111]
+  -1                            / LPRNT[112]
+  -1                            / LPRNT[113]
+  -1                            / LPRNT[114]
+  -1                            / LPRNT[115]
+  -1                            / LPRNT[116]
+  -1                            / LPRNT[117]
+  -1                            / LPRNT[118]
+  -1                            / LPRNT[119]
+  -1                            / LPRNT[120]
+  -1                            / LPRNT[121]
+  -1                            / LPRNT[122]
+  -1                            / LPRNT[123]
+  -1                            / LPRNT[124]
+  -1                            / LPRNT[125]
+  -1                            / LPRNT[126]
+  -1                            / LPRNT[127]
+  -1                            / LPRNT[128]
+  -1                            / LPRNT[129]
+  -1                            / LPRNT[130]
+  -1                            / LPRNT[131]
+  -1                            / LPRNT[132]
+  -1                            / LPRNT[133]
+  -1                            / LPRNT[134]
+  -1                            / LPRNT[135]
+  -1                            / LPRNT[136]
+  -1                            / LPRNT[137]
+  -1                            / LPRNT[138]
+  -1                            / LPRNT[139]
+  -1                            / LPRNT[140]
+  -1                            / LPRNT[141]
+  -1                            / LPRNT[142]
+  -1                            / LPRNT[143]
+  -1                            / LPRNT[144]
+  -1                            / LPRNT[145]
+  -1                            / LPRNT[146]
+  -1                            / LPRNT[147]
+  -1                            / LPRNT[148]
+  -1                            / LPRNT[149]
+  -1                            / LPRNT[150]
+  -1                            / LPRNT[151]
+  -1                            / LPRNT[152]
+  -1                            / LPRNT[153]
+  -1                            / LPRNT[154]
+  -1                            / LPRNT[155]
+  -1                            / LPRNT[156]
+  -1                            / LPRNT[157]
+  -1                            / LPRNT[158]
+  -1                            / LPRNT[159]
+  -1                            / LPRNT[160]
+  -1                            / LPRNT[161]
+  -1                            / LPRNT[162]
+  -1                            / LPRNT[163]
+  -1                            / LPRNT[164]
+  -1                            / LPRNT[165]
+  -1                            / LPRNT[166]
+  -1                            / LPRNT[167]
+  -1                            / LPRNT[168]
+  -1                            / LPRNT[169]
+  -1                            / LPRNT[170]
+  -1                            / LPRNT[171]
+  -1                            / LPRNT[172]
+  -1                            / LPRNT[173]
+  -1                            / LPRNT[174]
+  -1                            / LPRNT[175]
+  -1                            / LPRNT[176]
+  -1                            / LPRNT[177]
+  -1                            / LPRNT[178]
+  -1                            / LPRNT[179]
+  -1                            / LPRNT[180]
+  -1                            / LPRNT[181]
+  -1                            / LPRNT[182]
+  -1                            / LPRNT[183]
+  -1                            / LPRNT[184]
+  -1                            / LPRNT[185]
+  -1                            / LPRNT[186]
+  -1                            / LPRNT[187]
+  -1                            / LPRNT[188]
+  -1                            / LPRNT[189]
+  -1                            / LPRNT[190]
+  -1                            / LPRNT[191]
+  -1                            / LPRNT[192]
+  -1                            / LPRNT[193]
+  -1                            / LPRNT[194]
+  -1                            / LPRNT[195]
+  -1                            / LPRNT[196]
+  -1                            / LPRNT[197]
+  -1                            / LPRNT[198]
+  -1                            / LPRNT[199]
+  -1                            / LPRNT[200]
+  -1                            / LPRNT[201]
+  -1                            / LPRNT[202]
+  -1                            / LPRNT[203]
+  -1                            / LPRNT[204]
+  -1                            / LPRNT[205]
+  -1                            / LPRNT[206]
+  -1                            / LPRNT[207]
+  -1                            / LPRNT[208]
+  -1                            / LPRNT[209]
+  -1                            / LPRNT[210]
+  -1                            / LPRNT[211]
+  -1                            / LPRNT[212]
+  -1                            / LPRNT[213]
+  -1                            / LPRNT[214]
+  -1                            / LPRNT[215]
+  -1                            / LPRNT[216]
+  -1                            / LPRNT[217]
+  -1                            / LPRNT[218]
+  -1                            / LPRNT[219]
+  -1                            / LPRNT[220]
+  -1                            / LPRNT[221]
+  -1                            / LPRNT[222]
+  -1                            / LPRNT[223]
+  -1                            / LPRNT[224]
+  -1                            / LPRNT[225]
+  -1                            / LPRNT[226]
+  -1                            / LPRNT[227]
+  -1                            / LPRNT[228]
+  -1                            / LPRNT[229]
+  -1                            / LPRNT[230]
+  -1                            / LPRNT[231]
+  -1                            / LPRNT[232]
+  -1                            / LPRNT[233]
+  -1                            / LPRNT[234]
+  -1                            / LPRNT[235]
+  -1                            / LPRNT[236]
+  -1                            / LPRNT[237]
+  -1                            / LPRNT[238]
+  -1                            / LPRNT[239]
+  -1                            / LPRNT[240]
+  -1                            / LPRNT[241]
+  -1                            / LPRNT[242]
+  -1                            / LPRNT[243]
+  -1                            / LPRNT[244]
+  -1                            / LPRNT[245]
+  -1                            / LPRNT[246]
+  -1                            / LPRNT[247]

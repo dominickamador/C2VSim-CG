@@ -1,0 +1,110 @@
+C*******************************************************************************
+C
+C                  INTEGRATED WATER FLOW MODEL (IWFM)
+C
+C*******************************************************************************
+C
+C              RICE/REFUGE OPERATION FLOW RATE DATA FILE
+C                         Root Zone Component
+C                         *** Version 4.11 ***
+C
+** INCOMPLETE: Has place-holder depth values
+C
+C             Project:  C2VSim: California Central Valley Groundwater-Surface Water Simulation Model
+C             Filename: CVRZ_PondOperationFlows_v411.dat
+C             Version:  R385-2015-CG 2017.01.23
+C
+C***********************************************************************
+C  California Central Valley Groundwater-Surface Water Flow Model (C2VSim)
+C  Copyright (C) 2012-2017
+C  State of California, Department of Water Resources 
+C
+C  This model is free. You can redistribute it and/or modify it 
+C  under the terms of the GNU General Public License as published 
+C  by the Free Software Foundation; either version 2 of the License, 
+C  or (at your option) any later version.
+C
+C  This model is distributed WITHOUT ANY WARRANTY; without even 
+C  the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+C  PARTICULAR PURPOSE.  See the GNU General Public License for 
+C  more details. (http://www.gnu.org/licenses/gpl.html)
+C
+C  The GNU General Public License is available from the Free Software
+C  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+C
+C  For tecnical support, e-mail: IWFMtechsupport@water.ca.gov 
+C
+C
+C  Principal Contact:
+C    Tariq N. Kadir, PE, Senior Engineer, DWR
+C       (916) 653-3513, kadir@water.ca.gov
+C
+C  Principal Developer and Technical Support:
+C    Charles F. Brush, PhD, PE, Engineer, DWR
+C       (916) 651-8705, cbrush@water.ca.gov
+C
+C
+C*******************************************************************************
+C                           File Description
+C
+C   This data file contains a set of flow rates (in units of L/T) to be used for 
+C   simulating the rice and refuge return flows, re-use and water application rates 
+C   for non-flooded rice decomposition. These values are correlated to individual 
+C   grid elements through the Rice/Refuge Data File.
+C
+C*******************************************************************************
+C               Rice/Refuge Operation Flow Rate Data Specifications
+C
+C   NCOLFLW  ; Number of data columns
+C   FACTFLW  ; Conversion factor for operation flow rates 
+C               It is used to convert only the spatial component of the unit; 
+C               DO NOT include the conversion factor for time component of the unit.
+C               * e.g. Unit of depth listed in this file        = INCHES/MONTH
+C                      Consistent unit used in simulation       = FT/DAY 
+C                      Enter FACTOPS (INCHES/MONTH -> FT/MONTH) = 8.333333E-02 
+C                       (conversion of MONTH -> DAY is performed automatically) 
+C   NSPFLW   ; Number of time steps to update the operation flow rates
+C               * Enter any number if time-tracking option is on
+C   NFQFLW   ; Repetition frequency of the operation flow rate data 
+C               * Enter 0 if full time series data is supplied
+C               * Enter any number if time-tracking option is on
+C   DSSFL    ; The name of the DSS file for data input 
+C               * Leave blank if DSS file is not used for data input
+C
+C-------------------------------------------------------------------------------
+C         VALUE                                      DESCRIPTION
+C-------------------------------------------------------------------------------
+          15                                         / NCOLFLW
+          1.0                                        / FACTFLW 
+          1                                          / NSPFLW 
+          0                                          / NFQFLW
+                                                     / DSSFL
+C----------------------------------------------------------------------------------------------
+C                      Rice/Refuge Operation Flow Rate Data 
+C                            (READ FROM THIS FILE)
+C
+C   List the rice/refuge operation flow rates below, if it will not be read from
+C   a DSS file (i.e. DSSFL is left blank above).
+C
+C   TIME ;  Time
+C   FLW  ;  Operation flow rates; [L/T]
+C
+C----------------------------------------------------------------------------------------------
+C Column                1       2       3       4       5       6       7       8       9       10      11      12      13      14      15
+C                       Ponding Depth                                   Return Flow                                     Reuse Flow                              
+C                       RI_FL   RI_NFL  RI_NDC  RF_SL   RF_PR   RI_FL   RI_NFL  RI_NDC  RF_SL   RF_PR   RI_FL   RI_NFL  RI_NDC  RF_SL   RF_PR
+C    TIME               FLW[1]  FLW[2]  FLW[3]  FLW[4]  FLW[5]  FLW[6]  FLW[7]  FLW[8]  FLW[9]  FLW[10] FLW[11] FLW[12] FLW[13] FLW[14] FLW[15]
+C----------------------------------------------------------------------------------------------                                                                                                                 
+10/31/4000_24:00        0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0
+11/30/4000_24:00        0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0
+12/31/4000_24:00        0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0
+01/31/4000_24:00        0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0
+02/29/4000_24:00        0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0     0.0
+03/31/4000_24:00        1.0     1.0     1.0     1.0     1.0     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2
+04/30/4000_24:00        1.0     1.0     1.0     1.0     1.0     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2
+05/31/4000_24:00        1.0     1.0     1.0     1.0     1.0     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2
+06/30/4000_24:00        1.0     1.0     1.0     1.0     1.0     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2
+07/31/4000_24:00        1.0     1.0     1.0     1.0     1.0     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2
+08/31/4000_24:00        1.0     1.0     1.0     1.0     1.0     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2
+09/30/4000_24:00        1.0     1.0     1.0     1.0     1.0     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2     0.2
+

@@ -1,0 +1,82 @@
+C*******************************************************************************
+C
+C                  INTEGRATED WATER FLOW MODEL (IWFM)
+C
+C*******************************************************************************
+C
+C              CONSTRAINED GENERAL HEAD BOUNDARY CONDITIONS DATA FILE
+C                        Groundwater Component
+C                         *** Version 4.0 ***
+C
+C
+C             Project:  
+C             Filename: 
+C
+C*******************************************************************************
+C                          File Description:
+C
+C   This data file lists constrained general head boundary conditions.  
+C
+C*******************************************************************************
+C
+C            Constrained general head boundary conditions specifications
+C
+C   NCGB   ;  Number of nodes with constrained general head boundary condition
+C   FACTH  ;  Conversion factor for boundary head (see variable BH below) and constraining 
+C              head (see variable LBH below) 
+C   FACTVL ;  Conversion factor for maximum boundary flow (see variable CFLOW below)
+C              It is used to convert only the spatial component of the unit; 
+C              DO NOT include the conversion factor for time component of the unit.
+C              * e.g. Unit of flow listed in this file          = AC-FT/MONTH
+C                     Consistent unit used in simulation        = CU.FT/DAY 
+C                     Enter FACTVL (AC-FT/MONTH -> CU.FT/MONTH) = 43560.0 
+C                      (conversion of MONTH -> DAY is performed automatically) 
+C   TUNITVL;  Time unit of maximum boundary flow.  This should be one  of the
+C              units recognized by HEC-DSS that are listed in the Main Control
+C              File.   
+C   FACTC  ;  Conversion factor for conductance (see variable BC below)
+C              It is used to convert only the spatial component of the unit; 
+C              DO NOT include the conversion factor for time component of the unit.
+C              * e.g. Unit of conductance listed in this file = AC/MONTH
+C                     Consistent unit used in simulation      = SQ.FT/DAY 
+C                     Enter FACTC (AC/MONTH -> SQ.FT/MONTH)   = 43560.0 
+C                      (conversion of MONTH -> DAY is performed automatically) 
+C   TUNITC ;  Time unit of conductance.  This should be one  
+C              of the units recognized by HEC-DSS that are listed in the Main Control
+C              File.  
+C   INODE  ;  Groundwater node with constrained general head boundary condition
+C   ILAYER ;  Aquifer layer that INODE belongs to
+C   ITSCOL ;  Time series boundary head value (for BH variable below) - this number 
+C              corresponds to the appropriate data column in the Time Series Boundary 
+C              Conditions Data File.
+C              * Enter 0 if this is not a time series boundary condition
+C   BH     ;  Head as the boundary conditions; [L]
+C              * Enter any value if ITSCOL is non-zero
+C   BC     ;  Conductance used for constrained general head boundary condition; [L^2/T]
+C   LBH    ;  Limiting head; [L] 
+C   ITSCOLF;  Time series maximum boundary flow value (for CFLOW variable below) - this 
+C              number corresponds to the appropriate data column in the Time Series 
+C              Boundary Conditions Data File.
+C              * Enter 0 if this is not a time series boundary condition
+C   CFLOW  ;  Maximum amount of flow for the constrained general head boundary; [L^3/T]
+C              * Enter any value if ITSCOLF is non-zero
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+     7                          / NGB
+     1                            / FACTH
+     1                           / FACTVL
+     1day                           / TUNITVL
+     1                           / FACTC
+     1day                           / TUNITC
+C-------------------------------------------------------------------------------
+C     INODE     ILAYER    ITSCOL    BH    BC    LBH    ITSCOLF    CFLOW
+C-------------------------------------------------------------------------------
+     	123	1	1	0	8355.873362	414.9909186	4	0	/Black Butte
+	124	1	1	0	17386.05875	414.9909186	4	0	/Black Butte
+	134	1	1	0	29644.31901	414.9909186	4	0	/Black Butte
+	516	1	2	0	35446.9164	145.3455112	5	0	/Camanche
+	550	1	2	0	25624.78534	145.3455112	5	0	/Camanche
+	176	1	3	0	15484.83713	112.8090763	6	0	/Thermalito
+	160	1	3	0	6292.278456	112.8090763	6	0	/Thermalito

@@ -1,0 +1,7471 @@
+#4.2
+C *** DO NOT DELETE ABOVE LINE ***
+C
+C*******************************************************************************
+C
+C                  INTEGRATED WATER FLOW MODEL (IWFM)
+C                         *** Version 2015 ***
+C
+C*******************************************************************************
+C
+C                       STREAM SPECIFICATION FILE
+C                           Stream Component
+C                          *** Version 4.2 ***
+C
+C
+C             Project:  C2VSim: California Central Valley Groundwater-Surface Water Simulation Model
+C             Filename: CVrivers_v40.dat
+C             Version:  R385-2015-CG 2015.10.16
+C
+C***********************************************************************
+C  California Central Valley Groundwater-Surface Water Flow Model (C2VSim)
+C  Copyright (C) 2012-2017
+C  State of California, Department of Water Resources 
+C
+C  This model is free. You can redistribute it and/or modify it 
+C  under the terms of the GNU General Public License as published 
+C  by the Free Software Foundation; either version 2 of the License, 
+C  or (at your option) any later version.
+C
+C  This model is distributed WITHOUT ANY WARRANTY; without even 
+C  the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+C  PARTICULAR PURPOSE.  See the GNU General Public License for 
+C  more details. (http://www.gnu.org/licenses/gpl.html)
+C
+C  The GNU General Public License is available from the Free Software
+C  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+C
+C  For tecnical support, e-mail: IWFMtechsupport@water.ca.gov 
+C
+C
+C  Principal Contact:
+C    Tariq N. Kadir, PE, Senior Engineer, DWR
+C       (916) 653-3513, kadir@water.ca.gov
+C
+C  Principal Developer and Technical Support:
+C    Charles F. Brush, PhD, PE, Engineer, DWR
+C       (916) 651-8705, cbrush@water.ca.gov
+C
+C
+C*******************************************************************************
+C                             File Description
+C
+C   *All stream/river nodes modeled in IWFM are specified with respect to their 
+C    corresponding groundwater nodes
+C
+C   *A flow versus depth rating table is specified for each stream node
+C
+C*******************************************************************************
+C                     Stream Reach Specifications
+C
+C   NRH;   Number of stream reaches modeled
+C   NR;    Number of stream nodes modeled
+C   NRTB;  Number of data points in stream rating tables
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+     103                        / NRH
+     555                        / NR
+     10                         / NRTB
+C-------------------------------------------------------------------------------
+C*******************************************************************************
+C                      Description of Stream Reaches
+C
+C   The following lists the stream nodes and corresponding groundwater
+C   nodes for each stream reach modeled in IWFM.
+C
+C   ID;    Reach number
+C   IBUR;  First upstream stream node of the reach
+C   IBDR;  Last downstream node of the reach
+C   IDWN;  Stream node into which the reach flows into
+C              0: If stream flow leaves the modeled area
+C           -nlk: If stream flows into lake number nlk
+C   NAME;  Name of the reach (maximum 20 characters)
+C
+C   In addition, for each stream node within the reach the corresponding
+C   groundwater nodes is listed.
+C
+C   IRV;   Stream node
+C   IGW;   Corresponding groundwater node(s) (can be more than one for wide streams)
+C           * Note: For wide streams with more than one corresponding groundwater nodes,
+C                    the groundwater node that is closest to the middle of the channel  
+C                    cross-section must be listed first.
+C
+C--------------------------------------------
+C     REACH  1  -  KERN RIVER
+C   Reach  Upstream  Downstream  Outflow
+C           Node       Node      Node
+C   ID      IBUR       IBDR      IDWN
+C--------------------------------------------
+     1        1          9        22     Kern River
+C--------------------------------------------
+C   Stream  Groundwater  Subregion
+C   node      node       number
+C   IRV       IGW        IRGST
+C--------------------------------------------
+     1       1304      
+     2       1315      
+     3       1317      
+     4       1326      
+     5       1325      
+     6       1333      
+     7       1332      
+     8       1331      
+     9       1342      
+C================================================
+C     REACH 2 - POSO CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+     2        10         20        31      Poso Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    10        1292    
+    11        1291    
+    12        1277    
+    13        1276    
+    14        1262    
+    15        1238    
+    16        1237    
+    17        1236    
+    18        1235    
+    19        1218    
+    20        1217    
+C================================================
+C     REACH 3 - KERN RIVER FLOOD CHANNEL
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+     3        21         38       101      Kern River Flood Channel
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    21        1342   
+    22        1331   
+    23        1322   
+    24        1308   
+    25        1296   
+    26        1283   
+    27        1270   
+    28        1258   
+    29        1249   
+    30        1233   
+    31        1217   
+    32        1196   
+    33        1189   
+    34        1177   
+    35        1178   
+    36        1157   
+    37        1138   
+    38        1128   
+C================================================
+C     REACH  4 - WHITE RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+     4        39         48        56      White River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    39       1186      
+    40       1185     
+    41       1172     
+    42       1184     
+    43       1193     
+    44       1192     
+    45       1191     
+    46       1190     
+    47       1179     
+    48       1159     
+C================================================
+C     REACH  5 - DEER CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+     5        49         58        67      Deer Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    49       1151  
+    50       1150  
+    51       1165  
+    52       1170  
+    53       1182  
+    54       1181  
+    55       1180  
+    56       1159  
+    57       1140  
+    58       1129  
+C================================================
+C     REACH  6 - TULE RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+     6        59         68       101      Tule River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    59       1148      
+    60       1147      
+    61       1146      
+    62       1133      
+    63       1132      
+    64       1131      
+    65       1130      
+    66       1120      
+    67       1129      
+    68       1128      
+C================================================
+C     REACH  7 - KAWEAH RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+     7        69         78       103      Kaweah River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    69       1098    
+    70       1096    
+    71       1095    
+    72       1100    
+    73       1108    
+    74       1107    
+    75       1106    
+    76       1105    
+    77       1068    
+    78       1067    
+C================================================
+C     REACH 8 - KINGS RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+     8       79          88       124      Kings River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    79       1002   
+    80       1001   
+    81       1000   
+    82       1032   
+    83       1031   
+    84       1030   
+    85       1029   
+    86       1028   
+    87       1027   
+    88       1026   
+C================================================
+C     REACH 9 - KINGS RIVER (South Fork)
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+     9        89         93        94      Kings River (South Fork)
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    89       1026    
+    90       1024    
+    91       1023    
+    92       1041    
+    93       1056    
+C================================================
+C     REACH 10 - TULARE LAKE BED CANAL
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    10        94         96        97      Tulare Lake Bed Canal
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    94       1056      
+    95       1064      
+    96       1115      
+C================================================
+C     REACH 11 - TULARE LAKE BED CANAL
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    11        97        100       101      Tulare Lake Bed Canal
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    97       1115 
+    98       1116 
+    99       1117 
+   100       1128 
+C================================================
+C     REACH 12 - TULARE LAKE BED CANAL
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    12       101        104       125      Tulare Lake Bed Canal
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   101       1128   
+   102       1118   
+   103       1067   
+   104       1056   
+C================================================
+C     REACH 13 - ZAPATA CHINO CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    13       105        107       112      Zapata Chino Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   105       1035 
+   106       1018 
+   107       1008 
+C================================================
+C     REACH 14 - LOS GATOS CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    14       108        111       112      Los Gatos Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   108       1003 
+   109       1006 
+   110       1007 
+   111       1008 
+C================================================
+C     REACH 15 - ZAPATA CHINO CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    15       112        113       126      Zapata Chino Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   112       1008  
+   113       1009  
+C================================================
+C     REACH 16 - CANTUA CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    16       114        116       131      Cantua Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   114        944 
+   115        945 
+   116        946 
+C================================================
+C     REACH 17 - PANOCHE CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    17       117        120       165      Panoche Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   117        864 
+   118        868 
+   119        866 
+   120        867 
+C================================================
+C     REACH 18 - LITTLE PANOCHE CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    18       121        123       168      Little Panoche Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   121        852  
+   122        839  
+   123        855  
+C================================================
+C     REACH  19 - FRESNO SLOUGH
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    19       124        137       164      Fresno Slough
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   124       1026 
+   125       1025 
+   126       1012 
+   127        993 
+   128        981 
+   129        965 
+   130        957 
+   131        950 
+   132        942 
+   133        924 
+   134        908 
+   135        892 
+   136        886 
+   137        872 
+C================================================
+C     REACH  20 - SAN JOAQUIN RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    20       138        145       146      San Joaquin River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   138        880   
+   139        879   
+   140        878   
+   141        877   
+   142        876   
+   143        875   
+   144        874   
+   145        873   
+C================================================
+C     REACH  21 - SAN JOAQUIN RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    21       146        147       165      San Joaquin River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   146        873      
+   147        872      
+C================================================
+C     REACH  22 - EAST SIDE BYPASS
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    22       148        152       160      East Side Bypass  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   148        873  
+   149        859  
+   150        845  
+   151        831  
+   152        820  
+C================================================
+C     REACH  23 - FRESNO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    23       153        159       160      Fresno River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   153        826 
+   154        825 
+   155        824 
+   156        823 
+   157        822 
+   158        821 
+   159        820 
+C================================================
+C     REACH  24 - EAST SIDE BYPASS
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    24       160        163       179      East Side Bypass  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   160        820  
+   161        807  
+   162        799  
+   163        785  
+C================================================
+C     REACH  25 - SAN JOAQUIN RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    25       164        170       185      San Joaquin River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   164        872   
+   165        858   
+   166        843   
+   167        829   
+   168        818   
+   169        798   
+   170        784   
+C================================================
+C     REACH  26 - CHOWCHILLA RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    26       171        178       179      Chowchilla River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   171        792    
+   172        791    
+   173        790    
+   174        789    
+   175        788    
+   176        787    
+   177        786    
+   178        785    
+C================================================
+C     REACH  27 - CHOWCHILLA RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    27       179        180       185      Chowchilla River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   179        785    
+   180        784    
+C================================================
+C     REACH  28 - EAST SIDE BYPASS
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    28       181        184       198      East Side Bypass
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   181        785    
+   182        771    
+   183        770    
+   184        750    
+C================================================
+C     REACH 29 - SAN JOAQUIN RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    29       185        188       201      San Joaquin River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   185        784  
+   186        769  
+   187        768  
+   188        749  
+C================================================
+C     REACH 30 - DEADMAN'S CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    30       189       197       201       Deadman's Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   189        757   
+   190        756   
+   191        755   
+   192        754   
+   193        753   
+   194        752   
+   195        751   
+   196        750   
+   197        749   
+C================================================
+C     REACH  31 - EAST SIDE BYPASS
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    31       198        200       212      East Side Bypass
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+   198        750 
+   199        742 
+   200        729 
+C================================================
+C     REACH 32 - SAN JOAQUIN RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    32       201        203       216      San Joaquin River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    201       749 
+    202       728 
+    203       715 
+C================================================
+C     REACH 33 - BEAR CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    33       204        211      216       Bear Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    204       741 
+    205       740 
+    206       739 
+    207       738 
+    208       737 
+    209       736 
+    210       729 
+    211       715 
+C================================================
+C     REACH 34 - EAST SIDE BYPASS
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    34       212        215      217       East Side Bypass
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    212       729 
+    213       716 
+    214       703 
+    215       702 
+C================================================
+C     REACH 35 - SAN JOAQUIN RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    35       216        218       228      San Joaquin River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    216       715 
+    217       702 
+    218       693 
+C================================================
+C     REACH 36 - MERCED RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    36       219        227       228      Merced River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    219       701
+    220       700
+    221       699
+    222       698
+    223       697
+    224       696
+    225       695
+    226       694
+    227       693
+C================================================
+C     REACH 37 - SAN JOAQUIN RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    37       228        230      234       San Joaquin River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    228       693
+    229       683
+    230       671
+C================================================
+C     REACH 38 - ORESTIMBA CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    38      231        233       234       Orestimba Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    231       681
+    232       682
+    233       671
+C================================================
+C     REACH 39 - SAN JOAQUIN RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    39       234        237      247       San Joaquin River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    234       671
+    235       660
+    236       649
+    237       633
+C================================================
+C     REACH 40 - TUOLUMNE RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    40       238        246       247      Tuolumne River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    238       657 
+    239       656 
+    240       655 
+    241       654 
+    242       653 
+    243       652 
+    244       651 
+    245       650 
+    246       633 
+C================================================
+C     REACH 41 - SAN JOAQUIN RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    41       247        248       258      San Joaquin River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    247       633 
+    248       615 
+C================================================
+C     REACH 42 - STANISLAUS RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    42       249        257       258      Stanislaus River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    249       623
+    250       622
+    251       621
+    252       620
+    253       619
+    254       618
+    255       617
+    256       616
+    257       615
+C================================================
+C     REACH 43 - SAN JOAQUIN RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    43       258        263      271       San Joaquin River   
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    258       615
+    259       605
+    260       592
+    261       576
+    262       567
+    263       558
+C================================================
+C     REACH 44 - CALAVERAS RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    44       264        270      271       Calaveras River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    264       564
+    265       563
+    266       562
+    267       561
+    268       560
+    269       559
+    270       558
+C================================================
+C     REACH 45 - SAN JOAQUIN RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    45       271        275       303      San Joaquin River   
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    271       558
+    272       553
+    273       543
+    274       540
+    275       520
+C================================================
+C     REACH 46 - MOKELUMNE RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    46       276        284       298      Mokelumne River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    276       551
+    277       550
+    278       516
+    279       515
+    280       514
+    281       513
+    282       512
+    283       497
+    284       479
+C================================================
+C     REACH 47 - DRY CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    47       285        290       298      Dry Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    285       506
+    286       505
+    287       499
+    288       498
+    289       480
+    290       479
+C================================================
+C     REACH 48 - COSUMNES RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    48       291        297       298      Cosumnes River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    291       443
+    292       426
+    293       425
+    294       439
+    295       454
+    296       466
+    297       479
+C================================================
+C     REACH 49 - MOKELUMNE RIVER (SOUTH)
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    49      298        302       303       Mokelumne (South)
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    298       479
+    299       478
+    300       494
+    301       495
+    302       520
+C================================================
+C     REACH 50 - SAN JOAQUIN RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    50       303        307       552      San Joaquin River   
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    303       520 
+    304       534 
+    305       533 
+    306       532 
+    307       531 
+C================================================
+C     REACH 51 - CLEAR CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    51       308        310       314      Clear Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    308        13
+    309        14
+    310        15
+C================================================
+C     REACH 52 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    52       311        314       315      Sacramento River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    311         1
+    312         5
+    313         9
+    314        15
+C================================================
+C     REACH 53 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    53       315        317       322      Sacramento River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    315        15
+    316        22
+    317        23
+C================================================
+C     REACH 54 - COW CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    54       318        321       322      Cow Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    318        12
+    319        11
+    320        17
+    321        23
+C================================================
+C     REACH 55 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    55       322        324       343      Sacramento River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    322        23
+    323        29
+    324        37
+C================================================
+C     REACH 56 - COTTONWOOD CREEK NORTH
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    56       325        326       329      Cottonwood Creek North
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    325        25 
+    326        32 
+C================================================
+C     REACH 57 - COTTONWOOD CREEK MIDDLE
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    57       327        328       329      Cottonwood Creek Middle
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    327        31 
+    328        32 
+C================================================
+C     REACH 58 - COTTONWOOD CREEK NORTH
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    58       329        332       338      Cottonwood Creek North
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    329        32
+    330        33
+    331        34
+    332        35
+C================================================
+C     REACH 59 - COTTONWOOD CREEK SOUTH
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    59       333        337       338      Cottonwood Creek South
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    333        57 
+    334        51 
+    335        41 
+    336        42 
+    337        35 
+C================================================
+C   REACH 60 - COTTONWOOD CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    60       338        340       343      Cottonwood Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    338        35  
+    339        36  
+    340        37
+C================================================
+C     REACH 61 - BATTLE CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    61       341        342       343      Battle Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    341        38   
+    342        37   
+C================================================
+C     REACH 62 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    62       343        345       348      Sacramento River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    343        37
+    344        45
+    345        56
+C================================================
+C     REACH 63 - PAYNES CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    63       346        347       348      Paynes Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    346        46 
+    347        56 
+C================================================
+C     REACH 64 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    64       348        353       356      Sacramento River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    348        56
+    349        55
+    350        67
+    351        68
+    352        72
+    353        79
+C================================================
+C     REACH 65 - ANTELOPE CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    65       354        355       356      Antelope Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    354        73 
+    355        79 
+C================================================
+C     REACH 66 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    66       356        357       367      Sacramento River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    356        79
+    357        86
+C================================================
+C     REACH 67 - ELDER CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    67       358        363       367     Elder Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    358        81
+    359        82
+    360        83
+    361        84
+    362        85
+    363        86
+C================================================
+C     REACH 68 - MILL CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    68       364        366       367      Mill Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    364        88 
+    365        87 
+    366        86 
+C================================================
+C     REACH 69 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    69       367        368       375      Sacramento River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    367        86
+    368        94
+C================================================
+C     REACH 70 - THOMES CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    70       369        374       375      Thomes Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    369       108
+    370       101
+    371        91
+    372        92
+    373        93
+    374        94
+C================================================
+C     REACH 71 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    71       375        376       380      Sacramento River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    375        94
+    376        99
+C================================================
+C     REACH 72 - DEER CREEK GROUP
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    72       377        379       380      Deer Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    377        96 
+    378       100 
+    379        99 
+C================================================
+C     REACH 73 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    73       380        383       400      Sacramento River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    380        99  
+    381       105  
+    382       113  
+    383       129  
+C================================================
+C     REACH 74 - BIG CHICO CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    74       384        387       400      Big Chico Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    384       132
+    385       131
+    386       130
+    387       129
+C================================================
+C     REACH 75 - STONEY CREEK NORTH
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    75       388        390       394      Stoney Creek North
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    388       133 
+    389       123 
+    390       124 
+C================================================
+C     REACH 76 - STONEY CREEK SOUTH
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    76       391        393       394      Stoney Creek South
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    391       165
+    392       134
+    393       124
+C================================================
+C     REACH 77 - STONEY CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    77       394        399       400      Stony Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    394       124
+    395       125
+    396       126
+    397       127
+    398       128
+    399       129
+C================================================
+C     REACH 78 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    78       400        409       426      Sacramento River  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    400       129 
+    401       140 
+    402       144 
+    403       155 
+    404       171 
+    405       186 
+    406       202 
+    407       221 
+    408       240 
+    409       254 
+C================================================
+C     REACH 79 - GLENN-COLUSA CANAL
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    79       410        425       440      Glenn-Colusa Canal
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    410       113
+    411       128
+    412       139
+    413       154
+    414       169
+    415       183
+    416       198
+    417       211
+    418       216
+    419       227
+    420       236
+    421       250
+    422       258
+    423       266
+    424       267
+    425       268
+C================================================
+C     REACH 80 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    80       426        434       447      Sacramento River   
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    426       254
+    427       262
+    428       269
+    429       277
+    430       291
+    431       303
+    432       315
+    433       327
+    434       339
+C================================================
+C     REACH 81 - COLUSA BASIN DRAINAGE CANAL
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    81       435        439       440      Colusa Basin Drainage Canal  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    435       220
+    436       239
+    437       253
+    438       260
+    439       268
+C================================================
+C     REACH 82 - COLUSA BASIN DRAINAGE CANAL
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    82       440        446      447       Colusa Basin Drainage Canal  
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    440       268
+    441       275
+    442       289
+    443       302
+    444       314
+    445       326
+    446       339
+C================================================
+C     REACH 83 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    83       447        449       498      Sacramento River   
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    447       339
+    448       349
+    449       350
+C================================================
+C     REACH 84 - SUTTER BYPASS/BUTTE SLOUGH
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    84       450        459       460      Sutter Bypass/Butte Slough
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    450       143
+    451       147
+    452       157
+    453       173
+    454       188
+    455       204
+    456       223
+    457       242
+    458       255
+    459       263
+C================================================
+C     REACH 85 - SUTTER BYPASS
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    85      460        467       495       Sutter Bypass
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    460       263
+    461       270
+    462       278
+    463       281
+    464       293
+    465       305
+    466       317
+    467       329
+C================================================
+C     REACH 86 - FEATHER RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    86      468        472       476       Feather River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    468       162
+    469       161
+    470       177
+    471       192
+    472       208
+C================================================
+C     REACH 87 - HONCUT CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    87      473        475       476       Honcut Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    473       234
+    474       209
+    475       208
+C================================================
+C     REACH 88 - FEATHER RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    88      476        479       483       Feather River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    476       208
+    477       232
+    478       246
+    479       283
+C================================================
+C     REACH 89 - YUBA RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    89      480        482       483       Yuba River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    480       285
+    481       284
+    482       283
+C================================================
+C     REACH 90 - FEATHER RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    90      483        487       493       Feather River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    483       283 
+    484       295 
+    485       307 
+    486       318 
+    487       330 
+C================================================
+C     REACH 91 - BEAR RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    91      488        492       493       Bear River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    488       334 
+    489       333 
+    490       332 
+    491       331 
+    492       330 
+C================================================
+C     REACH 92 - FEATHER RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    92      493        494       495       Feather River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    493       330
+    494       329
+C================================================
+C     REACH 93 - FEATHER RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    93      495        497       498       Feather River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    495       329
+    496       340
+    497       350
+C================================================
+C     REACH 94 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    94      498        504       512       Sacramento River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    498       350
+    499       351
+    500       363
+    501       362
+    502       361
+    503       372
+    504       373
+C================================================
+C     REACH 95 - AMERICAN RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    95      505        511       512       American River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    505       389
+    506       385
+    507       384
+    508       380
+    509       375
+    510       374
+    511       373
+C================================================
+C     REACH 96 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    96      512        520       545       Sacramento River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    512       373
+    513       416
+    514       435
+    515       451
+    516       463
+    517       475
+    518       476
+    519       493
+    520       492
+C================================================
+C     REACH 97 - CACHE CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    97      521        527       528       Cache Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    521       335  
+    522       336  
+    523       347  
+    524       348  
+    525       358  
+    526       359  
+    527       360  
+C================================================
+C     REACH 98 - YOLO BYPASS
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    98      528        531       538       Yolo Bypass
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    528       360  
+    529       401  
+    530       407  
+    531       414  
+C================================================
+C     REACH 99 - PUTAH CREEK
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    99      532        537       538       Putah Creek
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    532       428
+    533       410
+    534       411
+    535       412
+    536       413
+    537       414
+C================================================
+C     REACH 100 - YOLO BYPASS-CACHE SLOUGH
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    100     538        544       545       Yolo Bypass-Cache Slough
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    538       414
+    539       433
+    540       432
+    541       448
+    542       460
+    543       473
+    544       492
+C================================================
+C     REACH 101 - SACRAMENTO RIVER
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    101     545        549       552       Sacramento River
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    545       492
+    546       527
+    547       526
+    548       525
+    549       531
+C================================================
+C     REACH 102 - SUISUN MARSH
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    102     550        551       554       Suisun Marsh
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    550       523
+    551       529
+C================================================
+C     REACH 103 - SACRAMENTO-SAN JOAQUIN DELTA
+C   Reach  Upstream  Downstream  Outflow   Reach
+C           Node       Node      Node      Name
+C   ID      IBUR       IBDR      IDWN      NAME
+C--------------------------------------------
+    103     552        555         0       Sacramento-San Joaquin Delta
+C--------------------------------------------
+C   Stream    Groundwater
+C   node      node
+C   IRV       IGW
+C--------------------------------------------
+    552       531
+    553       530
+    554       529
+    555       528
+C*******************************************************************************
+C                             Stream rating tables
+C
+C   FACTLT; Conversion factor for stream bottom elevation and stream depth
+C   FACTQ;  Conversion factor for rating table flow rates 
+C             It is used to convert only the spatial component of the unit; 
+C             DO NOT include the conversion factor for time component of the unit.
+C             * e.g. Unit of flow rate listed in this file      = AC.FT./MONTH
+C                    Consistent unit used in simulation         = CU.FT/DAY 
+C                    Enter FACTQ (AC.FT./MONTH -> CU.FT./MONTH) = 2.29568E-05 
+C                     (conversion of MONTH -> DAY is performed automatically) 
+C   TUNIT;  Time unit of flow rate.  This should be one of the units 
+C             recognized by HEC-DSS that are listed in the Simulation Main 
+C             Control File.  
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+     1.0                         / FACTLT
+     60.0                        / FACTQ    (cfs --> cu.ft./min; since "second" is not recognized by HEC-DSS, values are converted to cu.ft./min)
+     1min                        / TUNIT
+C-------------------------------------------------------------------------------
+C   The following lists a stream rating table for each of the stream nodes
+C   *Note* In order to define a specified stream depth, enter all HRTB values
+C             as equal to the specified depth value
+C
+C   ID;    Stream node number
+C   BOTR;  Stream bottom elevation relative to a common datum [L]
+C   HRTB;  Stream depth [L]
+C   QRTB;  Flow rate at stream depth HRTB [L^3/T]
+C
+C-------------------------------------------------------------
+C   Stream    Bottom   Stream      Flow
+C   node     elevation  depth      rate
+C   ID         BOTR     HRTB       QRTB
+C-------------------------------------------------------------
+1	399.91	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+2	398.91	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+3	372.45	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+4	351.42	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+5	324.31	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+6	305.49	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+7	288.58	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+8	267.92	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+9	266.92	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+10	656.84	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+11	582.15	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+12	507.38	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+13	461.57	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+14	377.22	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+15	295.19	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+16	244.97	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+17	217.69	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+18	211.11	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+19	207.14	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+20	206.14	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+21	297.68	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+22	281.92	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+23	278.43	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+24	257.97	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+25	247.76	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+26	228.54	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+27	227.54	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+28	226.54	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+29	212.50	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+30	209.64	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+31	208.64	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+32	202.65	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+33	199.78	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+34	198.78	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+35	191.27	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+36	180.71	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+37	179.65	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+38	176.68	0.00	0.00
+		1.35	50.00
+		2.70	102.00
+		4.20	551.00
+		5.70	1002.00
+		10.05	3501.00
+		14.40	6005.00
+		18.00	13000.00
+		21.60	20000.00
+		22.60	21946.00
+39	582.99	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+40	498.72	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+41	429.79	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+42	382.03	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+43	304.70	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+44	243.57	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+45	199.25	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+46	192.33	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+47	191.33	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+48	187.44	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+49	567.54	0.00	0.00
+		0.25	2.00
+		0.50	5.00
+		1.00	42.00
+		1.50	80.00
+		3.35	794.00
+		5.20	1510.00
+		5.95	2261.00
+		6.70	3015.00
+		7.70	4022.00
+50	441.99	0.00	0.00
+		0.25	2.00
+		0.50	5.00
+		1.00	42.00
+		1.50	80.00
+		3.35	794.00
+		5.20	1510.00
+		5.95	2261.00
+		6.70	3015.00
+		7.70	4022.00
+51	387.83	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+52	317.83	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+53	256.09	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+54	224.59	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+55	194.06	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+56	191.34	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+57	190.34	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+58	189.34	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+59	502.77	0.00	0.00
+		1.55	50.00
+		3.10	102.00
+		4.95	800.00
+		6.80	1500.00
+		7.20	1868.00
+		7.60	2237.00
+		7.95	2609.00
+		8.30	2982.00
+		9.30	4049.00
+60	429.89	0.00	0.00
+		1.55	50.00
+		3.10	102.00
+		4.95	800.00
+		6.80	1500.00
+		7.20	1868.00
+		7.60	2237.00
+		7.95	2609.00
+		8.30	2982.00
+		9.30	4049.00
+61	388.12	0.00	0.00
+		1.55	50.00
+		3.10	102.00
+		4.95	800.00
+		6.80	1500.00
+		7.20	1868.00
+		7.60	2237.00
+		7.95	2609.00
+		8.30	2982.00
+		9.30	4049.00
+62	341.53	0.00	0.00
+		1.55	50.00
+		3.10	102.00
+		4.95	800.00
+		6.80	1500.00
+		7.20	1868.00
+		7.60	2237.00
+		7.95	2609.00
+		8.30	2982.00
+		9.30	4049.00
+63	275.81	0.00	0.00
+		1.55	50.00
+		3.10	102.00
+		4.95	800.00
+		6.80	1500.00
+		7.20	1868.00
+		7.60	2237.00
+		7.95	2609.00
+		8.30	2982.00
+		9.30	4049.00
+64	253.39	0.00	0.00
+		1.55	50.00
+		3.10	102.00
+		4.95	800.00
+		6.80	1500.00
+		7.20	1868.00
+		7.60	2237.00
+		7.95	2609.00
+		8.30	2982.00
+		9.30	4049.00
+65	235.36	0.00	0.00
+		1.55	50.00
+		3.10	102.00
+		4.95	800.00
+		6.80	1500.00
+		7.20	1868.00
+		7.60	2237.00
+		7.95	2609.00
+		8.30	2982.00
+		9.30	4049.00
+66	209.21	0.00	0.00
+		1.55	50.00
+		3.10	102.00
+		4.95	800.00
+		6.80	1500.00
+		7.20	1868.00
+		7.60	2237.00
+		7.95	2609.00
+		8.30	2982.00
+		9.30	4049.00
+67	193.32	0.00	0.00
+		1.55	50.00
+		3.10	102.00
+		4.95	800.00
+		6.80	1500.00
+		7.20	1868.00
+		7.60	2237.00
+		7.95	2609.00
+		8.30	2982.00
+		9.30	4049.00
+68	175.38	0.00	0.00
+		1.55	50.00
+		3.10	102.00
+		4.95	800.00
+		6.80	1500.00
+		7.20	1868.00
+		7.60	2237.00
+		7.95	2609.00
+		8.30	2982.00
+		9.30	4049.00
+69	451.51	0.00	0.00
+		0.85	50.00
+		1.70	101.00
+		3.30	550.00
+		4.90	1001.00
+		6.25	2381.00
+		7.60	3763.00
+		8.65	5642.00
+		9.70	7523.00
+		10.70	9316.00
+70	388.33	0.00	0.00
+		0.85	50.00
+		1.70	101.00
+		3.30	550.00
+		4.90	1001.00
+		6.25	2381.00
+		7.60	3763.00
+		8.65	5642.00
+		9.70	7523.00
+		10.70	9316.00
+71	349.03	0.00	0.00
+		0.85	50.00
+		1.70	101.00
+		3.30	550.00
+		4.90	1001.00
+		6.25	2381.00
+		7.60	3763.00
+		8.65	5642.00
+		9.70	7523.00
+		10.70	9316.00
+72	309.27	0.00	0.00
+		0.85	50.00
+		1.70	101.00
+		3.30	550.00
+		4.90	1001.00
+		6.25	2381.00
+		7.60	3763.00
+		8.65	5642.00
+		9.70	7523.00
+		10.70	9316.00
+73	298.92	0.00	0.00
+		0.85	50.00
+		1.70	101.00
+		3.30	550.00
+		4.90	1001.00
+		6.25	2381.00
+		7.60	3763.00
+		8.65	5642.00
+		9.70	7523.00
+		10.70	9316.00
+74	258.58	0.00	0.00
+		0.85	50.00
+		1.70	101.00
+		3.30	550.00
+		4.90	1001.00
+		6.25	2381.00
+		7.60	3763.00
+		8.65	5642.00
+		9.70	7523.00
+		10.70	9316.00
+75	233.03	0.00	0.00
+		0.85	50.00
+		1.70	101.00
+		3.30	550.00
+		4.90	1001.00
+		6.25	2381.00
+		7.60	3763.00
+		8.65	5642.00
+		9.70	7523.00
+		10.70	9316.00
+76	206.12	0.00	0.00
+		0.85	50.00
+		1.70	101.00
+		3.30	550.00
+		4.90	1001.00
+		6.25	2381.00
+		7.60	3763.00
+		8.65	5642.00
+		9.70	7523.00
+		10.70	9316.00
+77	193.64	0.00	0.00
+		0.85	50.00
+		1.70	101.00
+		3.30	550.00
+		4.90	1001.00
+		6.25	2381.00
+		7.60	3763.00
+		8.65	5642.00
+		9.70	7523.00
+		10.70	9316.00
+78	175.52	0.00	0.00
+		0.85	50.00
+		1.70	101.00
+		3.30	550.00
+		4.90	1001.00
+		6.25	2381.00
+		7.60	3763.00
+		8.65	5642.00
+		9.70	7523.00
+		10.70	9316.00
+79	471.49	0.00	0.00
+		3.19	498.00
+		4.09	906.00
+		4.98	1711.00
+		5.87	2581.00
+		6.77	3462.00
+		7.66	4335.00
+		8.56	5422.00
+		9.45	7160.00
+		10.34	8899.00
+80	381.82	0.00	0.00
+		3.19	498.00
+		4.09	906.00
+		4.98	1711.00
+		5.87	2581.00
+		6.77	3462.00
+		7.66	4335.00
+		8.56	5422.00
+		9.45	7160.00
+		10.34	8899.00
+81	303.90	0.00	0.00
+		3.19	498.00
+		4.09	906.00
+		4.98	1711.00
+		5.87	2581.00
+		6.77	3462.00
+		7.66	4335.00
+		8.56	5422.00
+		9.45	7160.00
+		10.34	8899.00
+82	296.54	0.00	0.00
+		3.19	498.00
+		4.09	906.00
+		4.98	1711.00
+		5.87	2581.00
+		6.77	3462.00
+		7.66	4335.00
+		8.56	5422.00
+		9.45	7160.00
+		10.34	8899.00
+83	286.07	0.00	0.00
+		3.19	498.00
+		4.09	906.00
+		4.98	1711.00
+		5.87	2581.00
+		6.77	3462.00
+		7.66	4335.00
+		8.56	5422.00
+		9.45	7160.00
+		10.34	8899.00
+84	276.16	0.00	0.00
+		3.19	498.00
+		4.09	906.00
+		4.98	1711.00
+		5.87	2581.00
+		6.77	3462.00
+		7.66	4335.00
+		8.56	5422.00
+		9.45	7160.00
+		10.34	8899.00
+85	266.45	0.00	0.00
+		5.80	566.00
+		7.20	1086.00
+		8.59	1946.00
+		9.99	2814.00
+		11.39	3684.00
+		12.79	4556.00
+		14.18	5677.00
+		15.58	7344.00
+		16.98	9013.00
+86	256.81	0.00	0.00
+		5.80	566.00
+		7.20	1086.00
+		8.59	1946.00
+		9.99	2814.00
+		11.39	3684.00
+		12.79	4556.00
+		14.18	5677.00
+		15.58	7344.00
+		16.98	9013.00
+87	241.89	0.00	0.00
+		5.25	718.00
+		6.36	1326.00
+		7.47	2178.00
+		8.59	3039.00
+		9.70	3894.00
+		10.82	4758.00
+		11.93	5894.00
+		13.04	7070.00
+		14.16	8611.00
+88	216.62	0.00	0.00
+		5.25	718.00
+		6.36	1326.00
+		7.47	2178.00
+		8.59	3039.00
+		9.70	3894.00
+		10.82	4758.00
+		11.93	5894.00
+		13.04	7070.00
+		14.16	8611.00
+89	212.60	0.00	0.00
+		3.61	50.00
+		4.80	252.00
+		6.00	457.00
+		7.19	662.00
+		8.38	1041.00
+		9.57	1609.00
+		10.76	2179.00
+		11.95	2751.00
+		13.14	3516.00
+90	203.76	0.00	0.00
+		3.61	50.00
+		4.80	252.00
+		6.00	457.00
+		7.19	662.00
+		8.38	1041.00
+		9.57	1609.00
+		10.76	2179.00
+		11.95	2751.00
+		13.14	3516.00
+91	192.63	0.00	0.00
+		1.57	82.00
+		2.58	361.00
+		3.60	644.00
+		4.62	929.00
+		5.64	1216.00
+		6.65	1502.00
+		7.67	2245.00
+		8.69	3068.00
+		9.71	3893.00
+92	189.57	0.00	0.00
+		3.28	83.00
+		4.56	283.00
+		5.84	485.00
+		7.12	689.00
+		8.40	980.00
+		9.67	1367.00
+		10.95	1791.00
+		12.23	2622.00
+		13.51	3629.00
+93	187.54	0.00	0.00
+		3.28	83.00
+		4.56	283.00
+		5.84	485.00
+		7.12	689.00
+		8.40	980.00
+		9.67	1367.00
+		10.95	1791.00
+		12.23	2622.00
+		13.51	3629.00
+94	181.78	0.00	0.00
+		0.55	50.00
+		1.10	101.00
+		2.45	550.00
+		3.80	1001.00
+		6.20	5500.00
+		8.60	10002.00
+		9.90	14575.00
+		11.20	19150.00
+		12.20	22671.00
+95	174.57	0.00	0.00
+		0.55	50.00
+		1.10	101.00
+		2.45	550.00
+		3.80	1001.00
+		6.20	5500.00
+		8.60	10002.00
+		9.90	14575.00
+		11.20	19150.00
+		12.20	22671.00
+96	166.49	0.00	0.00
+		0.55	50.00
+		1.10	101.00
+		2.45	550.00
+		3.80	1001.00
+		6.20	5500.00
+		8.60	10002.00
+		9.90	14575.00
+		11.20	19150.00
+		12.20	22671.00
+97	169.59	0.00	0.00
+		1.55	50.00
+		3.10	102.00
+		4.95	800.00
+		6.80	1500.00
+		7.20	1868.00
+		7.60	2237.00
+		7.95	2609.00
+		8.30	2982.00
+		9.30	4049.00
+98	168.59	0.00	0.00
+		1.55	50.00
+		3.10	102.00
+		4.95	800.00
+		6.80	1500.00
+		7.20	1868.00
+		7.60	2237.00
+		7.95	2609.00
+		8.30	2982.00
+		9.30	4049.00
+99	167.59	0.00	0.00
+		1.55	50.00
+		3.10	102.00
+		4.95	800.00
+		6.80	1500.00
+		7.20	1868.00
+		7.60	2237.00
+		7.95	2609.00
+		8.30	2982.00
+		9.30	4049.00
+100	166.59	0.00	0.00
+		1.55	50.00
+		3.10	102.00
+		4.95	800.00
+		6.80	1500.00
+		7.20	1868.00
+		7.60	2237.00
+		7.95	2609.00
+		8.30	2982.00
+		9.30	4049.00
+101	173.48	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+102	172.48	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+103	171.48	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+104	170.48	0.00	0.00
+		1.00	108.00
+		2.00	217.00
+		3.50	617.00
+		5.00	1019.00
+		6.50	1654.00
+		8.00	2291.00
+		11.50	4671.00
+		15.00	7055.00
+		16.00	7738.00
+105	743.11	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+106	551.50	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+107	460.86	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+108	738.08	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+109	566.56	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+110	477.34	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+111	460.86	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+112	460.86	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+113	324.33	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+114	611.90	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+115	417.32	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+116	337.33	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+117	535.29	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+118	361.02	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+119	287.75	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+120	244.03	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+121	992.58	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+122	489.25	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+123	215.17	0.00	0.00
+		1.00	50.00
+		2.00	101.00
+		3.50	550.00
+		5.00	1001.00
+		7.50	1756.00
+		10.00	2514.00
+		12.50	3275.00
+		15.00	4039.00
+		16.00	4346.00
+124	209.34	0.00	0.00
+		7.17	752.00
+		8.20	1088.00
+		9.24	1584.00
+		10.27	2102.00
+		11.30	2622.00
+		12.34	3149.00
+		13.37	3686.00
+		14.41	4264.00
+		15.44	5135.00
+125	202.98	0.00	0.00
+		7.17	752.00
+		8.20	1088.00
+		9.24	1584.00
+		10.27	2102.00
+		11.30	2622.00
+		12.34	3149.00
+		13.37	3686.00
+		14.41	4264.00
+		15.44	5135.00
+126	194.87	0.00	0.00
+		4.53	734.00
+		5.19	1159.00
+		5.84	1586.00
+		6.49	2014.00
+		7.15	2450.00
+		7.80	2900.00
+		8.45	3393.00
+		9.11	3895.00
+		9.76	4560.00
+127	192.79	0.00	0.00
+		4.53	734.00
+		5.19	1159.00
+		5.84	1586.00
+		6.49	2014.00
+		7.15	2450.00
+		7.80	2900.00
+		8.45	3393.00
+		9.11	3895.00
+		9.76	4560.00
+128	183.95	0.00	0.00
+		4.53	734.00
+		5.19	1159.00
+		5.84	1586.00
+		6.49	2014.00
+		7.15	2450.00
+		7.80	2900.00
+		8.45	3393.00
+		9.11	3895.00
+		9.76	4560.00
+129	179.22	0.00	0.00
+		14.07	753.00
+		14.83	1055.00
+		15.59	1423.00
+		16.35	1877.00
+		17.11	2372.00
+		17.87	2868.00
+		18.63	3365.00
+		19.39	3863.00
+		20.15	4486.00
+130	171.12	0.00	0.00
+		14.07	753.00
+		14.83	1055.00
+		15.59	1423.00
+		16.35	1877.00
+		17.11	2372.00
+		17.87	2868.00
+		18.63	3365.00
+		19.39	3863.00
+		20.15	4486.00
+131	160.89	0.00	0.00
+		5.53	764.00
+		6.27	1165.00
+		7.02	1658.00
+		7.76	2170.00
+		8.50	2683.00
+		9.25	3204.00
+		9.99	3719.00
+		10.73	4235.00
+		11.47	4752.00
+132	156.00	0.00	0.00
+		5.53	764.00
+		6.27	1165.00
+		7.02	1658.00
+		7.76	2170.00
+		8.50	2683.00
+		9.25	3204.00
+		9.99	3719.00
+		10.73	4235.00
+		11.47	4752.00
+133	155.00	0.00	0.00
+		5.53	764.00
+		6.27	1165.00
+		7.02	1658.00
+		7.76	2170.00
+		8.50	2683.00
+		9.25	3204.00
+		9.99	3719.00
+		10.73	4235.00
+		11.47	4752.00
+134	146.66	0.00	0.00
+		6.68	753.00
+		7.83	1065.00
+		8.97	1462.00
+		10.12	1891.00
+		11.26	2320.00
+		12.40	2751.00
+		13.55	3260.00
+		14.69	3803.00
+		15.83	4418.00
+135	147.32	0.00	0.00
+		7.37	1000.00
+		7.72	1500.00
+		8.08	2200.00
+		8.43	2881.00
+		8.79	3582.00
+		9.14	4264.00
+		9.49	4947.00
+		9.85	5650.00
+		10.20	6334.00
+136	139.74	0.00	0.00
+		7.37	1000.00
+		7.72	1500.00
+		8.08	2200.00
+		8.43	2881.00
+		8.79	3582.00
+		9.14	4264.00
+		9.49	4947.00
+		9.85	5650.00
+		10.20	6334.00
+137	142.75	0.00	0.00
+		12.83	891.00
+		12.88	1000.00
+		12.93	1200.00
+		12.98	1500.00
+		13.03	2000.00
+		13.08	2501.00
+		13.13	3003.00
+		13.18	3506.00
+		13.23	4286.00
+138	290.77	0.00	0.00
+		2.68	500.00
+		4.00	1200.00
+		5.32	2051.00
+		6.64	3204.00
+		7.96	4572.00
+		9.28	6234.00
+		10.60	8143.00
+		11.92	10359.00
+		13.24	13034.00
+139	261.16	0.00	0.00
+		2.68	500.00
+		4.00	1200.00
+		5.32	2051.00
+		6.64	3204.00
+		7.96	4572.00
+		9.28	6234.00
+		10.60	8143.00
+		11.92	10359.00
+		13.24	13034.00
+140	241.38	0.00	0.00
+		2.68	500.00
+		4.00	1200.00
+		5.32	2051.00
+		6.64	3204.00
+		7.96	4572.00
+		9.28	6234.00
+		10.60	8143.00
+		11.92	10359.00
+		13.24	13034.00
+141	219.34	0.00	0.00
+		2.68	500.00
+		4.00	1200.00
+		5.32	2051.00
+		6.64	3204.00
+		7.96	4572.00
+		9.28	6234.00
+		10.60	8143.00
+		11.92	10359.00
+		13.24	13034.00
+142	204.91	0.00	0.00
+		2.68	500.00
+		4.00	1200.00
+		5.32	2051.00
+		6.64	3204.00
+		7.96	4572.00
+		9.28	6234.00
+		10.60	8143.00
+		11.92	10359.00
+		13.24	13034.00
+143	190.92	0.00	0.00
+		2.68	500.00
+		4.00	1200.00
+		5.32	2051.00
+		6.64	3204.00
+		7.96	4572.00
+		9.28	6234.00
+		10.60	8143.00
+		11.92	10359.00
+		13.24	13034.00
+144	172.90	0.00	0.00
+		4.15	507.00
+		5.30	1057.00
+		6.46	1630.00
+		7.62	2479.00
+		8.77	3674.00
+		9.93	5337.00
+		11.08	7502.00
+		12.24	10134.00
+		13.39	13347.00
+145	160.24	0.00	0.00
+		4.15	507.00
+		5.30	1057.00
+		6.46	1630.00
+		7.62	2479.00
+		8.77	3674.00
+		9.93	5337.00
+		11.08	7502.00
+		12.24	10134.00
+		13.39	13347.00
+146	160.24	0.00	0.00
+		4.15	507.00
+		5.30	1057.00
+		6.46	1630.00
+		7.62	2479.00
+		8.77	3674.00
+		9.93	5337.00
+		11.08	7502.00
+		12.24	10134.00
+		13.39	13347.00
+147	150.86	0.00	0.00
+		12.95	247.00
+		13.40	1000.00
+		13.86	1900.00
+		14.31	2781.00
+		14.76	3663.00
+		15.22	4589.00
+		15.67	5769.00
+		16.13	6976.00
+		16.58	8158.00
+148	160.24	0.00	0.00
+		4.15	507.00
+		5.30	1057.00
+		6.46	1630.00
+		7.62	2479.00
+		8.77	3674.00
+		9.93	5337.00
+		11.08	7502.00
+		12.24	10134.00
+		13.39	13347.00
+149	157.10	0.00	0.00
+		3.35	325.00
+		4.57	687.00
+		5.80	1256.00
+		7.02	2059.00
+		8.25	3302.00
+		9.47	4972.00
+		10.70	7278.00
+		11.92	10089.00
+		13.15	13492.00
+150	154.93	0.00	0.00
+		3.35	325.00
+		4.57	687.00
+		5.80	1256.00
+		7.02	2059.00
+		8.25	3302.00
+		9.47	4972.00
+		10.70	7278.00
+		11.92	10089.00
+		13.15	13492.00
+151	148.77	0.00	0.00
+		7.20	104.00
+		8.74	358.00
+		10.29	811.00
+		11.83	1263.00
+		13.37	1851.00
+		14.91	2868.00
+		16.45	4617.00
+		18.00	7184.00
+		19.54	10131.00
+152	147.56	0.00	0.00
+		7.20	104.00
+		8.74	358.00
+		10.29	811.00
+		11.83	1263.00
+		13.37	1851.00
+		14.91	2868.00
+		16.45	4617.00
+		18.00	7184.00
+		19.54	10131.00
+153	364.85	0.00	0.00
+		2.18	200.00
+		2.98	472.00
+		3.78	942.00
+		4.57	1508.00
+		5.37	2082.00
+		6.17	2657.00
+		6.97	3327.00
+		7.77	4164.00
+		8.57	5002.00
+154	301.40	0.00	0.00
+		2.18	200.00
+		2.98	472.00
+		3.78	942.00
+		4.57	1508.00
+		5.37	2082.00
+		6.17	2657.00
+		6.97	3327.00
+		7.77	4164.00
+		8.57	5002.00
+155	278.99	0.00	0.00
+		2.18	200.00
+		2.98	472.00
+		3.78	942.00
+		4.57	1508.00
+		5.37	2082.00
+		6.17	2657.00
+		6.97	3327.00
+		7.77	4164.00
+		8.57	5002.00
+156	247.47	0.00	0.00
+		2.18	200.00
+		2.98	472.00
+		3.78	942.00
+		4.57	1508.00
+		5.37	2082.00
+		6.17	2657.00
+		6.97	3327.00
+		7.77	4164.00
+		8.57	5002.00
+157	204.87	0.00	0.00
+		2.18	200.00
+		2.98	472.00
+		3.78	942.00
+		4.57	1508.00
+		5.37	2082.00
+		6.17	2657.00
+		6.97	3327.00
+		7.77	4164.00
+		8.57	5002.00
+158	167.57	0.00	0.00
+		2.07	200.00
+		2.86	471.00
+		3.64	858.00
+		4.43	1333.00
+		5.21	1943.00
+		5.99	2605.00
+		6.78	3313.00
+		7.56	4147.00
+		8.35	5001.00
+159	151.25	0.00	0.00
+		2.07	200.00
+		2.86	471.00
+		3.64	858.00
+		4.43	1333.00
+		5.21	1943.00
+		5.99	2605.00
+		6.78	3313.00
+		7.56	4147.00
+		8.35	5001.00
+160	151.25	0.00	0.00
+		9.89	103.00
+		10.83	729.00
+		11.77	1356.00
+		12.71	2401.00
+		13.66	4539.00
+		14.60	6656.00
+		15.54	8774.00
+		16.48	10893.00
+		17.42	13013.00
+161	135.43	0.00	0.00
+		3.44	340.00
+		4.56	854.00
+		5.67	1679.00
+		6.78	3016.00
+		7.90	4941.00
+		9.01	7242.00
+		10.12	9985.00
+		11.23	12730.00
+		12.35	15727.00
+162	116.42	0.00	0.00
+		3.82	691.00
+		5.55	1562.00
+		7.28	2435.00
+		9.01	4022.00
+		10.73	5853.00
+		12.46	8100.00
+		14.19	11246.00
+		15.91	14678.00
+		17.64	19992.00
+163	96.49	0.00	0.00
+		3.82	691.00
+		5.55	1562.00
+		7.28	2435.00
+		9.01	4022.00
+		10.73	5853.00
+		12.46	8100.00
+		14.19	11246.00
+		15.91	14678.00
+		17.64	19992.00
+164	138.00	0.00	0.00
+		12.95	247.00
+		13.40	1000.00
+		13.86	1900.00
+		14.31	2781.00
+		14.76	3663.00
+		15.22	4589.00
+		15.67	5769.00
+		16.13	6976.00
+		16.58	8158.00
+165	133.73	0.00	0.00
+		12.95	247.00
+		13.40	1000.00
+		13.86	1900.00
+		14.31	2781.00
+		14.76	3663.00
+		15.22	4589.00
+		15.67	5769.00
+		16.13	6976.00
+		16.58	8158.00
+166	126.45	0.00	0.00
+		12.95	247.00
+		13.40	1000.00
+		13.86	1900.00
+		14.31	2781.00
+		14.76	3663.00
+		15.22	4589.00
+		15.67	5769.00
+		16.13	6976.00
+		16.58	8158.00
+167	120.52	0.00	0.00
+		12.95	247.00
+		13.40	1000.00
+		13.86	1900.00
+		14.31	2781.00
+		14.76	3663.00
+		15.22	4589.00
+		15.67	5769.00
+		16.13	6976.00
+		16.58	8158.00
+168	116.40	0.00	0.00
+		12.95	247.00
+		13.40	1000.00
+		13.86	1900.00
+		14.31	2781.00
+		14.76	3663.00
+		15.22	4589.00
+		15.67	5769.00
+		16.13	6976.00
+		16.58	8158.00
+169	99.66	0.00	0.00
+		12.95	247.00
+		13.40	1000.00
+		13.86	1900.00
+		14.31	2781.00
+		14.76	3663.00
+		15.22	4589.00
+		15.67	5769.00
+		16.13	6976.00
+		16.58	8158.00
+170	95.47	0.00	0.00
+		14.88	1289.00
+		15.74	1825.00
+		16.60	2362.00
+		17.46	2900.00
+		18.32	3439.00
+		19.18	3979.00
+		20.04	4561.00
+		20.90	5561.00
+		21.76	6562.00
+171	328.23	0.00	0.00
+		2.95	500.00
+		3.91	877.00
+		4.86	1379.00
+		5.82	1964.00
+		6.77	2869.00
+		7.73	3984.00
+		8.68	5194.00
+		9.64	6418.00
+		10.59	7631.00
+172	298.95	0.00	0.00
+		2.95	500.00
+		3.91	877.00
+		4.86	1379.00
+		5.82	1964.00
+		6.77	2869.00
+		7.73	3984.00
+		8.68	5194.00
+		9.64	6418.00
+		10.59	7631.00
+173	265.87	0.00	0.00
+		2.95	500.00
+		3.91	877.00
+		4.86	1379.00
+		5.82	1964.00
+		6.77	2869.00
+		7.73	3984.00
+		8.68	5194.00
+		9.64	6418.00
+		10.59	7631.00
+174	250.30	0.00	0.00
+		2.95	500.00
+		3.91	877.00
+		4.86	1379.00
+		5.82	1964.00
+		6.77	2869.00
+		7.73	3984.00
+		8.68	5194.00
+		9.64	6418.00
+		10.59	7631.00
+175	212.28	0.00	0.00
+		2.95	500.00
+		3.91	877.00
+		4.86	1379.00
+		5.82	1964.00
+		6.77	2869.00
+		7.73	3984.00
+		8.68	5194.00
+		9.64	6418.00
+		10.59	7631.00
+176	176.61	0.00	0.00
+		2.95	500.00
+		3.91	877.00
+		4.86	1379.00
+		5.82	1964.00
+		6.77	2869.00
+		7.73	3984.00
+		8.68	5194.00
+		9.64	6418.00
+		10.59	7631.00
+177	142.44	0.00	0.00
+		2.95	500.00
+		3.91	877.00
+		4.86	1379.00
+		5.82	1964.00
+		6.77	2869.00
+		7.73	3984.00
+		8.68	5194.00
+		9.64	6418.00
+		10.59	7631.00
+178	109.32	0.00	0.00
+		2.95	500.00
+		3.91	877.00
+		4.86	1379.00
+		5.82	1964.00
+		6.77	2869.00
+		7.73	3984.00
+		8.68	5194.00
+		9.64	6418.00
+		10.59	7631.00
+179	96.49	0.00	0.00
+		3.82	691.00
+		5.55	1562.00
+		7.28	2435.00
+		9.01	4022.00
+		10.73	5853.00
+		12.46	8100.00
+		14.19	11246.00
+		15.91	14678.00
+		17.64	19992.00
+180	95.47	0.00	0.00
+		3.82	691.00
+		5.55	1562.00
+		7.28	2435.00
+		9.01	4022.00
+		10.73	5853.00
+		12.46	8100.00
+		14.19	11246.00
+		15.91	14678.00
+		17.64	19992.00
+181	93.71	0.00	0.00
+		3.82	691.00
+		5.55	1562.00
+		7.28	2435.00
+		9.01	4022.00
+		10.73	5853.00
+		12.46	8100.00
+		14.19	11246.00
+		15.91	14678.00
+		17.64	19992.00
+182	92.71	0.00	0.00
+		2.95	500.00
+		3.91	877.00
+		4.86	1379.00
+		5.82	1964.00
+		6.77	2869.00
+		7.73	3984.00
+		8.68	5194.00
+		9.64	6418.00
+		10.59	7631.00
+183	93.60	0.00	0.00
+		7.33	2466.00
+		8.06	3951.00
+		8.78	5662.00
+		9.51	7658.00
+		10.24	9756.00
+		10.96	12071.00
+		11.69	14737.00
+		12.41	17530.00
+		13.14	20525.00
+184	89.34	0.00	0.00
+		7.33	2466.00
+		8.06	3951.00
+		8.78	5662.00
+		9.51	7658.00
+		10.24	9756.00
+		10.96	12071.00
+		11.69	14737.00
+		12.41	17530.00
+		13.14	20525.00
+185	95.47	0.00	0.00
+		9.97	1298.00
+		10.48	2100.00
+		10.99	2903.00
+		11.50	3707.00
+		12.01	4512.00
+		12.52	5500.00
+		13.03	7200.00
+		13.54	8901.00
+		14.05	10603.00
+186	90.29	0.00	0.00
+		9.97	1298.00
+		10.48	2100.00
+		10.99	2903.00
+		11.50	3707.00
+		12.01	4512.00
+		12.52	5500.00
+		13.03	7200.00
+		13.54	8901.00
+		14.05	10603.00
+187	87.60	0.00	0.00
+		9.97	1298.00
+		10.48	2100.00
+		10.99	2903.00
+		11.50	3707.00
+		12.01	4512.00
+		12.52	5500.00
+		13.03	7200.00
+		13.54	8901.00
+		14.05	10603.00
+188	77.77	0.00	0.00
+		9.97	1298.00
+		10.48	2100.00
+		10.99	2903.00
+		11.50	3707.00
+		12.01	4512.00
+		12.52	5500.00
+		13.03	7200.00
+		13.54	8901.00
+		14.05	10603.00
+189	327.27	0.00	0.00
+		7.33	2466.00
+		8.06	3951.00
+		8.78	5662.00
+		9.51	7658.00
+		10.24	9756.00
+		10.96	12071.00
+		11.69	14737.00
+		12.41	17530.00
+		13.14	20525.00
+190	272.14	0.00	0.00
+		7.33	2466.00
+		8.06	3951.00
+		8.78	5662.00
+		9.51	7658.00
+		10.24	9756.00
+		10.96	12071.00
+		11.69	14737.00
+		12.41	17530.00
+		13.14	20525.00
+191	233.53	0.00	0.00
+		7.33	2466.00
+		8.06	3951.00
+		8.78	5662.00
+		9.51	7658.00
+		10.24	9756.00
+		10.96	12071.00
+		11.69	14737.00
+		12.41	17530.00
+		13.14	20525.00
+192	218.26	0.00	0.00
+		7.33	2466.00
+		8.06	3951.00
+		8.78	5662.00
+		9.51	7658.00
+		10.24	9756.00
+		10.96	12071.00
+		11.69	14737.00
+		12.41	17530.00
+		13.14	20525.00
+193	179.22	0.00	0.00
+		7.33	2466.00
+		8.06	3951.00
+		8.78	5662.00
+		9.51	7658.00
+		10.24	9756.00
+		10.96	12071.00
+		11.69	14737.00
+		12.41	17530.00
+		13.14	20525.00
+194	140.94	0.00	0.00
+		7.33	2466.00
+		8.06	3951.00
+		8.78	5662.00
+		9.51	7658.00
+		10.24	9756.00
+		10.96	12071.00
+		11.69	14737.00
+		12.41	17530.00
+		13.14	20525.00
+195	101.06	0.00	0.00
+		7.33	2466.00
+		8.06	3951.00
+		8.78	5662.00
+		9.51	7658.00
+		10.24	9756.00
+		10.96	12071.00
+		11.69	14737.00
+		12.41	17530.00
+		13.14	20525.00
+196	89.34	0.00	0.00
+		7.33	2466.00
+		8.06	3951.00
+		8.78	5662.00
+		9.51	7658.00
+		10.24	9756.00
+		10.96	12071.00
+		11.69	14737.00
+		12.41	17530.00
+		13.14	20525.00
+197	77.77	0.00	0.00
+		9.17	2453.00
+		9.62	3153.00
+		10.08	3870.00
+		10.53	4572.00
+		10.99	5583.00
+		11.44	6763.00
+		11.90	7970.00
+		12.35	9152.00
+		12.81	10501.00
+198	80.74	0.00	0.00
+		7.33	2466.00
+		8.06	3951.00
+		8.78	5662.00
+		9.51	7658.00
+		10.24	9756.00
+		10.96	12071.00
+		11.69	14737.00
+		12.41	17530.00
+		13.14	20525.00
+199	77.42	0.00	0.00
+		6.29	87.00
+		7.78	400.00
+		9.26	713.00
+		10.74	1100.00
+		12.23	1986.00
+		13.71	3074.00
+		15.20	4251.00
+		16.68	6411.00
+		18.16	8901.00
+200	78.06	0.00	0.00
+		4.22	246.00
+		5.97	504.00
+		7.71	848.00
+		9.46	1309.00
+		11.20	2205.00
+		12.94	3794.00
+		14.69	6562.00
+		16.43	9900.00
+		18.18	13512.00
+201	77.77	0.00	0.00
+		9.17	2453.00
+		9.62	3153.00
+		10.08	3870.00
+		10.53	4572.00
+		10.99	5583.00
+		11.44	6763.00
+		11.90	7970.00
+		12.35	9152.00
+		12.81	10501.00
+202	73.29	0.00	0.00
+		9.17	2453.00
+		9.62	3153.00
+		10.08	3870.00
+		10.53	4572.00
+		10.99	5583.00
+		11.44	6763.00
+		11.90	7970.00
+		12.35	9152.00
+		12.81	10501.00
+203	61.62	0.00	0.00
+		9.17	2453.00
+		9.62	3153.00
+		10.08	3870.00
+		10.53	4572.00
+		10.99	5583.00
+		11.44	6763.00
+		11.90	7970.00
+		12.35	9152.00
+		12.81	10501.00
+204	298.46	0.00	0.00
+		1.15	200.00
+		2.44	565.00
+		3.74	1112.00
+		5.03	1785.00
+		6.32	2622.00
+		7.61	3718.00
+		8.90	5046.00
+		10.19	6649.00
+		11.48	8494.00
+205	235.02	0.00	0.00
+		1.15	200.00
+		2.44	565.00
+		3.74	1112.00
+		5.03	1785.00
+		6.32	2622.00
+		7.61	3718.00
+		8.90	5046.00
+		10.19	6649.00
+		11.48	8494.00
+206	196.28	0.00	0.00
+		1.15	200.00
+		2.44	565.00
+		3.74	1112.00
+		5.03	1785.00
+		6.32	2622.00
+		7.61	3718.00
+		8.90	5046.00
+		10.19	6649.00
+		11.48	8494.00
+207	162.33	0.00	0.00
+		1.15	200.00
+		2.44	565.00
+		3.74	1112.00
+		5.03	1785.00
+		6.32	2622.00
+		7.61	3718.00
+		8.90	5046.00
+		10.19	6649.00
+		11.48	8494.00
+208	139.38	0.00	0.00
+		1.15	200.00
+		2.44	565.00
+		3.74	1112.00
+		5.03	1785.00
+		6.32	2622.00
+		7.61	3718.00
+		8.90	5046.00
+		10.19	6649.00
+		11.48	8494.00
+209	100.53	0.00	0.00
+		1.15	200.00
+		2.44	565.00
+		3.74	1112.00
+		5.03	1785.00
+		6.32	2622.00
+		7.61	3718.00
+		8.90	5046.00
+		10.19	6649.00
+		11.48	8494.00
+210	87.87	0.00	0.00
+		1.15	200.00
+		2.44	565.00
+		3.74	1112.00
+		5.03	1785.00
+		6.32	2622.00
+		7.61	3718.00
+		8.90	5046.00
+		10.19	6649.00
+		11.48	8494.00
+211	62.90	0.00	0.00
+		9.57	393.00
+		10.83	947.00
+		12.09	1503.00
+		13.36	2065.00
+		14.62	2624.00
+		15.88	4204.00
+		17.14	8496.00
+		18.40	12790.00
+		19.66	17086.00
+212	76.02	0.00	0.00
+		7.50	216.00
+		9.03	294.00
+		10.56	387.00
+		12.09	562.00
+		13.62	1094.00
+		15.15	4868.00
+		16.68	8644.00
+		18.20	12397.00
+		19.73	16177.00
+213	76.99	0.00	0.00
+		7.50	216.00
+		9.03	294.00
+		10.56	387.00
+		12.09	562.00
+		13.62	1094.00
+		15.15	4868.00
+		16.68	8644.00
+		18.20	12397.00
+		19.73	16177.00
+214	58.62	0.00	0.00
+		15.65	3010.00
+		16.92	4109.00
+		18.19	5578.00
+		19.46	7449.00
+		20.73	9478.00
+		22.00	11872.00
+		23.27	15782.00
+		24.53	20852.00
+		25.80	27052.00
+215	52.06	0.00	0.00
+		7.50	216.00
+		9.03	294.00
+		10.56	387.00
+		12.09	562.00
+		13.62	1094.00
+		15.15	4868.00
+		16.68	8644.00
+		18.20	12397.00
+		19.73	16177.00
+216	61.62	0.00	0.00
+		9.17	2453.00
+		9.62	3153.00
+		10.08	3870.00
+		10.53	4572.00
+		10.99	5583.00
+		11.44	6763.00
+		11.90	7970.00
+		12.35	9152.00
+		12.81	10501.00
+217	56.54	0.00	0.00
+		15.65	3010.00
+		16.92	4109.00
+		18.19	5578.00
+		19.46	7449.00
+		20.73	9478.00
+		22.00	11872.00
+		23.27	15782.00
+		24.53	20852.00
+		25.80	27052.00
+218	46.56	0.00	0.00
+		11.23	3114.00
+		12.24	4776.00
+		13.25	6937.00
+		14.26	9182.00
+		15.27	11429.00
+		16.27	13655.00
+		17.28	16729.00
+		18.29	23102.00
+		19.30	29477.00
+219	293.18	0.00	0.00
+		8.44	1500.00
+		9.39	1997.00
+		10.35	2578.00
+		11.30	3159.00
+		12.26	3748.00
+		13.22	4338.00
+		14.17	4923.00
+		15.13	5516.00
+		16.08	6104.00
+220	238.33	0.00	0.00
+		8.44	1500.00
+		9.39	1997.00
+		10.35	2578.00
+		11.30	3159.00
+		12.26	3748.00
+		13.22	4338.00
+		14.17	4923.00
+		15.13	5516.00
+		16.08	6104.00
+221	165.78	0.00	0.00
+		8.44	1500.00
+		9.39	1997.00
+		10.35	2578.00
+		11.30	3159.00
+		12.26	3748.00
+		13.22	4338.00
+		14.17	4923.00
+		15.13	5516.00
+		16.08	6104.00
+222	126.57	0.00	0.00
+		8.44	1500.00
+		9.39	1997.00
+		10.35	2578.00
+		11.30	3159.00
+		12.26	3748.00
+		13.22	4338.00
+		14.17	4923.00
+		15.13	5516.00
+		16.08	6104.00
+223	90.16	0.00	0.00
+		8.44	1500.00
+		9.39	1997.00
+		10.35	2578.00
+		11.30	3159.00
+		12.26	3748.00
+		13.22	4338.00
+		14.17	4923.00
+		15.13	5516.00
+		16.08	6104.00
+224	76.36	0.00	0.00
+		8.44	1500.00
+		9.39	1997.00
+		10.35	2578.00
+		11.30	3159.00
+		12.26	3748.00
+		13.22	4338.00
+		14.17	4923.00
+		15.13	5516.00
+		16.08	6104.00
+225	66.29	0.00	0.00
+		8.44	1500.00
+		9.39	1997.00
+		10.35	2578.00
+		11.30	3159.00
+		12.26	3748.00
+		13.22	4338.00
+		14.17	4923.00
+		15.13	5516.00
+		16.08	6104.00
+226	59.85	0.00	0.00
+		8.44	1500.00
+		9.39	1997.00
+		10.35	2578.00
+		11.30	3159.00
+		12.26	3748.00
+		13.22	4338.00
+		14.17	4923.00
+		15.13	5516.00
+		16.08	6104.00
+227	49.70	0.00	0.00
+		10.45	1498.00
+		11.33	1792.00
+		12.22	2206.00
+		13.10	2642.00
+		13.98	3104.00
+		14.87	3829.00
+		15.75	4554.00
+		16.64	5289.00
+		17.52	6017.00
+228	46.56	0.00	0.00
+		11.23	3114.00
+		12.24	4776.00
+		13.25	6937.00
+		14.26	9182.00
+		15.27	11429.00
+		16.27	13655.00
+		17.28	16729.00
+		18.29	23102.00
+		19.30	29477.00
+229	44.17	0.00	0.00
+		12.94	5001.00
+		14.09	6097.00
+		15.24	7536.00
+		16.38	9662.00
+		17.53	11840.00
+		18.68	14647.00
+		19.83	19620.00
+		20.98	26060.00
+		22.12	34916.00
+230	37.32	0.00	0.00
+		11.20	5014.00
+		12.70	6498.00
+		14.20	8583.00
+		15.70	11044.00
+		17.20	13507.00
+		18.69	17567.00
+		20.19	22479.00
+		21.69	30950.00
+		23.19	43008.00
+231	201.53	0.00	0.00
+		0.68	100.00
+		1.03	270.00
+		1.38	477.00
+		1.74	926.00
+		2.09	1553.00
+		2.44	2181.00
+		2.80	2828.00
+		3.15	4147.00
+		3.50	5603.00
+232	117.39	0.00	0.00
+		1.14	100.00
+		1.86	309.00
+		2.58	563.00
+		3.30	1110.00
+		4.02	1796.00
+		4.74	2483.00
+		5.46	3202.00
+		6.17	4382.00
+		6.89	5580.00
+233	51.27	0.00	0.00
+		7.63	100.00
+		7.90	150.00
+		8.17	201.00
+		8.44	300.00
+		8.70	400.00
+		8.97	600.00
+		9.24	801.00
+		9.51	1003.00
+		9.78	1977.00
+234	37.32	0.00	0.00
+		11.20	5014.00
+		12.70	6498.00
+		14.20	8583.00
+		15.70	11044.00
+		17.20	13507.00
+		18.69	17567.00
+		20.19	22479.00
+		21.69	30950.00
+		23.19	43008.00
+235	29.68	0.00	0.00
+		15.73	5102.00
+		17.14	6458.00
+		18.56	8304.00
+		19.97	11019.00
+		21.39	13755.00
+		22.81	17843.00
+		24.22	24717.00
+		25.64	33029.00
+		27.05	43239.00
+236	18.31	0.00	0.00
+		12.24	5071.00
+		13.59	6453.00
+		14.94	8211.00
+		16.29	10685.00
+		17.64	14054.00
+		18.99	17756.00
+		20.34	24859.00
+		21.69	35263.00
+		23.04	47194.00
+237	16.62	0.00	0.00
+		13.24	4997.00
+		14.65	6377.00
+		16.07	7769.00
+		17.48	9572.00
+		18.89	13181.00
+		20.31	17390.00
+		21.72	22357.00
+		23.13	31005.00
+		24.55	47724.00
+238	142.29	0.00	0.00
+		5.36	100.00
+		8.79	655.00
+		12.22	1214.00
+		15.65	1777.00
+		19.09	2346.00
+		22.52	4000.00
+		25.95	7084.00
+		29.38	12821.00
+		32.82	20869.00
+239	121.45	0.00	0.00
+		5.36	100.00
+		8.79	655.00
+		12.22	1214.00
+		15.65	1777.00
+		19.09	2346.00
+		22.52	4000.00
+		25.95	7084.00
+		29.38	12821.00
+		32.82	20869.00
+240	104.98	0.00	0.00
+		5.36	100.00
+		8.79	655.00
+		12.22	1214.00
+		15.65	1777.00
+		19.09	2346.00
+		22.52	4000.00
+		25.95	7084.00
+		29.38	12821.00
+		32.82	20869.00
+241	60.85	0.00	0.00
+		5.36	100.00
+		8.79	655.00
+		12.22	1214.00
+		15.65	1777.00
+		19.09	2346.00
+		22.52	4000.00
+		25.95	7084.00
+		29.38	12821.00
+		32.82	20869.00
+242	43.86	0.00	0.00
+		5.36	100.00
+		8.79	655.00
+		12.22	1214.00
+		15.65	1777.00
+		19.09	2346.00
+		22.52	4000.00
+		25.95	7084.00
+		29.38	12821.00
+		32.82	20869.00
+243	37.48	0.00	0.00
+		8.06	100.00
+		11.52	659.00
+		14.97	1220.00
+		18.43	1787.00
+		21.88	2356.00
+		25.33	4000.00
+		28.79	6608.00
+		32.24	12740.00
+		35.69	20788.00
+244	31.92	0.00	0.00
+		8.06	100.00
+		11.52	659.00
+		14.97	1220.00
+		18.43	1787.00
+		21.88	2356.00
+		25.33	4000.00
+		28.79	6608.00
+		32.24	12740.00
+		35.69	20788.00
+245	25.07	0.00	0.00
+		8.06	100.00
+		11.52	659.00
+		14.97	1220.00
+		18.43	1787.00
+		21.88	2356.00
+		25.33	4000.00
+		28.79	6608.00
+		32.24	12740.00
+		35.69	20788.00
+246	18.43	0.00	0.00
+		10.11	500.00
+		11.83	1969.00
+		13.55	3682.00
+		15.27	5832.00
+		16.99	7984.00
+		18.71	10138.00
+		20.43	12294.00
+		22.16	15000.00
+		23.88	18516.00
+247	16.62	0.00	0.00
+		13.24	4997.00
+		14.65	6377.00
+		16.07	7769.00
+		17.48	9572.00
+		18.89	13181.00
+		20.31	17390.00
+		21.72	22357.00
+		23.13	31005.00
+		24.55	47724.00
+248	5.97	0.00	0.00
+		10.86	5701.00
+		12.71	7716.00
+		14.55	10634.00
+		16.39	14003.00
+		18.24	19807.00
+		20.08	26619.00
+		21.92	34013.00
+		23.77	44483.00
+		25.61	58138.00
+249	172.98	0.00	0.00
+		1.99	123.00
+		4.34	525.00
+		6.69	1027.00
+		9.04	1801.00
+		11.39	2578.00
+		13.73	3597.00
+		16.08	4623.00
+		18.43	6163.00
+		20.78	10762.00
+250	130.53	0.00	0.00
+		1.99	123.00
+		4.34	525.00
+		6.69	1027.00
+		9.04	1801.00
+		11.39	2578.00
+		13.73	3597.00
+		16.08	4623.00
+		18.43	6163.00
+		20.78	10762.00
+251	127.07	0.00	0.00
+		1.99	123.00
+		4.34	525.00
+		6.69	1027.00
+		9.04	1801.00
+		11.39	2578.00
+		13.73	3597.00
+		16.08	4623.00
+		18.43	6163.00
+		20.78	10762.00
+252	96.04	0.00	0.00
+		1.99	123.00
+		4.34	525.00
+		6.69	1027.00
+		9.04	1801.00
+		11.39	2578.00
+		13.73	3597.00
+		16.08	4623.00
+		18.43	6163.00
+		20.78	10762.00
+253	73.36	0.00	0.00
+		1.99	123.00
+		4.34	525.00
+		6.69	1027.00
+		9.04	1801.00
+		11.39	2578.00
+		13.73	3597.00
+		16.08	4623.00
+		18.43	6163.00
+		20.78	10762.00
+254	55.05	0.00	0.00
+		1.99	123.00
+		4.34	525.00
+		6.69	1027.00
+		9.04	1801.00
+		11.39	2578.00
+		13.73	3597.00
+		16.08	4623.00
+		18.43	6163.00
+		20.78	10762.00
+255	36.18	0.00	0.00
+		1.99	123.00
+		4.34	525.00
+		6.69	1027.00
+		9.04	1801.00
+		11.39	2578.00
+		13.73	3597.00
+		16.08	4623.00
+		18.43	6163.00
+		20.78	10762.00
+256	26.99	0.00	0.00
+		1.99	109.00
+		4.28	579.00
+		6.57	1140.00
+		8.86	1905.00
+		11.15	2673.00
+		13.44	3974.00
+		15.73	5278.00
+		18.02	6585.00
+		20.31	10723.00
+257	10.92	0.00	0.00
+		9.00	43.00
+		10.99	946.00
+		12.98	1851.00
+		14.97	2758.00
+		16.96	3667.00
+		18.94	4574.00
+		20.93	5488.00
+		22.92	6794.00
+		24.91	9470.00
+258	5.97	0.00	0.00
+		10.86	5701.00
+		12.71	7716.00
+		14.55	10634.00
+		16.39	14003.00
+		18.24	19807.00
+		20.08	26619.00
+		21.92	34013.00
+		23.77	44483.00
+		25.61	58138.00
+259	0.62	0.00	0.00
+		16.97	5453.00
+		19.18	8504.00
+		21.38	12623.00
+		23.59	17812.00
+		25.79	24567.00
+		28.00	31821.00
+		30.20	41903.00
+		32.40	53673.00
+		34.61	72657.00
+260	-14.17	0.00	0.00
+		32.39	5026.00
+		33.93	8796.00
+		35.47	13139.00
+		37.01	18840.00
+		38.56	25043.00
+		40.10	33551.00
+		41.64	47735.00
+		43.19	62013.00
+		44.73	76201.00
+261	-17.58	0.00	0.00
+		16.42	4851.00
+		17.86	11751.00
+		19.29	18605.00
+		20.73	25509.00
+		22.17	32415.00
+		23.61	39323.00
+		25.04	46185.00
+		26.48	53097.00
+		27.92	60011.00
+262	-15.65	0.00	0.00
+		20.58	3581.00
+		20.98	8190.00
+		21.37	12685.00
+		21.77	17296.00
+		22.16	21793.00
+		22.56	26406.00
+		22.96	31020.00
+		23.35	35520.00
+		23.75	40136.00
+263	-35.95	0.00	0.00
+		22.84	3585.00
+		22.94	9060.00
+		23.04	14536.00
+		23.14	20013.00
+		23.24	25491.00
+		23.34	30970.00
+		23.44	36450.00
+		23.54	41931.00
+		23.64	47413.00
+264	175.58	0.00	0.00
+		0.65	50.00
+		1.30	101.00
+		2.00	550.00
+		2.70	1000.00
+		3.95	2132.00
+		5.20	3266.00
+		6.70	4896.00
+		8.20	6528.00
+		9.20	7617.00
+265	102.58	0.00	0.00
+		0.65	50.00
+		1.30	101.00
+		2.00	550.00
+		2.70	1000.00
+		3.95	2132.00
+		5.20	3266.00
+		6.70	4896.00
+		8.20	6528.00
+		9.20	7617.00
+266	93.83	0.00	0.00
+		0.65	50.00
+		1.30	101.00
+		2.00	550.00
+		2.70	1000.00
+		3.95	2132.00
+		5.20	3266.00
+		6.70	4896.00
+		8.20	6528.00
+		9.20	7617.00
+267	64.98	0.00	0.00
+		0.65	50.00
+		1.30	101.00
+		2.00	550.00
+		2.70	1000.00
+		3.95	2132.00
+		5.20	3266.00
+		6.70	4896.00
+		8.20	6528.00
+		9.20	7617.00
+268	22.19	0.00	0.00
+		0.65	50.00
+		1.30	101.00
+		2.00	550.00
+		2.70	1000.00
+		3.95	2132.00
+		5.20	3266.00
+		6.70	4896.00
+		8.20	6528.00
+		9.20	7617.00
+269	-1.07	0.00	0.00
+		0.65	50.00
+		1.30	101.00
+		2.00	550.00
+		2.70	1000.00
+		3.95	2132.00
+		5.20	3266.00
+		6.70	4896.00
+		8.20	6528.00
+		9.20	7617.00
+270	-4.62	0.00	0.00
+		7.00	100.00
+		14.00	207.00
+		14.50	600.00
+		15.00	1000.00
+		15.50	25500.00
+		16.00	50001.00
+		16.50	525000.00
+		17.00	1000000.00
+		18.00	1950001.00
+271	-11.04	0.00	0.00
+		22.84	3585.00
+		22.94	9060.00
+		23.04	14536.00
+		23.14	20013.00
+		23.24	25491.00
+		23.34	30970.00
+		23.44	36450.00
+		23.54	41931.00
+		23.64	47413.00
+272	-23.41	0.00	0.00
+		22.84	3585.00
+		22.94	9060.00
+		23.04	14536.00
+		23.14	20013.00
+		23.24	25491.00
+		23.34	30970.00
+		23.44	36450.00
+		23.54	41931.00
+		23.64	47413.00
+273	-24.41	0.00	0.00
+		22.84	3585.00
+		22.94	9060.00
+		23.04	14536.00
+		23.14	20013.00
+		23.24	25491.00
+		23.34	30970.00
+		23.44	36450.00
+		23.54	41931.00
+		23.64	47413.00
+274	-25.41	0.00	0.00
+		22.84	3585.00
+		22.94	9060.00
+		23.04	14536.00
+		23.14	20013.00
+		23.24	25491.00
+		23.34	30970.00
+		23.44	36450.00
+		23.54	41931.00
+		23.64	47413.00
+275	-26.41	0.00	0.00
+		22.84	3585.00
+		22.94	9060.00
+		23.04	14536.00
+		23.14	20013.00
+		23.24	25491.00
+		23.34	30970.00
+		23.44	36450.00
+		23.54	41931.00
+		23.64	47413.00
+276	149.58	0.00	0.00
+		0.95	50.00
+		1.90	101.00
+		4.70	550.00
+		7.50	1002.00
+		11.70	2000.00
+		15.90	3003.00
+		18.35	4250.00
+		20.80	5500.00
+		21.80	6012.00
+277	148.58	0.00	0.00
+		0.95	50.00
+		1.90	101.00
+		4.70	550.00
+		7.50	1002.00
+		11.70	2000.00
+		15.90	3003.00
+		18.35	4250.00
+		20.80	5500.00
+		21.80	6012.00
+278	66.13	0.00	0.00
+		0.95	50.00
+		1.90	101.00
+		4.70	550.00
+		7.50	1002.00
+		11.70	2000.00
+		15.90	3003.00
+		18.35	4250.00
+		20.80	5500.00
+		21.80	6012.00
+279	55.61	0.00	0.00
+		0.95	50.00
+		1.90	101.00
+		4.70	550.00
+		7.50	1002.00
+		11.70	2000.00
+		15.90	3003.00
+		18.35	4250.00
+		20.80	5500.00
+		21.80	6012.00
+280	41.87	0.00	0.00
+		0.95	50.00
+		1.90	101.00
+		4.70	550.00
+		7.50	1002.00
+		11.70	2000.00
+		15.90	3003.00
+		18.35	4250.00
+		20.80	5500.00
+		21.80	6012.00
+281	31.09	0.00	0.00
+		0.95	50.00
+		1.90	101.00
+		4.70	550.00
+		7.50	1002.00
+		11.70	2000.00
+		15.90	3003.00
+		18.35	4250.00
+		20.80	5500.00
+		21.80	6012.00
+282	22.50	0.00	0.00
+		0.95	50.00
+		1.90	101.00
+		4.70	550.00
+		7.50	1002.00
+		11.70	2000.00
+		15.90	3003.00
+		18.35	4250.00
+		20.80	5500.00
+		21.80	6012.00
+283	3.83	0.00	0.00
+		0.95	50.00
+		1.90	101.00
+		4.70	550.00
+		7.50	1002.00
+		11.70	2000.00
+		15.90	3003.00
+		18.35	4250.00
+		20.80	5500.00
+		21.80	6012.00
+284	0.35	0.00	0.00
+		0.95	50.00
+		1.90	101.00
+		4.70	550.00
+		7.50	1002.00
+		11.70	2000.00
+		15.90	3003.00
+		18.35	4250.00
+		20.80	5500.00
+		21.80	6012.00
+285	256.80	0.00	0.00
+		1.50	536.00
+		3.00	1074.00
+		5.00	2767.00
+		7.00	4462.00
+		9.50	7826.00
+		12.00	11193.00
+		16.00	19247.00
+		20.00	27305.00
+		21.00	29321.00
+286	167.16	0.00	0.00
+		1.50	536.00
+		3.00	1074.00
+		5.00	2767.00
+		7.00	4462.00
+		9.50	7826.00
+		12.00	11193.00
+		16.00	19247.00
+		20.00	27305.00
+		21.00	29321.00
+287	127.49	0.00	0.00
+		1.50	536.00
+		3.00	1074.00
+		5.00	2767.00
+		7.00	4462.00
+		9.50	7826.00
+		12.00	11193.00
+		16.00	19247.00
+		20.00	27305.00
+		21.00	29321.00
+288	67.61	0.00	0.00
+		1.50	536.00
+		3.00	1074.00
+		5.00	2767.00
+		7.00	4462.00
+		9.50	7826.00
+		12.00	11193.00
+		16.00	19247.00
+		20.00	27305.00
+		21.00	29321.00
+289	12.78	0.00	0.00
+		1.50	536.00
+		3.00	1074.00
+		5.00	2767.00
+		7.00	4462.00
+		9.50	7826.00
+		12.00	11193.00
+		16.00	19247.00
+		20.00	27305.00
+		21.00	29321.00
+290	11.78	0.00	0.00
+		0.35	5.00
+		0.70	11.00
+		1.05	55.00
+		1.40	100.00
+		3.20	2105.00
+		5.00	4112.00
+		5.65	6164.00
+		6.30	8219.00
+		7.30	11382.00
+291	127.28	0.00	0.00
+		0.35	5.00
+		0.70	11.00
+		1.05	55.00
+		1.40	100.00
+		3.20	2105.00
+		5.00	4112.00
+		5.65	6164.00
+		6.30	8219.00
+		7.30	11382.00
+292	79.17	0.00	0.00
+		0.35	5.00
+		0.70	11.00
+		1.05	55.00
+		1.40	100.00
+		3.20	2105.00
+		5.00	4112.00
+		5.65	6164.00
+		6.30	8219.00
+		7.30	11382.00
+293	65.84	0.00	0.00
+		0.35	5.00
+		0.70	11.00
+		1.05	55.00
+		1.40	100.00
+		3.20	2105.00
+		5.00	4112.00
+		5.65	6164.00
+		6.30	8219.00
+		7.30	11382.00
+294	40.27	0.00	0.00
+		0.35	5.00
+		0.70	11.00
+		1.05	55.00
+		1.40	100.00
+		3.20	2105.00
+		5.00	4112.00
+		5.65	6164.00
+		6.30	8219.00
+		7.30	11382.00
+295	25.73	0.00	0.00
+		0.35	5.00
+		0.70	11.00
+		1.05	55.00
+		1.40	100.00
+		3.20	2105.00
+		5.00	4112.00
+		5.65	6164.00
+		6.30	8219.00
+		7.30	11382.00
+296	3.10	0.00	0.00
+		0.35	5.00
+		0.70	11.00
+		1.05	55.00
+		1.40	100.00
+		3.20	2105.00
+		5.00	4112.00
+		5.65	6164.00
+		6.30	8219.00
+		7.30	11382.00
+297	0.38	0.00	0.00
+		0.35	5.00
+		0.70	11.00
+		1.05	55.00
+		1.40	100.00
+		3.20	2105.00
+		5.00	4112.00
+		5.65	6164.00
+		6.30	8219.00
+		7.30	11382.00
+298	0.58	0.00	0.00
+		0.35	5.00
+		0.70	11.00
+		1.05	55.00
+		1.40	100.00
+		3.20	2105.00
+		5.00	4112.00
+		5.65	6164.00
+		6.30	8219.00
+		7.30	11382.00
+299	-7.43	0.00	0.00
+		0.35	5.00
+		0.70	11.00
+		1.05	55.00
+		1.40	100.00
+		3.20	2105.00
+		5.00	4112.00
+		5.65	6164.00
+		6.30	8219.00
+		7.30	11382.00
+300	-11.30	0.00	0.00
+		0.35	5.00
+		0.70	11.00
+		1.05	55.00
+		1.40	100.00
+		3.20	2105.00
+		5.00	4112.00
+		5.65	6164.00
+		6.30	8219.00
+		7.30	11382.00
+301	-12.30	0.00	0.00
+		8.80	100.00
+		17.60	209.00
+		18.10	600.00
+		18.60	1000.00
+		19.10	25500.00
+		19.60	50001.00
+		20.10	525000.00
+		20.60	1000000.00
+		21.60	1950001.00
+302	-21.47	0.00	0.00
+		15.25	100.00
+		30.50	216.00
+		31.00	600.00
+		31.50	1000.00
+		32.00	25500.00
+		32.50	50001.00
+		33.00	525000.00
+		33.50	1000000.00
+		34.50	1950001.00
+303	-21.47	0.00	0.00
+		15.25	100.00
+		30.50	216.00
+		31.00	600.00
+		31.50	1000.00
+		32.00	25500.00
+		32.50	50001.00
+		33.00	525000.00
+		33.50	1000000.00
+		34.50	1950001.00
+304	-22.47	0.00	0.00
+		12.65	100.00
+		25.30	213.00
+		25.80	600.00
+		26.30	1000.00
+		26.80	25500.00
+		27.30	50001.00
+		27.80	525000.00
+		28.30	1000000.00
+		29.30	1950001.00
+305	-23.47	0.00	0.00
+		14.30	100.00
+		28.60	215.00
+		29.10	600.00
+		29.60	1000.00
+		30.10	25500.00
+		30.60	50001.00
+		31.10	525000.00
+		31.60	1000000.00
+		32.60	1950001.00
+306	-24.47	0.00	0.00
+		10.20	100.00
+		20.40	211.00
+		20.90	600.00
+		21.40	1000.00
+		21.90	25500.00
+		22.40	50001.00
+		22.90	525000.00
+		23.40	1000000.00
+		24.40	1950001.00
+307	-25.47	0.00	0.00
+		8.20	100.00
+		16.40	209.00
+		16.90	600.00
+		17.40	1000.00
+		17.90	25500.00
+		18.40	50001.00
+		18.90	525000.00
+		19.40	1000000.00
+		20.40	1950001.00
+308	548.21	0.00	0.00
+		0.80	2500.00
+		1.60	5001.00
+		2.95	9223.00
+		4.30	13447.00
+		13.20	41304.00
+		22.10	70737.00
+		28.05	106106.00
+		34.00	141481.00
+		35.00	147428.00
+309	440.90	0.00	0.00
+		0.80	2500.00
+		1.60	5001.00
+		2.95	9223.00
+		4.30	13447.00
+		13.20	41304.00
+		22.10	70737.00
+		28.05	106106.00
+		34.00	141481.00
+		35.00	147428.00
+310	383.94	0.00	0.00
+		0.80	2500.00
+		1.60	5001.00
+		2.95	9223.00
+		4.30	13447.00
+		13.20	41304.00
+		22.10	70737.00
+		28.05	106106.00
+		34.00	141481.00
+		35.00	147428.00
+311	473.26	0.00	0.00
+		16.75	1247.00
+		19.87	3493.00
+		22.98	10743.00
+		26.10	18371.00
+		29.22	26003.00
+		32.34	33639.00
+		35.45	42765.00
+		38.57	60583.00
+		41.69	81001.00
+312	452.24	0.00	0.00
+		16.75	1247.00
+		19.87	3493.00
+		22.98	10743.00
+		26.10	18371.00
+		29.22	26003.00
+		32.34	33639.00
+		35.45	42765.00
+		38.57	60583.00
+		41.69	81001.00
+313	417.12	0.00	0.00
+		16.75	1247.00
+		19.87	3493.00
+		22.98	10743.00
+		26.10	18371.00
+		29.22	26003.00
+		32.34	33639.00
+		35.45	42765.00
+		38.57	60583.00
+		41.69	81001.00
+314	412.19	0.00	0.00
+		16.75	1247.00
+		19.87	3493.00
+		22.98	10743.00
+		26.10	18371.00
+		29.22	26003.00
+		32.34	33639.00
+		35.45	42765.00
+		38.57	60583.00
+		41.69	81001.00
+315	412.19	0.00	0.00
+		16.75	1247.00
+		19.87	3493.00
+		22.98	10743.00
+		26.10	18371.00
+		29.22	26003.00
+		32.34	33639.00
+		35.45	42765.00
+		38.57	60583.00
+		41.69	81001.00
+316	387.29	0.00	0.00
+		16.75	1247.00
+		19.87	3493.00
+		22.98	10743.00
+		26.10	18371.00
+		29.22	26003.00
+		32.34	33639.00
+		35.45	42765.00
+		38.57	60583.00
+		41.69	81001.00
+317	361.41	0.00	0.00
+		16.75	1247.00
+		19.87	3493.00
+		22.98	10743.00
+		26.10	18371.00
+		29.22	26003.00
+		32.34	33639.00
+		35.45	42765.00
+		38.57	60583.00
+		41.69	81001.00
+318	547.39	0.00	0.00
+		3.26	1000.00
+		5.52	2493.00
+		7.78	4518.00
+		10.04	7236.00
+		12.30	10082.00
+		14.56	13715.00
+		16.82	19016.00
+		19.09	26635.00
+		21.35	37521.00
+319	419.61	0.00	0.00
+		3.26	1000.00
+		5.52	2493.00
+		7.78	4518.00
+		10.04	7236.00
+		12.30	10082.00
+		14.56	13715.00
+		16.82	19016.00
+		19.09	26635.00
+		21.35	37521.00
+320	377.55	0.00	0.00
+		3.26	1000.00
+		5.52	2493.00
+		7.78	4518.00
+		10.04	7236.00
+		12.30	10082.00
+		14.56	13715.00
+		16.82	19016.00
+		19.09	26635.00
+		21.35	37521.00
+321	369.98	0.00	0.00
+		17.56	11000.00
+		18.18	15541.00
+		18.79	20010.00
+		19.40	25055.00
+		20.01	30101.00
+		20.62	35148.00
+		21.23	40196.00
+		21.84	45245.00
+		22.45	50295.00
+322	361.41	0.00	0.00
+		16.75	1247.00
+		19.87	3493.00
+		22.98	10743.00
+		26.10	18371.00
+		29.22	26003.00
+		32.34	33639.00
+		35.45	42765.00
+		38.57	60583.00
+		41.69	81001.00
+323	348.56	0.00	0.00
+		16.75	1247.00
+		19.87	3493.00
+		22.98	10743.00
+		26.10	18371.00
+		29.22	26003.00
+		32.34	33639.00
+		35.45	42765.00
+		38.57	60583.00
+		41.69	81001.00
+324	334.49	0.00	0.00
+		16.75	1247.00
+		19.87	3493.00
+		22.98	10743.00
+		26.10	18371.00
+		29.22	26003.00
+		32.34	33639.00
+		35.45	42765.00
+		38.57	60583.00
+		41.69	81001.00
+325	566.41	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+326	539.17	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+327	591.50	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+328	539.17	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+329	539.17	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+330	500.46	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+331	466.81	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+332	413.56	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+333	915.57	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+334	682.21	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+335	504.57	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+336	462.31	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+337	413.56	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+338	413.56	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+339	387.55	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+340	348.65	0.00	0.00
+		3.76	2540.00
+		4.77	3558.00
+		5.78	5860.00
+		6.79	8917.00
+		7.79	12533.00
+		8.80	16720.00
+		9.81	22699.00
+		10.82	29744.00
+		11.83	39262.00
+341	443.75	0.00	0.00
+		2.47	916.00
+		3.18	1624.00
+		3.88	2582.00
+		4.59	3943.00
+		5.30	5979.00
+		6.01	8504.00
+		6.72	11464.00
+		7.43	14570.00
+		8.14	17881.00
+342	326.94	0.00	0.00
+		4.10	923.00
+		5.22	1713.00
+		6.33	2729.00
+		7.45	4062.00
+		8.57	5487.00
+		9.69	7257.00
+		10.81	9507.00
+		11.92	11947.00
+		13.04	14706.00
+343	326.56	0.00	0.00
+		16.75	1247.00
+		19.87	3493.00
+		22.98	10743.00
+		26.10	18371.00
+		29.22	26003.00
+		32.34	33639.00
+		35.45	42765.00
+		38.57	60583.00
+		41.69	81001.00
+344	310.20	0.00	0.00
+		16.75	1247.00
+		19.87	3493.00
+		22.98	10743.00
+		26.10	18371.00
+		29.22	26003.00
+		32.34	33639.00
+		35.45	42765.00
+		38.57	60583.00
+		41.69	81001.00
+345	238.85	0.00	0.00
+		10.44	12574.00
+		13.49	21830.00
+		16.54	32440.00
+		19.59	45670.00
+		22.64	61736.00
+		25.69	82744.00
+		28.74	107966.00
+		31.79	136689.00
+		34.84	166385.00
+346	870.16	0.00	0.00
+		0.25	2.00
+		0.50	5.00
+		1.00	42.00
+		1.50	80.00
+		3.35	794.00
+		5.20	1510.00
+		5.95	2261.00
+		6.70	3015.00
+		7.70	4022.00
+347	229.49	0.00	0.00
+		0.25	2.00
+		0.50	5.00
+		1.00	42.00
+		1.50	80.00
+		3.35	794.00
+		5.20	1510.00
+		5.95	2261.00
+		6.70	3015.00
+		7.70	4022.00
+348	238.85	0.00	0.00
+		10.44	12574.00
+		13.49	21830.00
+		16.54	32440.00
+		19.59	45670.00
+		22.64	61736.00
+		25.69	82744.00
+		28.74	107966.00
+		31.79	136689.00
+		34.84	166385.00
+349	271.19	0.00	0.00
+		10.44	12574.00
+		13.49	21830.00
+		16.54	32440.00
+		19.59	45670.00
+		22.64	61736.00
+		25.69	82744.00
+		28.74	107966.00
+		31.79	136689.00
+		34.84	166385.00
+350	271.58	0.00	0.00
+		10.44	12574.00
+		13.49	21830.00
+		16.54	32440.00
+		19.59	45670.00
+		22.64	61736.00
+		25.69	82744.00
+		28.74	107966.00
+		31.79	136689.00
+		34.84	166385.00
+351	247.95	0.00	0.00
+		10.44	12574.00
+		13.49	21830.00
+		16.54	32440.00
+		19.59	45670.00
+		22.64	61736.00
+		25.69	82744.00
+		28.74	107966.00
+		31.79	136689.00
+		34.84	166385.00
+352	233.31	0.00	0.00
+		10.44	12574.00
+		13.49	21830.00
+		16.54	32440.00
+		19.59	45670.00
+		22.64	61736.00
+		25.69	82744.00
+		28.74	107966.00
+		31.79	136689.00
+		34.84	166385.00
+353	208.06	0.00	0.00
+		9.50	15082.00
+		11.36	22660.00
+		13.22	30828.00
+		15.08	45024.00
+		16.94	60113.00
+		18.80	77028.00
+		20.66	94927.00
+		22.52	123427.00
+		24.37	167118.00
+354	299.73	0.00	0.00
+		1.00	181.00
+		2.00	363.00
+		3.50	1032.00
+		5.00	1703.00
+		6.50	2767.00
+		8.00	3833.00
+		11.50	7816.00
+		15.00	11803.00
+		16.00	12944.00
+355	192.22	0.00	0.00
+		1.00	181.00
+		2.00	363.00
+		3.50	1032.00
+		5.00	1703.00
+		6.50	2767.00
+		8.00	3833.00
+		11.50	7816.00
+		15.00	11803.00
+		16.00	12944.00
+356	208.06	0.00	0.00
+		9.50	15082.00
+		11.36	22660.00
+		13.22	30828.00
+		15.08	45024.00
+		16.94	60113.00
+		18.80	77028.00
+		20.66	94927.00
+		22.52	123427.00
+		24.37	167118.00
+357	32.58	0.00	0.00
+		8.06	100.00
+		11.52	659.00
+		14.97	1220.00
+		18.43	1787.00
+		21.88	2356.00
+		25.33	4000.00
+		28.79	6608.00
+		32.24	12740.00
+		35.69	20788.00
+358	606.72	0.00	0.00
+		3.91	304.00
+		5.07	684.00
+		6.22	1276.00
+		7.38	2059.00
+		8.53	2979.00
+		9.68	4044.00
+		10.84	5267.00
+		11.99	6642.00
+		13.15	8203.00
+359	538.87	0.00	0.00
+		3.91	304.00
+		5.07	684.00
+		6.22	1276.00
+		7.38	2059.00
+		8.53	2979.00
+		9.68	4044.00
+		10.84	5267.00
+		11.99	6642.00
+		13.15	8203.00
+360	447.92	0.00	0.00
+		3.91	304.00
+		5.07	684.00
+		6.22	1276.00
+		7.38	2059.00
+		8.53	2979.00
+		9.68	4044.00
+		10.84	5267.00
+		11.99	6642.00
+		13.15	8203.00
+361	357.89	0.00	0.00
+		3.91	304.00
+		5.07	684.00
+		6.22	1276.00
+		7.38	2059.00
+		8.53	2979.00
+		9.68	4044.00
+		10.84	5267.00
+		11.99	6642.00
+		13.15	8203.00
+362	255.87	0.00	0.00
+		3.91	304.00
+		5.07	684.00
+		6.22	1276.00
+		7.38	2059.00
+		8.53	2979.00
+		9.68	4044.00
+		10.84	5267.00
+		11.99	6642.00
+		13.15	8203.00
+363	6.54	0.00	0.00
+		10.86	5701.00
+		12.71	7716.00
+		14.55	10634.00
+		16.39	14003.00
+		18.24	19807.00
+		20.08	26619.00
+		21.92	34013.00
+		23.77	44483.00
+		25.61	58138.00
+364	414.04	0.00	0.00
+		2.70	533.00
+		4.20	1413.00
+		5.71	2677.00
+		7.22	4277.00
+		8.73	6213.00
+		10.24	8690.00
+		11.75	11874.00
+		13.26	15644.00
+		14.77	19952.00
+365	331.56	0.00	0.00
+		2.70	533.00
+		4.20	1413.00
+		5.71	2677.00
+		7.22	4277.00
+		8.73	6213.00
+		10.24	8690.00
+		11.75	11874.00
+		13.26	15644.00
+		14.77	19952.00
+366	189.65	0.00	0.00
+		2.14	535.00
+		3.12	1162.00
+		4.09	2195.00
+		5.07	3691.00
+		6.05	5685.00
+		7.03	8230.00
+		8.01	11410.00
+		8.99	15325.00
+		9.96	19863.00
+367	189.68	0.00	0.00
+		9.50	15082.00
+		11.36	22660.00
+		13.22	30828.00
+		15.08	45024.00
+		16.94	60113.00
+		18.80	77028.00
+		20.66	94927.00
+		22.52	123427.00
+		24.37	167118.00
+368	176.51	0.00	0.00
+		11.01	16409.00
+		13.02	23741.00
+		15.03	32526.00
+		17.05	44312.00
+		19.06	59324.00
+		21.07	78401.00
+		23.08	105469.00
+		25.09	141824.00
+		27.11	184657.00
+369	672.49	0.00	0.00
+		0.70	50.00
+		1.40	101.00
+		2.90	1525.00
+		4.40	2951.00
+		4.70	3687.00
+		5.00	4424.00
+		5.30	5162.00
+		5.60	5901.00
+		6.60	8366.00
+370	530.32	0.00	0.00
+		0.70	50.00
+		1.40	101.00
+		2.90	1525.00
+		4.40	2951.00
+		4.70	3687.00
+		5.00	4424.00
+		5.30	5162.00
+		5.60	5901.00
+		6.60	8366.00
+371	442.23	0.00	0.00
+		0.70	50.00
+		1.40	101.00
+		2.90	1525.00
+		4.40	2951.00
+		4.70	3687.00
+		5.00	4424.00
+		5.30	5162.00
+		5.60	5901.00
+		6.60	8366.00
+372	351.77	0.00	0.00
+		0.70	50.00
+		1.40	101.00
+		2.90	1525.00
+		4.40	2951.00
+		4.70	3687.00
+		5.00	4424.00
+		5.30	5162.00
+		5.60	5901.00
+		6.60	8366.00
+373	257.99	0.00	0.00
+		0.70	50.00
+		1.40	101.00
+		2.90	1525.00
+		4.40	2951.00
+		4.70	3687.00
+		5.00	4424.00
+		5.30	5162.00
+		5.60	5901.00
+		6.60	8366.00
+374	171.41	0.00	0.00
+		0.70	50.00
+		1.40	101.00
+		2.90	1525.00
+		4.40	2951.00
+		4.70	3687.00
+		5.00	4424.00
+		5.30	5162.00
+		5.60	5901.00
+		6.60	8366.00
+375	176.51	0.00	0.00
+		11.01	16409.00
+		13.02	23741.00
+		15.03	32526.00
+		17.05	44312.00
+		19.06	59324.00
+		21.07	78401.00
+		23.08	105469.00
+		25.09	141824.00
+		27.11	184657.00
+376	156.99	0.00	0.00
+		11.01	16409.00
+		13.02	23741.00
+		15.03	32526.00
+		17.05	44312.00
+		19.06	59324.00
+		21.07	78401.00
+		23.08	105469.00
+		25.09	141824.00
+		27.11	184657.00
+377	425.94	0.00	0.00
+		6.12	2000.00
+		7.47	3202.00
+		8.82	4942.00
+		10.18	7135.00
+		11.53	9726.00
+		12.88	12830.00
+		14.23	16167.00
+		15.58	19674.00
+		16.93	23419.00
+378	254.00	0.00	0.00
+		6.12	2000.00
+		7.47	3202.00
+		8.82	4942.00
+		10.18	7135.00
+		11.53	9726.00
+		12.88	12830.00
+		14.23	16167.00
+		15.58	19674.00
+		16.93	23419.00
+379	174.23	0.00	0.00
+		13.26	2005.00
+		14.07	3119.00
+		14.89	5576.00
+		15.70	8004.00
+		16.51	10433.00
+		17.33	12893.00
+		18.14	15324.00
+		18.95	17756.00
+		19.77	22896.00
+380	156.99	0.00	0.00
+		11.01	16409.00
+		13.02	23741.00
+		15.03	32526.00
+		17.05	44312.00
+		19.06	59324.00
+		21.07	78401.00
+		23.08	105469.00
+		25.09	141824.00
+		27.11	184657.00
+381	151.02	0.00	0.00
+		26.76	16425.00
+		29.61	26026.00
+		32.45	37603.00
+		35.29	54251.00
+		38.14	70961.00
+		40.98	87616.00
+		43.82	117041.00
+		46.67	147216.00
+		49.51	200103.00
+382	129.59	0.00	0.00
+		26.76	16425.00
+		29.61	26026.00
+		32.45	37603.00
+		35.29	54251.00
+		38.14	70961.00
+		40.98	87616.00
+		43.82	117041.00
+		46.67	147216.00
+		49.51	200103.00
+383	107.42	0.00	0.00
+		10.55	16477.00
+		12.70	23440.00
+		14.85	32319.00
+		17.00	44163.00
+		19.15	58058.00
+		21.29	72003.00
+		23.44	91138.00
+		25.59	114826.00
+		27.74	145885.00
+384	260.74	0.00	0.00
+		2.30	489.00
+		2.74	628.00
+		3.19	778.00
+		3.63	940.00
+		4.07	1111.00
+		4.52	1288.00
+		4.96	1482.00
+		5.40	1696.00
+		5.85	1927.00
+385	187.16	0.00	0.00
+		2.30	489.00
+		2.74	628.00
+		3.19	778.00
+		3.63	940.00
+		4.07	1111.00
+		4.52	1288.00
+		4.96	1482.00
+		5.40	1696.00
+		5.85	1927.00
+386	145.07	0.00	0.00
+		2.30	489.00
+		2.74	628.00
+		3.19	778.00
+		3.63	940.00
+		4.07	1111.00
+		4.52	1288.00
+		4.96	1482.00
+		5.40	1696.00
+		5.85	1927.00
+387	113.77	0.00	0.00
+		19.32	702.00
+		20.11	732.00
+		20.20	736.00
+		20.30	741.00
+		20.40	747.00
+		20.49	753.00
+		20.59	760.00
+		20.69	780.00
+		20.78	1735.00
+388	525.46	0.00	0.00
+		1.25	50.00
+		2.50	102.00
+		5.20	4027.00
+		7.90	7955.00
+		8.40	9942.00
+		8.90	11930.00
+		9.20	13919.00
+		9.50	15909.00
+		10.50	22544.00
+389	461.18	0.00	0.00
+		1.25	50.00
+		2.50	102.00
+		5.20	4027.00
+		7.90	7955.00
+		8.40	9942.00
+		8.90	11930.00
+		9.20	13919.00
+		9.50	15909.00
+		10.50	22544.00
+390	460.18	0.00	0.00
+		1.25	50.00
+		2.50	102.00
+		5.20	4027.00
+		7.90	7955.00
+		8.40	9942.00
+		8.90	11930.00
+		9.20	13919.00
+		9.50	15909.00
+		10.50	22544.00
+391	476.59	0.00	0.00
+		1.25	50.00
+		2.50	102.00
+		5.20	4027.00
+		7.90	7955.00
+		8.40	9942.00
+		8.90	11930.00
+		9.20	13919.00
+		9.50	15909.00
+		10.50	22544.00
+392	461.05	0.00	0.00
+		1.25	50.00
+		2.50	102.00
+		5.20	4027.00
+		7.90	7955.00
+		8.40	9942.00
+		8.90	11930.00
+		9.20	13919.00
+		9.50	15909.00
+		10.50	22544.00
+393	460.05	0.00	0.00
+		1.25	50.00
+		2.50	102.00
+		5.20	4027.00
+		7.90	7955.00
+		8.40	9942.00
+		8.90	11930.00
+		9.20	13919.00
+		9.50	15909.00
+		10.50	22544.00
+394	461.05	0.00	0.00
+		1.25	50.00
+		2.50	102.00
+		5.20	4027.00
+		7.90	7955.00
+		8.40	9942.00
+		8.90	11930.00
+		9.20	13919.00
+		9.50	15909.00
+		10.50	22544.00
+395	316.09	0.00	0.00
+		1.25	50.00
+		2.50	102.00
+		5.20	4027.00
+		7.90	7955.00
+		8.40	9942.00
+		8.90	11930.00
+		9.20	13919.00
+		9.50	15909.00
+		10.50	22544.00
+396	235.67	0.00	0.00
+		1.25	50.00
+		2.50	102.00
+		5.20	4027.00
+		7.90	7955.00
+		8.40	9942.00
+		8.90	11930.00
+		9.20	13919.00
+		9.50	15909.00
+		10.50	22544.00
+397	168.60	0.00	0.00
+		1.25	50.00
+		2.50	102.00
+		5.20	4027.00
+		7.90	7955.00
+		8.40	9942.00
+		8.90	11930.00
+		9.20	13919.00
+		9.50	15909.00
+		10.50	22544.00
+398	129.50	0.00	0.00
+		1.25	50.00
+		2.50	102.00
+		5.20	4027.00
+		7.90	7955.00
+		8.40	9942.00
+		8.90	11930.00
+		9.20	13919.00
+		9.50	15909.00
+		10.50	22544.00
+399	82.36	0.00	0.00
+		1.25	50.00
+		2.50	102.00
+		5.20	4027.00
+		7.90	7955.00
+		8.40	9942.00
+		8.90	11930.00
+		9.20	13919.00
+		9.50	15909.00
+		10.50	22544.00
+400	107.42	0.00	0.00
+		10.55	16477.00
+		12.70	23440.00
+		14.85	32319.00
+		17.00	44163.00
+		19.15	58058.00
+		21.29	72003.00
+		23.44	91138.00
+		25.59	114826.00
+		27.74	145885.00
+401	100.91	0.00	0.00
+		10.55	16477.00
+		12.70	23440.00
+		14.85	32319.00
+		17.00	44163.00
+		19.15	58058.00
+		21.29	72003.00
+		23.44	91138.00
+		25.59	114826.00
+		27.74	145885.00
+402	89.93	0.00	0.00
+		10.55	16477.00
+		12.70	23440.00
+		14.85	32319.00
+		17.00	44163.00
+		19.15	58058.00
+		21.29	72003.00
+		23.44	91138.00
+		25.59	114826.00
+		27.74	145885.00
+403	78.27	0.00	0.00
+		15.18	18442.00
+		17.33	23471.00
+		19.48	30257.00
+		21.63	41309.00
+		23.78	60032.00
+		25.93	78758.00
+		28.08	97487.00
+		30.23	116219.00
+		32.38	140878.00
+404	56.36	0.00	0.00
+		15.18	18442.00
+		17.33	23471.00
+		19.48	30257.00
+		21.63	41309.00
+		23.78	60032.00
+		25.93	78758.00
+		28.08	97487.00
+		30.23	116219.00
+		32.38	140878.00
+405	62.26	0.00	0.00
+		15.18	18442.00
+		17.33	23471.00
+		19.48	30257.00
+		21.63	41309.00
+		23.78	60032.00
+		25.93	78758.00
+		28.08	97487.00
+		30.23	116219.00
+		32.38	140878.00
+406	59.00	0.00	0.00
+		23.62	18721.00
+		25.87	22992.00
+		28.12	29779.00
+		30.36	40434.00
+		32.61	56831.00
+		34.86	73231.00
+		37.11	89634.00
+		39.36	111710.00
+		41.61	147621.00
+407	46.64	0.00	0.00
+		23.62	18721.00
+		25.87	22992.00
+		28.12	29779.00
+		30.36	40434.00
+		32.61	56831.00
+		34.86	73231.00
+		37.11	89634.00
+		39.36	111710.00
+		41.61	147621.00
+408	32.84	0.00	0.00
+		22.94	20149.00
+		25.01	24078.00
+		27.07	29654.00
+		29.14	36990.00
+		31.21	48972.00
+		33.27	66517.00
+		35.34	84150.00
+		37.40	110765.00
+		39.47	147210.00
+409	31.32	0.00	0.00
+		22.94	20149.00
+		25.01	24078.00
+		27.07	29654.00
+		29.14	36990.00
+		31.21	48972.00
+		33.27	66517.00
+		35.34	84150.00
+		37.40	110765.00
+		39.47	147210.00
+410	125.56	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+411	124.56	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+412	123.56	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+413	122.56	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+414	115.59	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+415	114.59	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+416	113.59	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+417	112.59	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+418	111.59	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+419	110.59	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+420	109.59	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+421	104.10	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+422	102.76	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+423	99.14	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+424	53.93	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+425	30.61	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+426	31.32	0.00	0.00
+		43.74	23085.00
+		45.09	25561.00
+		46.43	28020.00
+		47.78	30499.00
+		49.12	32961.00
+		50.47	35443.00
+		51.82	44493.00
+		53.16	53478.00
+		54.51	62532.00
+427	19.32	0.00	0.00
+		27.50	24321.00
+		28.82	27406.00
+		30.14	30961.00
+		31.46	34518.00
+		32.78	38077.00
+		34.10	41638.00
+		35.42	45201.00
+		36.75	48793.00
+		38.07	53118.00
+428	21.54	0.00	0.00
+		27.50	24321.00
+		28.82	27406.00
+		30.14	30961.00
+		31.46	34518.00
+		32.78	38077.00
+		34.10	41638.00
+		35.42	45201.00
+		36.75	48793.00
+		38.07	53118.00
+429	18.49	0.00	0.00
+		27.50	24321.00
+		28.82	27406.00
+		30.14	30961.00
+		31.46	34518.00
+		32.78	38077.00
+		34.10	41638.00
+		35.42	45201.00
+		36.75	48793.00
+		38.07	53118.00
+430	16.60	0.00	0.00
+		31.21	23191.00
+		32.30	27232.00
+		33.39	31275.00
+		34.48	35320.00
+		35.57	39367.00
+		36.67	43453.00
+		37.76	47503.00
+		38.85	51555.00
+		39.94	55609.00
+431	13.14	0.00	0.00
+		31.21	23191.00
+		32.30	27232.00
+		33.39	31275.00
+		34.48	35320.00
+		35.57	39367.00
+		36.67	43453.00
+		37.76	47503.00
+		38.85	51555.00
+		39.94	55609.00
+432	3.16	0.00	0.00
+		31.21	23191.00
+		32.30	27232.00
+		33.39	31275.00
+		34.48	35320.00
+		35.57	39367.00
+		36.67	43453.00
+		37.76	47503.00
+		38.85	51555.00
+		39.94	55609.00
+433	-6.73	0.00	0.00
+		31.21	23191.00
+		32.30	27232.00
+		33.39	31275.00
+		34.48	35320.00
+		35.57	39367.00
+		36.67	43453.00
+		37.76	47503.00
+		38.85	51555.00
+		39.94	55609.00
+434	-3.36	0.00	0.00
+		31.21	23191.00
+		32.30	27232.00
+		33.39	31275.00
+		34.48	35320.00
+		35.57	39367.00
+		36.67	43453.00
+		37.76	47503.00
+		38.85	51555.00
+		39.94	55609.00
+435	50.80	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+436	45.56	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+437	40.59	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+438	35.58	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+439	34.58	0.00	0.00
+		2.60	2587.00
+		3.74	5223.00
+		4.87	8099.00
+		6.01	11485.00
+		7.15	15436.00
+		8.28	20016.00
+		9.42	25362.00
+		10.56	31247.00
+		11.69	39807.00
+440	27.24	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+441	25.06	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+442	18.76	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+443	18.08	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+444	14.97	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+445	13.26	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+446	6.40	0.00	0.00
+		4.40	62.00
+		5.69	82.00
+		6.99	225.00
+		8.28	517.00
+		9.58	813.00
+		10.87	1109.00
+		12.17	1409.00
+		13.46	1856.00
+		14.76	5374.00
+447	-3.36	0.00	0.00
+		31.21	23191.00
+		32.30	27232.00
+		33.39	31275.00
+		34.48	35320.00
+		35.57	39367.00
+		36.67	43453.00
+		37.76	47503.00
+		38.85	51555.00
+		39.94	55609.00
+448	-7.02	0.00	0.00
+		40.61	22521.00
+		41.63	25846.00
+		42.64	29140.00
+		43.65	32436.00
+		44.67	35766.00
+		45.68	39065.00
+		46.69	42366.00
+		47.70	45669.00
+		48.72	49006.00
+449	-15.54	0.00	0.00
+		40.61	22521.00
+		41.63	25846.00
+		42.64	29140.00
+		43.65	32436.00
+		44.67	35766.00
+		45.68	39065.00
+		46.69	42366.00
+		47.70	45669.00
+		48.72	49006.00
+450	206.44	0.00	0.00
+		4.56	832.00
+		6.15	2204.00
+		7.73	4081.00
+		9.32	6407.00
+		10.91	9144.00
+		12.50	12329.00
+		14.09	16122.00
+		15.67	20677.00
+		17.26	25761.00
+451	126.56	0.00	0.00
+		5.64	936.00
+		6.98	1811.00
+		8.33	3025.00
+		9.67	4594.00
+		11.02	6594.00
+		12.37	10611.00
+		13.71	16132.00
+		15.06	22623.00
+		16.41	29736.00
+452	107.22	0.00	0.00
+		5.64	936.00
+		6.98	1811.00
+		8.33	3025.00
+		9.67	4594.00
+		11.02	6594.00
+		12.37	10611.00
+		13.71	16132.00
+		15.06	22623.00
+		16.41	29736.00
+453	87.46	0.00	0.00
+		5.64	936.00
+		6.98	1811.00
+		8.33	3025.00
+		9.67	4594.00
+		11.02	6594.00
+		12.37	10611.00
+		13.71	16132.00
+		15.06	22623.00
+		16.41	29736.00
+454	75.04	0.00	0.00
+		5.35	1217.00
+		6.28	2365.00
+		7.21	4664.00
+		8.14	10318.00
+		9.06	24349.00
+		9.99	43777.00
+		10.92	69830.00
+		11.85	105070.00
+		12.78	144605.00
+455	65.09	0.00	0.00
+		5.35	1217.00
+		6.28	2365.00
+		7.21	4664.00
+		8.14	10318.00
+		9.06	24349.00
+		9.99	43777.00
+		10.92	69830.00
+		11.85	105070.00
+		12.78	144605.00
+456	59.67	0.00	0.00
+		5.35	1217.00
+		6.28	2365.00
+		7.21	4664.00
+		8.14	10318.00
+		9.06	24349.00
+		9.99	43777.00
+		10.92	69830.00
+		11.85	105070.00
+		12.78	144605.00
+457	52.88	0.00	0.00
+		6.79	10127.00
+		7.68	14334.00
+		8.57	21196.00
+		9.46	28059.00
+		10.35	37175.00
+		11.24	48512.00
+		12.13	64630.00
+		13.02	85298.00
+		13.91	142993.00
+458	49.68	0.00	0.00
+		6.51	8218.00
+		8.08	13177.00
+		9.64	19708.00
+		11.20	38651.00
+		12.77	57717.00
+		14.33	76664.00
+		15.89	95613.00
+		17.45	114564.00
+		19.02	144069.00
+459	43.74	0.00	0.00
+		4.95	1000.00
+		7.14	6702.00
+		9.33	15219.00
+		11.52	26813.00
+		13.71	46091.00
+		15.91	69075.00
+		18.10	93877.00
+		20.29	127192.00
+		22.48	168751.00
+460	43.74	0.00	0.00
+		4.95	1000.00
+		7.14	6702.00
+		9.33	15219.00
+		11.52	26813.00
+		13.71	46091.00
+		15.91	69075.00
+		18.10	93877.00
+		20.29	127192.00
+		22.48	168751.00
+461	38.37	0.00	0.00
+		4.95	1000.00
+		7.14	6702.00
+		9.33	15219.00
+		11.52	26813.00
+		13.71	46091.00
+		15.91	69075.00
+		18.10	93877.00
+		20.29	127192.00
+		22.48	168751.00
+462	33.13	0.00	0.00
+		4.95	1000.00
+		7.14	6702.00
+		9.33	15219.00
+		11.52	26813.00
+		13.71	46091.00
+		15.91	69075.00
+		18.10	93877.00
+		20.29	127192.00
+		22.48	168751.00
+463	27.06	0.00	0.00
+		7.52	2667.00
+		9.64	11997.00
+		11.76	28694.00
+		13.88	48549.00
+		16.00	69574.00
+		18.12	95360.00
+		20.24	125667.00
+		22.36	156535.00
+		24.48	198429.00
+464	25.01	0.00	0.00
+		7.52	2667.00
+		9.64	11997.00
+		11.76	28694.00
+		13.88	48549.00
+		16.00	69574.00
+		18.12	95360.00
+		20.24	125667.00
+		22.36	156535.00
+		24.48	198429.00
+465	20.65	0.00	0.00
+		14.31	17101.00
+		16.41	38922.00
+		18.52	60850.00
+		20.62	82677.00
+		22.72	104507.00
+		24.82	126340.00
+		26.92	148176.00
+		29.02	170015.00
+		31.13	214157.00
+466	19.25	0.00	0.00
+		14.31	17101.00
+		16.41	38922.00
+		18.52	60850.00
+		20.62	82677.00
+		22.72	104507.00
+		24.82	126340.00
+		26.92	148176.00
+		29.02	170015.00
+		31.13	214157.00
+467	18.72	0.00	0.00
+		14.31	17101.00
+		16.41	38922.00
+		18.52	60850.00
+		20.62	82677.00
+		22.72	104507.00
+		24.82	126340.00
+		26.92	148176.00
+		29.02	170015.00
+		31.13	214157.00
+468	121.68	0.00	0.00
+		17.61	14447.00
+		21.32	23117.00
+		25.04	34156.00
+		28.76	47662.00
+		32.47	63320.00
+		36.19	81260.00
+		39.91	101525.00
+		43.62	124528.00
+		47.34	150000.00
+469	111.32	0.00	0.00
+		17.61	14447.00
+		21.32	23117.00
+		25.04	34156.00
+		28.76	47662.00
+		32.47	63320.00
+		36.19	81260.00
+		39.91	101525.00
+		43.62	124528.00
+		47.34	150000.00
+470	89.87	0.00	0.00
+		15.38	17117.00
+		17.08	26842.00
+		18.78	36569.00
+		20.48	46298.00
+		22.18	56029.00
+		23.88	70292.00
+		25.58	90189.00
+		27.28	112800.00
+		28.98	138628.00
+471	71.75	0.00	0.00
+		15.38	17117.00
+		17.08	26842.00
+		18.78	36569.00
+		20.48	46298.00
+		22.18	56029.00
+		23.88	70292.00
+		25.58	90189.00
+		27.28	112800.00
+		28.98	138628.00
+472	53.87	0.00	0.00
+		19.92	19501.00
+		22.34	26646.00
+		24.76	35929.00
+		27.18	46281.00
+		29.60	57851.00
+		32.02	71812.00
+		34.44	88679.00
+		36.86	114886.00
+		39.28	148263.00
+473	108.26	0.00	0.00
+		3.81	319.00
+		4.82	543.00
+		5.84	886.00
+		6.85	1330.00
+		7.86	1907.00
+		8.88	2663.00
+		9.89	3535.00
+		10.91	4765.00
+		11.92	6400.00
+474	83.59	0.00	0.00
+		4.43	50.00
+		4.75	100.00
+		5.06	149.00
+		5.37	199.00
+		5.68	250.00
+		5.99	314.00
+		6.30	418.00
+		6.62	526.00
+		6.93	631.00
+475	49.66	0.00	0.00
+		11.65	2009.00
+		13.55	2424.00
+		15.44	2859.00
+		17.34	3500.00
+		19.23	4140.00
+		21.13	6000.00
+		23.03	10000.00
+		24.92	20000.00
+		26.82	33463.00
+476	57.68	0.00	0.00
+		19.92	19501.00
+		22.34	26646.00
+		24.76	35929.00
+		27.18	46281.00
+		29.60	57851.00
+		32.02	71812.00
+		34.44	88679.00
+		36.86	114886.00
+		39.28	148263.00
+477	39.40	0.00	0.00
+		23.67	21495.00
+		25.54	24258.00
+		27.40	30587.00
+		29.27	36952.00
+		31.13	49778.00
+		32.99	71001.00
+		34.86	97119.00
+		36.72	123100.00
+		38.58	162763.00
+478	36.58	0.00	0.00
+		23.67	21495.00
+		25.54	24258.00
+		27.40	30587.00
+		29.27	36952.00
+		31.13	49778.00
+		32.99	71001.00
+		34.86	97119.00
+		36.72	123100.00
+		38.58	162763.00
+479	29.30	0.00	0.00
+		25.40	19483.00
+		28.05	22951.00
+		30.70	32629.00
+		33.35	42310.00
+		36.00	53297.00
+		38.64	67650.00
+		41.29	85052.00
+		43.94	105594.00
+		46.59	164258.00
+480	100.76	0.00	0.00
+		9.17	9078.00
+		11.66	18702.00
+		14.15	30618.00
+		16.64	45351.00
+		19.13	61606.00
+		21.62	79432.00
+		24.10	102010.00
+		26.59	131473.00
+		29.08	170953.00
+481	53.32	0.00	0.00
+		10.52	9219.00
+		13.44	15750.00
+		16.36	26930.00
+		19.28	42474.00
+		22.19	60473.00
+		25.11	82608.00
+		28.03	109572.00
+		30.95	136539.00
+		33.86	169221.00
+482	33.42	0.00	0.00
+		20.32	7877.00
+		23.49	10985.00
+		26.67	14106.00
+		29.84	18000.00
+		33.02	25000.00
+		36.19	40000.00
+		39.37	60000.00
+		42.54	120000.00
+		45.72	180193.00
+483	29.30	0.00	0.00
+		25.40	19483.00
+		28.05	22951.00
+		30.70	32629.00
+		33.35	42310.00
+		36.00	53297.00
+		38.64	67650.00
+		41.29	85052.00
+		43.94	105594.00
+		46.59	164258.00
+484	16.37	0.00	0.00
+		19.46	28586.00
+		22.62	35798.00
+		25.78	48924.00
+		28.94	65900.00
+		32.11	90830.00
+		35.27	125316.00
+		38.43	173558.00
+		41.59	237141.00
+		44.76	318374.00
+485	20.76	0.00	0.00
+		17.67	27213.00
+		20.70	36595.00
+		23.74	46086.00
+		26.77	69799.00
+		29.80	104721.00
+		32.84	142830.00
+		35.87	188704.00
+		38.91	238719.00
+		41.94	316348.00
+486	16.65	0.00	0.00
+		17.67	27213.00
+		20.70	36595.00
+		23.74	46086.00
+		26.77	69799.00
+		29.80	104721.00
+		32.84	142830.00
+		35.87	188704.00
+		38.91	238719.00
+		41.94	316348.00
+487	16.47	0.00	0.00
+		17.67	27213.00
+		20.70	36595.00
+		23.74	46086.00
+		26.77	69799.00
+		29.80	104721.00
+		32.84	142830.00
+		35.87	188704.00
+		38.91	238719.00
+		41.94	316348.00
+488	107.64	0.00	0.00
+		6.03	1070.00
+		7.78	2729.00
+		9.52	4982.00
+		11.27	7909.00
+		13.02	11749.00
+		14.77	15802.00
+		16.52	22202.00
+		18.26	28568.00
+		20.01	35940.00
+489	86.35	0.00	0.00
+		4.94	1076.00
+		7.41	2367.00
+		9.88	4063.00
+		12.34	6640.00
+		14.81	9829.00
+		17.28	14389.00
+		19.74	18933.00
+		22.21	26631.00
+		24.68	35329.00
+490	63.98	0.00	0.00
+		4.94	1076.00
+		7.41	2367.00
+		9.88	4063.00
+		12.34	6640.00
+		14.81	9829.00
+		17.28	14389.00
+		19.74	18933.00
+		22.21	26631.00
+		24.68	35329.00
+491	43.70	0.00	0.00
+		4.94	1076.00
+		7.41	2367.00
+		9.88	4063.00
+		12.34	6640.00
+		14.81	9829.00
+		17.28	14389.00
+		19.74	18933.00
+		22.21	26631.00
+		24.68	35329.00
+492	18.59	0.00	0.00
+		17.79	3179.00
+		20.32	4515.00
+		22.84	5849.00
+		25.37	7191.00
+		27.90	10505.00
+		30.43	15229.00
+		32.96	19956.00
+		35.48	27702.00
+		38.01	47394.00
+493	16.47	0.00	0.00
+		17.67	27213.00
+		20.70	36595.00
+		23.74	46086.00
+		26.77	69799.00
+		29.80	104721.00
+		32.84	142830.00
+		35.87	188704.00
+		38.91	238719.00
+		41.94	316348.00
+494	16.47	0.00	0.00
+		17.67	27213.00
+		20.70	36595.00
+		23.74	46086.00
+		26.77	69799.00
+		29.80	104721.00
+		32.84	142830.00
+		35.87	188704.00
+		38.91	238719.00
+		41.94	316348.00
+495	18.72	0.00	0.00
+		14.31	17101.00
+		16.41	38922.00
+		18.52	60850.00
+		20.62	82677.00
+		22.72	104507.00
+		24.82	126340.00
+		26.92	148176.00
+		29.02	170015.00
+		31.13	214157.00
+496	5.72	0.00	0.00
+		25.35	28502.00
+		27.34	34064.00
+		29.33	41142.00
+		31.32	49105.00
+		33.31	79023.00
+		35.30	124203.00
+		37.29	169385.00
+		39.28	214569.00
+		41.28	346049.00
+497	-0.40	0.00	0.00
+		25.35	28502.00
+		27.34	34064.00
+		29.33	41142.00
+		31.32	49105.00
+		33.31	79023.00
+		35.30	124203.00
+		37.29	169385.00
+		39.28	214569.00
+		41.28	346049.00
+498	-0.40	0.00	0.00
+		24.38	29781.00
+		26.19	33942.00
+		28.00	40249.00
+		29.81	48225.00
+		31.62	58416.00
+		33.43	68609.00
+		35.24	78804.00
+		37.05	89001.00
+		38.86	99200.00
+499	4.80	0.00	0.00
+		25.35	28502.00
+		27.34	34064.00
+		29.33	41142.00
+		31.32	49105.00
+		33.31	79023.00
+		35.30	124203.00
+		37.29	169385.00
+		39.28	214569.00
+		41.28	346049.00
+500	-2.52	0.00	0.00
+		31.54	47002.00
+		33.48	50899.00
+		35.43	54819.00
+		37.37	58721.00
+		39.31	62625.00
+		41.25	80084.00
+		43.19	97545.00
+		45.13	115008.00
+		47.07	132473.00
+501	-0.69	0.00	0.00
+		31.54	47002.00
+		33.48	50899.00
+		35.43	54819.00
+		37.37	58721.00
+		39.31	62625.00
+		41.25	80084.00
+		43.19	97545.00
+		45.13	115008.00
+		47.07	132473.00
+502	-7.10	0.00	0.00
+		31.54	47002.00
+		33.48	50899.00
+		35.43	54819.00
+		37.37	58721.00
+		39.31	62625.00
+		41.25	80084.00
+		43.19	97545.00
+		45.13	115008.00
+		47.07	132473.00
+503	-15.70	0.00	0.00
+		31.54	47002.00
+		33.48	50899.00
+		35.43	54819.00
+		37.37	58721.00
+		39.31	62625.00
+		41.25	80084.00
+		43.19	97545.00
+		45.13	115008.00
+		47.07	132473.00
+504	-20.69	0.00	0.00
+		30.28	45002.00
+		32.08	48166.00
+		33.53	51264.00
+		34.10	65933.00
+		34.65	80088.00
+		35.33	97590.00
+		35.79	109431.00
+		36.27	121788.00
+		36.67	132086.00
+505	98.95	0.00	0.00
+		9.31	10000.00
+		11.80	17573.00
+		14.29	26761.00
+		16.78	37821.00
+		19.27	51480.00
+		21.76	65142.00
+		24.25	80575.00
+		26.74	96011.00
+		29.23	115000.00
+506	92.53	0.00	0.00
+		9.31	10000.00
+		11.80	17573.00
+		14.29	26761.00
+		16.78	37821.00
+		19.27	51480.00
+		21.76	65142.00
+		24.25	80575.00
+		26.74	96011.00
+		29.23	115000.00
+507	59.90	0.00	0.00
+		9.31	10000.00
+		11.80	17573.00
+		14.29	26761.00
+		16.78	37821.00
+		19.27	51480.00
+		21.76	65142.00
+		24.25	80575.00
+		26.74	96011.00
+		29.23	115000.00
+508	38.42	0.00	0.00
+		9.31	10000.00
+		11.80	17573.00
+		14.29	26761.00
+		16.78	37821.00
+		19.27	51480.00
+		21.76	65142.00
+		24.25	80575.00
+		26.74	96011.00
+		29.23	115000.00
+509	11.09	0.00	0.00
+		9.83	10000.00
+		12.19	16085.00
+		14.56	24385.00
+		16.92	34894.00
+		19.28	47314.00
+		21.64	60282.00
+		24.01	77595.00
+		26.37	94838.00
+		28.73	115001.00
+510	-7.58	0.00	0.00
+		14.95	5092.00
+		17.81	7679.00
+		20.67	10269.00
+		23.54	19652.00
+		26.40	29006.00
+		29.26	44125.00
+		32.12	59247.00
+		34.98	83551.00
+		37.84	115010.00
+511	-6.32	0.00	0.00
+		31.39	3817.00
+		33.28	8000.00
+		35.16	12163.00
+		37.05	16351.00
+		38.94	26156.00
+		40.82	35912.00
+		42.71	45722.00
+		44.60	65280.00
+		46.48	92824.00
+512	-20.69	0.00	0.00
+		36.97	47581.00
+		38.95	59467.00
+		40.94	71416.00
+		42.92	83307.00
+		44.91	95261.00
+		46.89	107157.00
+		48.87	119055.00
+		50.86	131016.00
+		52.84	142919.00
+513	-17.31	0.00	0.00
+		39.48	47410.00
+		41.37	58809.00
+		43.26	70210.00
+		45.15	81613.00
+		47.04	93018.00
+		48.93	104425.00
+		50.82	115834.00
+		52.71	127245.00
+		54.60	138658.00
+514	-13.23	0.00	0.00
+		39.48	47410.00
+		41.37	58809.00
+		43.26	70210.00
+		45.15	81613.00
+		47.04	93018.00
+		48.93	104425.00
+		50.82	115834.00
+		52.71	127245.00
+		54.60	138658.00
+515	-24.88	0.00	0.00
+		39.48	47410.00
+		41.37	58809.00
+		43.26	70210.00
+		45.15	81613.00
+		47.04	93018.00
+		48.93	104425.00
+		50.82	115834.00
+		52.71	127245.00
+		54.60	138658.00
+516	-34.54	0.00	0.00
+		26.42	45440.00
+		28.01	54184.00
+		29.60	62930.00
+		31.19	71678.00
+		32.78	80428.00
+		34.37	89180.00
+		35.95	97879.00
+		37.54	106635.00
+		39.13	117017.00
+517	-23.85	0.00	0.00
+		32.76	41600.00
+		34.08	49179.00
+		35.41	56817.00
+		36.73	64399.00
+		38.05	71983.00
+		39.38	79626.00
+		40.70	87213.00
+		42.03	94859.00
+		43.35	102449.00
+518	-21.88	0.00	0.00
+		27.99	30908.00
+		29.27	36351.00
+		30.55	41796.00
+		31.82	47200.00
+		33.10	52648.00
+		34.38	58098.00
+		35.66	63550.00
+		36.94	69004.00
+		38.22	74460.00
+519	-13.88	0.00	0.00
+		39.68	21597.00
+		40.76	25858.00
+		41.84	30121.00
+		42.91	34346.00
+		43.99	38612.00
+		45.06	42840.00
+		46.14	47109.00
+		47.21	51340.00
+		48.29	55612.00
+520	-54.92	0.00	0.00
+		39.68	21597.00
+		40.76	25858.00
+		41.84	30121.00
+		42.91	34346.00
+		43.99	38612.00
+		45.06	42840.00
+		46.14	47109.00
+		47.21	51340.00
+		48.29	55612.00
+521	194.76	0.00	0.00
+		5.67	3115.00
+		6.67	4451.00
+		7.66	6007.00
+		8.65	7776.00
+		9.65	9783.00
+		10.64	12009.00
+		11.63	14380.00
+		12.63	16871.00
+		13.62	19744.00
+522	122.51	0.00	0.00
+		5.67	3115.00
+		6.67	4451.00
+		7.66	6007.00
+		8.65	7776.00
+		9.65	9783.00
+		10.64	12009.00
+		11.63	14380.00
+		12.63	16871.00
+		13.62	19744.00
+523	75.29	0.00	0.00
+		5.67	3115.00
+		6.67	4451.00
+		7.66	6007.00
+		8.65	7776.00
+		9.65	9783.00
+		10.64	12009.00
+		11.63	14380.00
+		12.63	16871.00
+		13.62	19744.00
+524	34.01	0.00	0.00
+		12.65	2519.00
+		15.69	3803.00
+		18.74	5442.00
+		21.78	7291.00
+		24.82	9514.00
+		27.87	12168.00
+		30.91	14817.00
+		33.95	18196.00
+		37.00	23173.00
+525	53.13	0.00	0.00
+		5.67	3115.00
+		6.67	4451.00
+		7.66	6007.00
+		8.65	7776.00
+		9.65	9783.00
+		10.64	12009.00
+		11.63	14380.00
+		12.63	16871.00
+		13.62	19744.00
+526	17.07	0.00	0.00
+		8.39	2507.00
+		9.50	3748.00
+		10.60	5846.00
+		11.70	7946.00
+		12.81	10504.00
+		13.91	13424.00
+		15.02	16372.00
+		16.12	19777.00
+		17.23	23215.00
+527	11.50	0.00	0.00
+		14.19	27882.00
+		15.48	105941.00
+		16.77	184002.00
+		18.05	261460.00
+		19.34	339525.00
+		20.62	416987.00
+		21.91	495056.00
+		23.19	572522.00
+		24.48	650595.00
+528	11.50	0.00	0.00
+		14.19	27882.00
+		15.48	105941.00
+		16.77	184002.00
+		18.05	261460.00
+		19.34	339525.00
+		20.62	416987.00
+		21.91	495056.00
+		23.19	572522.00
+		24.48	650595.00
+529	9.90	0.00	0.00
+		14.19	27882.00
+		15.48	105941.00
+		16.77	184002.00
+		18.05	261460.00
+		19.34	339525.00
+		20.62	416987.00
+		21.91	495056.00
+		23.19	572522.00
+		24.48	650595.00
+530	5.56	0.00	0.00
+		8.01	24631.00
+		9.88	59021.00
+		11.76	100526.00
+		13.63	148484.00
+		15.50	196444.00
+		17.37	251380.00
+		19.25	334908.00
+		21.12	425301.00
+		22.99	554665.00
+531	5.34	0.00	0.00
+		9.73	23097.00
+		11.48	54276.00
+		13.22	91021.00
+		14.97	136080.00
+		16.71	180884.00
+		18.46	238516.00
+		20.20	321814.00
+		21.94	415062.00
+		23.69	553294.00
+532	111.64	0.00	0.00
+		18.74	400.00
+		19.26	492.00
+		20.22	1000.00
+		20.81	1500.00
+		21.40	2001.00
+		21.98	3000.00
+		22.57	4017.00
+		23.16	5035.00
+		23.74	6037.00
+533	83.15	0.00	0.00
+		18.74	400.00
+		19.26	492.00
+		20.22	1000.00
+		20.81	1500.00
+		21.40	2001.00
+		21.98	3000.00
+		22.57	4017.00
+		23.16	5035.00
+		23.74	6037.00
+534	49.55	0.00	0.00
+		18.74	400.00
+		19.26	492.00
+		20.22	1000.00
+		20.81	1500.00
+		21.40	2001.00
+		21.98	3000.00
+		22.57	4017.00
+		23.16	5035.00
+		23.74	6037.00
+535	31.23	0.00	0.00
+		18.74	400.00
+		19.26	492.00
+		20.22	1000.00
+		20.81	1500.00
+		21.40	2001.00
+		21.98	3000.00
+		22.57	4017.00
+		23.16	5035.00
+		23.74	6037.00
+536	21.43	0.00	0.00
+		18.74	400.00
+		19.26	492.00
+		20.22	1000.00
+		20.81	1500.00
+		21.40	2001.00
+		21.98	3000.00
+		22.57	4017.00
+		23.16	5035.00
+		23.74	6037.00
+537	-8.43	0.00	0.00
+		18.74	400.00
+		19.26	492.00
+		20.22	1000.00
+		20.81	1500.00
+		21.40	2001.00
+		21.98	3000.00
+		22.57	4017.00
+		23.16	5035.00
+		23.74	6037.00
+538	5.34	0.00	0.00
+		9.73	23097.00
+		11.48	54276.00
+		13.22	91021.00
+		14.97	136080.00
+		16.71	180884.00
+		18.46	238516.00
+		20.20	321814.00
+		21.94	415062.00
+		23.69	553294.00
+539	2.03	0.00	0.00
+		9.73	23097.00
+		11.48	54276.00
+		13.22	91021.00
+		14.97	136080.00
+		16.71	180884.00
+		18.46	238516.00
+		20.20	321814.00
+		21.94	415062.00
+		23.69	553294.00
+540	1.02	0.00	0.00
+		9.73	23097.00
+		11.48	54276.00
+		13.22	91021.00
+		14.97	136080.00
+		16.71	180884.00
+		18.46	238516.00
+		20.20	321814.00
+		21.94	415062.00
+		23.69	553294.00
+541	0.84	0.00	0.00
+		9.73	23097.00
+		11.48	54276.00
+		13.22	91021.00
+		14.97	136080.00
+		16.71	180884.00
+		18.46	238516.00
+		20.20	321814.00
+		21.94	415062.00
+		23.69	553294.00
+542	0.62	0.00	0.00
+		9.73	23097.00
+		11.48	54276.00
+		13.22	91021.00
+		14.97	136080.00
+		16.71	180884.00
+		18.46	238516.00
+		20.20	321814.00
+		21.94	415062.00
+		23.69	553294.00
+543	-24.94	0.00	0.00
+		9.73	23097.00
+		11.48	54276.00
+		13.22	91021.00
+		14.97	136080.00
+		16.71	180884.00
+		18.46	238516.00
+		20.20	321814.00
+		21.94	415062.00
+		23.69	553294.00
+544	-11.42	0.00	0.00
+		4.04	5.00
+		6.17	31.00
+		8.87	67.00
+		11.57	106.00
+		14.27	500.00
+		16.97	1500.00
+		19.68	5000.00
+		22.38	12000.00
+		25.08	37000.00
+545	-54.92	0.00	0.00
+		58.49	60148.00
+		59.40	186350.00
+		60.32	313940.00
+		61.24	441531.00
+		62.16	569123.00
+		63.08	696716.00
+		64.00	824310.00
+		64.91	950519.00
+		65.83	1078116.00
+546	-32.58	0.00	0.00
+		34.15	59829.00
+		34.99	190747.00
+		35.84	323225.00
+		36.68	454146.00
+		37.53	586627.00
+		38.37	717551.00
+		39.21	848476.00
+		40.06	980961.00
+		40.90	1111889.00
+547	-30.49	0.00	0.00
+		34.15	59829.00
+		34.99	190747.00
+		35.84	323225.00
+		36.68	454146.00
+		37.53	586627.00
+		38.37	717551.00
+		39.21	848476.00
+		40.06	980961.00
+		40.90	1111889.00
+548	-39.98	0.00	0.00
+		39.71	51222.00
+		39.76	194177.00
+		39.81	337133.00
+		39.85	451498.00
+		39.90	594455.00
+		39.95	737413.00
+		39.99	851780.00
+		40.04	994739.00
+		40.08	1109107.00
+549	-40.98	0.00	0.00
+		39.71	51222.00
+		39.76	194177.00
+		39.81	337133.00
+		39.85	451498.00
+		39.90	594455.00
+		39.95	737413.00
+		39.99	851780.00
+		40.04	994739.00
+		40.08	1109107.00
+550	-39.98	0.00	0.00
+		15.00	100.00
+		30.00	215.00
+		30.50	600.00
+		31.00	1000.00
+		31.50	25500.00
+		32.00	50001.00
+		32.50	525000.00
+		33.00	1000000.00
+		34.00	1950001.00
+551	-40.98	0.00	0.00
+		15.00	100.00
+		30.00	215.00
+		30.50	600.00
+		31.00	1000.00
+		31.50	25500.00
+		32.00	50001.00
+		32.50	525000.00
+		33.00	1000000.00
+		34.00	1950001.00
+552	-39.98	0.00	0.00
+		15.00	100.00
+		30.00	215.00
+		30.50	600.00
+		31.00	1000.00
+		31.50	25500.00
+		32.00	50001.00
+		32.50	525000.00
+		33.00	1000000.00
+		34.00	1950001.00
+553	-40.98	0.00	0.00
+		15.00	100.00
+		30.00	215.00
+		30.50	600.00
+		31.00	1000.00
+		31.50	25500.00
+		32.00	50001.00
+		32.50	525000.00
+		33.00	1000000.00
+		34.00	1950001.00
+554	-41.98	0.00	0.00
+		15.00	100.00
+		30.00	215.00
+		30.50	600.00
+		31.00	1000.00
+		31.50	25500.00
+		32.00	50001.00
+		32.50	525000.00
+		33.00	1000000.00
+		34.00	1950001.00
+555	-42.98	0.00	0.00
+		15.00	100.00
+		30.00	215.00
+		30.50	600.00
+		31.00	1000.00
+		31.50	25500.00
+		32.00	50001.00
+		32.50	525000.00
+		33.00	1000000.00
+		34.00	1950001.00

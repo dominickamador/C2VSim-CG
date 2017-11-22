@@ -1,0 +1,147 @@
+C*******************************************************************************
+C
+C                  INTEGRATED WATER FLOW MODEL (IWFM)
+C                         *** Version 2015 ***
+C
+C*******************************************************************************
+C
+C                        Z-BUDGET MAIN INPUT FILE
+C                        for IWFM Post-Processing
+C
+C
+C             Project : C2VSim-2015 Coarse Grid Model
+C             Filename: CVZB_Run_All.in
+C             Version:  R385-2015 2017.03.08
+C
+C***********************************************************************
+C  California Central Valley Groundwater-Surface Water Flow Model (C2VSim)
+C  Copyright (C) 2012-2017
+C  State of California, Department of Water Resources 
+C
+C  This model is free. You can redistribute it and/or modify it 
+C  under the terms of the GNU General Public License as published 
+C  by the Free Software Foundation; either version 2 of the License, 
+C  or (at your option) any later version.
+C
+C  This model is distributed WITHOUT ANY WARRANTY; without even 
+C  the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+C  PARTICULAR PURPOSE.  See the GNU General Public License for 
+C  more details. (http://www.gnu.org/licenses/gpl.html)
+C
+C  The GNU General Public License is available from the Free Software
+C  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+C
+C  For tecnical support, e-mail: IWFMtechsupport@water.ca.gov 
+C
+C
+C  Principal Contact:
+C    Tariq N. Kadir, PE, Senior Engineer, DWR
+C       (916) 653-3513, kadir@water.ca.gov
+C
+C  Principal Developer and Technical Support:
+C    Charles F. Brush, PhD, PE, Engineer, DWR
+C       (916) 651-8705, cbrush@water.ca.gov
+C
+C
+C*******************************************************************************
+C
+C                            File Description
+C
+C    This file contains the names of all HDF5 Z-Budget input files, conversion 
+C    factors and output control options for running the post-processor.
+C    
+C*******************************************************************************                     
+C                         Z-Budget Output Control
+C
+C    FACTAROU; Factor to convert simulation unit of area to output unit of area
+C    UNITAROU; Output unit of area (8 characters max.) 
+C    FACTVLOU; Factor to convert simulation unit of volume to output unit of volume
+C    UNITVLOU; Output unit of volume (8 characters max.)
+C    CACHE   ; Cache size in terms of number of values stored for time series 
+C                data output
+C
+C-----------------------------------------------------------------------------
+C   VALUE                         DESCRIPTION
+C-----------------------------------------------------------------------------
+    2.29568E-05                   / FACTAROU      (sq.ft. -> AC)   
+    AC                            / UNITAROU  
+    2.29568E-05                   / FACTVLOU      (cu.ft. -> AF)    
+    AF                            / UNITVLOU    
+    500000                        / CACHE
+C*******************************************************************************                     
+C                        Z-Budget Output Period
+C
+C    BDT    ; Begining date and time for the Z-Budget output  
+C              * Use MM/DD/YYYY_HH:MM format
+C              * Midnight is 24:00
+C    EDT    ; Ending date and time for the Z-Budget output 
+C              * Use MM/DD/YYYY_HH:MM format
+C              * Midnight is 24:00
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+    01/01/1900_24:00            / BDT
+    12/31/2100_24:00            / EDT
+C*******************************************************************************
+C                         Z-Budget Output Data
+C
+C   List below the number of Z-Budget types (i.e. groundwater Z-Budget, root zone 
+C   Z-Budget, land & water use Z-Budget, etc.), and for each Z-Budget type list the  
+C   zone definition file, input HDF5 file, output file and the locations for which a  
+C   Z-Budget table will be generated.
+C
+C   NZBUDGET;  Number of Z-Budget types to be printed
+C   ZDEFFILE;  Name of the zone definition file (max. 1000 characters)
+C   HDFFILE ;  Name of the input Z-Budget file (max. 1000 characters)
+C   OUTFILE ;  Name of the Z-Budget output file (max. 1000 characters)
+C   INTPRNT ;  Interval for Z-Budget print out (e.g. 1DAY, 1MONTH, etc.). The interval
+C                must be a one of those listed in the Main Input File for the 
+C                executable that generated the input HDF5 files. 
+C                * Leave blank to use the same interval as the data.
+C   NZPRNT  ;  Number of zones for Z-Budget print-out (not all the zones listed above 
+C                need to be processed)
+C   ZPRNT   ;  Zone numbers for which a Z-Budget table will be generated  
+C                * Enter -1: to print Z-Budget tables for all zones
+C                         0: to suppress printing of any Z-Budget tables
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+      3                         / NZBUDGET
+C*******************************************************************************
+C                          Data for Z-Budget 1
+C
+C-------------------------------------------------------------------------------
+C   VALUE                                    DESCRIPTION
+C-------------------------------------------------------------------------------
+    CV_ZB_subregions.dat                     / ZDEFFILE
+    ..\Results\CVground_ZBud.hdf             / HDFFILE 
+    ..\Results\CV_ZB_SRs_groundwater.out     / OUTFILE 
+                                             / INTPRNT
+    1                                        / NZPRNT  
+    -1                                       / ZPRNT[1]
+C*******************************************************************************
+C                          Data for Z-Budget 2
+C
+C-------------------------------------------------------------------------------
+C   VALUE                                       DESCRIPTION
+C-------------------------------------------------------------------------------
+    CV_ZB_subregions.dat                     / ZDEFFILE
+    ..\Results\CVlandwater_ZBud.hdf             / HDFFILE 
+    ..\Results\CV_ZB_SRs_landwater.out          / OUTFILE 
+                                                / INTPRNT
+    1                                           / NZPRNT  
+    -1                                          / ZPRNT[1]
+C*******************************************************************************
+C                          Data for Z-Budget 3
+C
+C-------------------------------------------------------------------------------
+C   VALUE                                       DESCRIPTION
+C-------------------------------------------------------------------------------
+    CV_ZB_subregions.dat                     / ZDEFFILE
+    ..\Results\CVrootzone_ZBud.hdf              / HDFFILE 
+    ..\Results\CV_ZB_SRs_rootzone.out           / OUTFILE 
+                                                / INTPRNT
+    1                                           / NZPRNT  
+    -1                                          / ZPRNT[1]

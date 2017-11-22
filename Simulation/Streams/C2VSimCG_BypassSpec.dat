@@ -1,0 +1,307 @@
+C*******************************************************************************
+C
+C                  INTEGRATED WATER FLOW MODEL (IWFM)
+C                         *** Version 2015 ***
+C
+C*******************************************************************************
+C
+C                 STREAM BYPASS SPECIFICATION DATA FILE
+C                           Stream Component
+C                          *** Version 4.0 ***
+C
+C
+C             Project:  C2VSim: California Central Valley Groundwater-Surface Water Simulation Model
+C             Filename: CVStreams_bypass.dat
+C             Version:  C2VSim-2015-CG 2017.09.07
+C
+C***********************************************************************
+C  California Central Valley Groundwater-Surface Water Flow Model (C2VSim)
+C  Copyright (C) 2012  
+C  State of California, Department of Water Resources 
+C
+C  This model is free. You can redistribute it and/or modify it 
+C  under the terms of the GNU General Public License as published 
+C  by the Free Software Foundation; either version 2 of the License, 
+C  or (at your option) any later version.
+C
+C  This model is distributed WITHOUT ANY WARRANTY; without even 
+C  the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+C  PARTICULAR PURPOSE.  See the GNU General Public License for 
+C  more details. (http://www.gnu.org/licenses/gpl.html)
+C
+C  The GNU General Public License is available from the Free Software
+C  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+C
+C  For tecnical support, e-mail: IWFMtechsupport@water.ca.gov 
+C
+C
+C  Principal Contact:
+C    Tariq N. Kadir, PE, Senior Engineer, DWR
+C       (916) 653-3513, kadir@water.ca.gov
+C
+C  Principal Developer and Technical Support:
+C    Charles F. Brush, PhD, PE, Engineer, DWR
+C       (916) 651-8705, cbrush@water.ca.gov
+C
+C
+C*******************************************************************************
+C                          File Description
+C
+C  This data file contains the specification data for stream bypasses.
+C
+C*******************************************************************************
+C
+C       Rating Flow
+C   ID  Table  Values Description
+C  ---- ------ ------ -----------
+C    1     x          M&T Flood Relief Structure spill to Butte Basin
+C    2     x          3Bs Flood Relief Structure spill to Butte Basin
+C    3     x          Goose Lake Flood Relief Structure to Butte Basin
+C    4           x    Moulton Weir spill to Butte Basin							
+C    5           x    Colusa Weir spill to Butte Basin							
+C    6           x    Tisdale Weir near Grimes							
+C    7           x    Freemont Weir spill to Yolo Bypass							
+C    8           x    Sacramento Weir spill to Yolo Bypass							
+C    9           x    Knights Landing Ridge Cut flood flow to Yolo Bypass							
+C   10           x    Kings River to S Fork Kings River							
+C   11     x          San Joaquin River to Chowchilla Bypass							
+C   12     x          Chowchilla River to Eastside Bypass							
+C   13     x          Deadman's Creek to Eastside Bypass							
+C   14     x          Bear Creek to Eastside Bypass							
+C   15     x          End of Kaweah River to be spread in Kaweah River Fan as recharge							
+C   16     x          End of Tule River to be spread in Tule River Fan as recharge							
+C   17     x          End of Kern River Flood Channel to recharge							
+C
+C----------------------------------------------------------------------------------
+C
+C                 Bypass Configuration Specifications
+C
+C   NDIVS   ; Number of bypasses
+C   FACTX   ; Conversion factor for DIVX
+C              It is used to convert only the spatial component of the unit; 
+C              DO NOT include the conversion factor for time component of the unit.
+C              * e.g. Unit of stream flow listed in this file   = AC-FT/MONTH
+C                     Consistent unit used in simulation        = CU.FT/DAY 
+C                     Enter FACTX (AC-FT/MONTH -> CU.FT/MONTH)  = 2.29568E-05 
+C                      (conversion of MONTH -> DAY is performed automatically) 
+C   TUNITX  ; Time unit of stream flow.  This should be one of the units 
+C              recognized by HEC-DSS that are listed in the Main Control File.  
+C   FACTY   ; Conversion factor for DIVY
+C              It is used to convert only the spatial component of the unit; 
+C              DO NOT include the conversion factor for time component of the unit.
+C              * e.g. Unit of diversion listed in this file     = AC-FT/MONTH
+C                     Consistent unit used in simulation        = CU.FT/DAY 
+C                     Enter FACTY (AC-FT/MONTH -> CU.FT/MONTH)  = 2.29568E-05 
+C                      (conversion of MONTH -> DAY is performed automatically) 
+C   TUNITY  ; Time unit of diversion.  This should be one of the units 
+C              recognized by HEC-DSS that are listed in the Main Control File.  
+C
+C-------------------------------------------------------------------------------
+C   VALUE                       DESCRIPTION
+C-------------------------------------------------------------------------------
+      17                        / NDIVS
+      60                        / FACTX       values in CFS * 60 -> CFM
+      1min                      / TUNITX
+      60                        / FACTY       values in CFS * 60 -> CFM
+      1min                      / TUNITY
+C----------------------------------------------------------------------------------
+C
+C   ID      ; Bypass identification number
+C   IA      ; Stream node number where bypass is exported from
+C   TYPEDEST; Destination type for the bypass
+C               0 = bypass goes to outside the model boundary
+C               1 = bypass goes to a downstream node
+C               3 = bypass goes to a lake
+C   DEST    ; Destination for the bypass
+C               * Note: Enter any number if TYPEDEST is set to 0
+C   IDIVC   ; If positive, IDIVC is the column number in the Diversion Data File  for bypass flow
+C             If negative, IDIVC is the number of points in the diversion rating table
+C               * Note: A rating table cannot be specified if the bypass originates outside the model area
+C   DIVRL   ; Fraction of the diversion assigned as recoverable loss
+C   DIVNL   ; Fraction of the diversion assigned as non-recoverable loss
+C   DIVX    ; Stream flow available at stream node IA; [L^3/T]
+C               * Note: Enter only if IDIVC is less than zero
+C   DIVY    ; Diversion amount corresponding to DIVX; [L^3/T]
+C               * Note: Enter only if IDIVC is less than zero
+C   NAME    ; Name of the bypass (maximum 20 characters)
+C
+C----------------------------------------------------------------------------------
+C ID	IA	TYPEDEST	IDIVC	DIVRL	DIVNL	NAME
+C			DEST
+C					DIVX	DIVY 	( this rating table should follow if IDIVC < 0 )
+C-------------------------------------------------------------------------------------------------------						
+	1	401	1	458	431	0	0	M&T_Flood		/ Bypass 1 - M&T Flood Relief Structure spill to Butte Basin						
+	2	402	1	458	432	0	0	3Bs_Flood		/ Bypass 2 - 3Bs Flood Relief Structure spill to Butte Basin
+	3	404	1	458	433	0	0	Goose_Lake_Flood	/ Bypass 3 - Goose Lake Flood Relief Structure to Butte Basin		
+	4	407	1	458	434	0	0	Moulton_Weir		/ Bypass 4 - Moulton Weir spill to Butte Basin
+	5	426	1	458	435	0	0	Colusa_Weir		/ Bypass 5 - Colusa Weir spill to Butte Basin
+	6	430	1	464	436	0	0	Tisdale_Weir		/ Bypass 6 - Tisdale Weir near Grimes
+	7	498	1	528	437	0	0	Fremont_Weir		/ Bypass 7 - Freemont Weir spill to Yolo Bypass	
+	8	503	1	529	438	0	0	Sac_Weir		/ Bypass 8 - Sacramento Weir spill to Yolo Bypass
+	9	447	1	527	439	0	0	KLR_to_Yolo_Bypass	/ Bypass 9 - Knights Landing Ridge Cut flood flow to Yolo Bypass
+	10	88	1	89	440	0	0	Army+Cresent_Weirs 	/ Bypass 10 - Kings River to S Fork Kings River	
+C - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+C
+C Bypass 11 - San Joaquin River to Chowchilla Bypass							
+C							
+	11	145	1	148	-4	1	0	SJR_To_ChowchillaBP
+                                 0              0              
+                                 15             0
+                                 16             1
+                                 50000          49850
+C - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+C							
+C Bypass 12 - Chowchilla River to Eastside Bypass						
+C
+	12	178	1	181	-4	1	0	Chowchilla_R_To_EastsideBP
+					0		0              
+					10000		10000    
+					1500000		1500000                                
+					5000000		5000000                                        
+C - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+C							
+C Bypass 13 - Deadman's Creek to Eastside Bypass						
+C All water routed from Deadman’s Creek to bypass
+	13	196	0	0	-4	1	0	Deadmans_C_to_EastsideBP
+					0		0              
+					10000		10000    
+					1500000		1500000                                
+					5000000		5000000                                                           
+C - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+C							
+C Bypass 14 - Bear Creek to Eastside Bypass						
+C -- Aquifer Storage Program							
+C Option: set the values in this time series to all zeroes, turning off this ASR bypass							
+C All water routed from Bear Creek to bypass
+	14	210	0	0	-4	1	0	Deadmans_C_to_EastsideBP
+					0		0              
+					10000		10000    
+					1500000		1500000                                
+					5000000		5000000                                
+C - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+C							
+C Bypass 15 - End of Kaweah River to be spread in Kaweah River Fan as recharge							
+C -- Aquifer Storage Program							
+C Option: set the values in this time series to all zeroes, turning off this ASR bypass							
+	15	78	0	0	258	1	0	Kaweah_R_ASR
+C
+C --- C2VSIm versions prior to R376 used the following rating table to							
+C simulate ALL flows at end of Kaweah River to be spread in as recharge							
+C This was turned off in version R376							
+*	15	78	0	0	258	1	0	Kaweah_R_ASR
+*				0		0	
+*				10000		10000	
+*				1500000		1500000		
+*				5000000		5000000		
+C - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 							
+C
+C Bypass 16 - End of Tule River to be spread in Tule River Fan as recharge							
+C -- Aquifer Storage Program							
+C Option: set the values in this time series to all zeroes, turning off this ASR bypass							
+	16	67	0	0	259	1	0	Tule_R_ASR
+C
+C --- C2VSIm versions prior to R376 used the following rating table to							
+C simulate ALL flows at end of Tule River to be spread in as recharge							
+C This was turned off in version R376							
+*	16	67	0	0	259	1	0	Tule_R_ASR
+*				0		0	
+*				10000		10000	
+*				1500000		1500000		
+*				5000000		5000000		
+C - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 							
+C
+C Bypass 17 - End of Kern River Flood Channel to recharge							
+C -- Aquifer Storage Program							
+C First 1000 CFS of flows at end of Kern River Flood Channel to be spread as recharge							
+	17	33	0	0	-4	1	0	Kern_Spread
+					0		0	
+					100		100	
+					1000		1000	
+					5000000		1000		
+C							
+* Alternate version - All flow reaching the end of the reach is recharged							
+*	17	33	0	0	-4	1	0	Kern_Spread
+*                                        0.       0.							
+*                                        100.     100.							
+*                                        1500.    1500.							
+*                                        5000000. 5000000.							
+C----------------------------------------------------------------------------------
+C
+C               Seepage locations for bypass canals
+C
+C      The following information specifies the recharge zone for each bypass.
+C      (Skip if no bypass is being modeled, i.e. NDIVS = 0)
+C
+C   ID    ;  Recharge zone identification number
+C             (* Note: Recharge zone ID's should match bypass ID numbers)
+C   NERELS;  Total number of elements through which recharge occurs
+C   IERELS;  Element number through which recharge occurs
+C   FERELS;  Relative proportion of the recoverable loss to be applied to
+C             element IERELS as recharge.
+C
+C-------------------------------------------------------------------------------
+C    ID         NERELS      IERELS     FERELS
+C-------------------------------------------------------------------------------
+C  All losses go outside the model (losses = 0)
+   1              0             0         0
+   2              0             0         0
+   3              0             0         0
+   4              0             0         0
+   5              0             0         0
+   6              0             0         0
+   7              0             0         0
+   8              0             0         0
+   9              0             0         0
+   10             0             0         0
+   11             0             0         0
+   12             0             0         0
+   13             0             0         0
+   14             0             0         0
+C - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 							
+C Bypass 15 - End of Kaweah River to be spread in Kaweah River Fan as recharge
+C -- Aquifer Storage Program - no observed flow past this stream node
+   15             12         1072         2
+                             1073         2
+                             1083         2
+                             1084         2
+                             1085         1
+                             1100         1
+                             1101         1
+                             1102         1
+                             1113         2
+                             1114         1
+                             1115         1
+                             1116         1
+C - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 							
+C Bypass 16 - End of Tule River to be spread in Tule River Fan as recharge
+C -- Aquifer Storage Program - no observed flow past this stream node
+   16             16          1129     0.50
+                              1130     1
+                              1131     0.50
+                              1132     0.50
+                              1133     0.50
+                              1134     1
+                              1148     1
+                              1149     1
+                              1150     1
+                              1151     1
+                              1152     1
+                              1153     1
+                              1154     1
+                              1168     0.50
+                              1169     0.50
+                              1170     0.50
+C - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 							
+C Bypass 17 - End of Kern River Flood Channel to be spread in as recharge
+C -- Aquifer Storage Program - no observed flow past this stream node
+   17            10           1216     1
+                              1217     1
+                              1232     1
+                              1247     1
+                              1264     1
+                              1269     1
+                              1281     1
+                              1293     1
+                              1306     1
+                              1318     1
+C - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 							

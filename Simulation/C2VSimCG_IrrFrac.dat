@@ -1,0 +1,91 @@
+C*******************************************************************************
+C
+C                  INTEGRATED WATER FLOW MODEL (IWFM)
+C                         *** Version 2015 ***
+C
+C*******************************************************************************
+C
+C       IRRIGATION FRACTIONS FOR PUMPING AND SURFACE WATER DIVERSIONS 
+C                        for IWFM Simulation
+C
+C
+C             Project:  C2VSim: California Central Valley Groundwater-Surface Water Simulation Model
+C             Filename: CVIrrFrac.dat
+C             Version:  C2VSim-2015-CG 2017.09.07
+C
+C***********************************************************************
+C  California Central Valley Groundwater-Surface Water Flow Model (C2VSim)
+C  Copyright (C) 2012  
+C  State of California, Department of Water Resources 
+C
+C  This model is free. You can redistribute it and/or modify it 
+C  under the terms of the GNU General Public License as published 
+C  by the Free Software Foundation; either version 2 of the License, 
+C  or (at your option) any later version.
+C
+C  This model is distributed WITHOUT ANY WARRANTY; without even 
+C  the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+C  PARTICULAR PURPOSE.  See the GNU General Public License for 
+C  more details. (http://www.gnu.org/licenses/gpl.html)
+C
+C  The GNU General Public License is available from the Free Software
+C  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+C
+C  For tecnical support, e-mail: IWFMtechsupport@water.ca.gov 
+C
+C
+C  Principal Contact:
+C    Tariq N. Kadir, PE, Senior Engineer, DWR
+C       (916) 653-3513, kadir@water.ca.gov
+C
+C  Principal Developer and Technical Support:
+C    Charles F. Brush, PhD, PE, Engineer, DWR
+C       (916) 651-8705, cbrush@water.ca.gov
+C
+C
+C*******************************************************************************
+C                          File Description
+C
+C   This data file contains the time series data for the fraction of pumping 
+C   and surface water diversions to be used for agricultural purposes.  
+C
+C*******************************************************************************
+C                        Irrigation Fractions Data Specifications
+C
+C   NCOLIRF;  Number of columns (or pathnames if DSS files are used) in the 
+C              irrigation fractions data file  
+C   NSPIRF ;  Number of time steps to update the irrigation fractions
+C              * Enter any number if time-tracking option is on
+C   NFQIRF ;  Repetition frequency of the irrigation fractions data 
+C              * Enter 0 if full time series data is supplied
+C              * Enter any number if time-tracking option is on
+C   DSSFL  ;  The name of the DSS file for data input (maximum 50 characters); 
+C              * Leave blank if DSS file is not used for data input
+C
+C------------------------------------------------------------------------------
+C         VALUE                                      DESCRIPTION
+C------------------------------------------------------------------------------
+          2                                          / NCOLIRF
+          1                                          / NSPIRF
+          0                                          / NFQIRF
+                                                     / DSSFL
+C-------------------------------------------------------------------------------
+C                        Irrigation Fractions Data
+C                          (READ FROM THIS FILE)
+C
+C   List the irrigation fractions data below, if it will not be read from
+C   a DSS file (i.e. DSSFL is left blank above).
+C
+C   ITIRF;  Time
+C   FIRIG;  Irrigation fraction
+C
+C----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+C   1  -  Irrigated
+C   2  -  Non-Irrigated
+C----------------------------------------------------------------------------------------------------------- 
+C   ITIRF    FIRIG(1)  FIRIG(2)  FIRIG(3) ...
+C-----------------------------------------------------------------------------------------------------------
+C               	Irrigated	Non-Irrigated	
+C               	1		2	
+C----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+10/31/2100_24:00	1.00		0.00	

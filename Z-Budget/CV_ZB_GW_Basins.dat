@@ -1,0 +1,1476 @@
+C*******************************************************************************
+C
+C                  INTEGRATED WATER FLOW MODEL (IWFM)
+C                         *** Version 2015 ***
+C
+C*******************************************************************************
+C
+C                        ZONE DEFINITION INPUT FILE
+C                     for IWFM Z-Budget Post-Processing
+C
+C
+C             Project : C2VSim-2015 Coarse-Grid Model
+C             Filename: CV_GW_Basins.dat
+C             Version:  R384-2015 2017.03.08
+C
+C             One zone for each B118 groundwater subbasin
+C
+C***********************************************************************
+C  California Central Valley Groundwater-Surface Water Flow Model (C2VSim)
+C  Copyright (C) 2012-2017
+C  State of California, Department of Water Resources 
+C
+C  This model is free. You can redistribute it and/or modify it 
+C  under the terms of the GNU General Public License as published 
+C  by the Free Software Foundation; either version 2 of the License, 
+C  or (at your option) any later version.
+C
+C  This model is distributed WITHOUT ANY WARRANTY; without even 
+C  the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+C  PARTICULAR PURPOSE.  See the GNU General Public License for 
+C  more details. (http://www.gnu.org/licenses/gpl.html)
+C
+C  The GNU General Public License is available from the Free Software
+C  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+C
+C  For tecnical support, e-mail: IWFMtechsupport@water.ca.gov 
+C
+C
+C  Principal Contact:
+C    Tariq N. Kadir, PE, Senior Engineer, DWR
+C       (916) 653-3513, kadir@water.ca.gov
+C
+C  Principal Developer and Technical Support:
+C    Charles F. Brush, PhD, PE, Engineer, DWR
+C       (916) 651-8705, cbrush@water.ca.gov
+C
+C
+C*******************************************************************************
+C
+C                            File Description
+C
+C    This file contains zone definitions to be used with the Z-Budget post-processor.
+C    
+C*******************************************************************************                     
+C                            Zone Information
+C
+C    The following lists the zone numbers that the elements of the finite element 
+C    mesh belong to.  Element number, layer number (this information is
+C    optional depending on the value of ZEXTENT above) and the zone number that 
+C    the element belongs to are required information. It is not necessary to list
+C    all elements at all layers and assign a zone number to each of them.
+C    By default, each element is given a zone number of -99.  Therefore, any elements  
+C    that are not listed below will constitute zone -99.
+C    
+C    ** Note: If variable ZEXTENT below is set to 1, do not specify LAYER below. If 
+C             ZEXTENT is set to 0, it is required that LAYER for each element below 
+C             is specified.
+C
+C    ZEXTENT ; Extent of the the zone numbering
+C                1 = Zone numbering is defined for horizontal plane and will be 
+C                     used for all layers
+C                0 = Different zone numbering is specified for each layer
+C    IE      ; Element number
+C    LAYER   ; Layer number at which element is located 
+C    ZONE    ; Zone number 
+C 
+C-------------------------------------------------------------------------------
+C    VALUE                     DESCRIPTION                                    
+C-------------------------------------------------------------------------------
+     1                         / ZEXTENT
+C-------------------------------------------------------------------------------
+C     IE        LAYER       ZONE                                                         
+C-------------------------------------------------------------------------------
+     1           1                    ANDERSON (ENTERPRISE)
+     2          13                    ENTERPRISE (ANDERSON)
+     3          13                    ENTERPRISE (MILLVILLE)
+     4          20                    MILLVILLE (ENTERPRISE)
+     5          13                    ENTERPRISE (ANDERSON)
+     6          13                    ENTERPRISE (MILLVILLE)
+     7           1                    ANDERSON (ENTERPRISE)
+     8          13                    ENTERPRISE (ANDERSON)
+     9          13                    ENTERPRISE (MILLVILLE)
+    10          20                    MILLVILLE (MODOC PLATEAU)
+    11           1                    ANDERSON
+    12           1                    ANDERSON (ENTERPRISE)
+    13           1                    ANDERSON (ENTERPRISE)
+    14          13                    ENTERPRISE (ANDERSON)
+    15          13                    ENTERPRISE (MILLVILLE)
+    16          20                    MILLVILLE
+    17           1                    ANDERSON
+    18           1                    ANDERSON
+    19           1                    ANDERSON (ENTERPRISE)
+    20           1                    ANDERSON (ENTERPRISE)
+    21          20                    MILLVILLE (ANDERSON)
+    22          27                    ROSEWOOD (ANDERSON)
+    23           1                    ANDERSON (ROSEWOOD)
+    24          27                    ROSEWOOD (ANDERSON)
+    25           1                    ANDERSON (ROSEWOOD)
+    26           1                    ANDERSON (BOWMAN)
+    27           1                    ANDERSON (BOWMAN)
+    28          20                    MILLVILLE (SOUTH BATTLE CREEK)
+    29          30                    SOUTH BATTLE CREEK (MILLVILLE)
+    30          27                    ROSEWOOD
+    31          27                    ROSEWOOD
+    32          27                    ROSEWOOD (BOWMAN)
+    33          27                    ROSEWOOD (BOWMAN)
+    34           4                    BOWMAN (ROSEWOOD)
+    35           4                    BOWMAN (SOUTH BATTLE CREEK)
+    36          30                    SOUTH BATTLE CREEK (BOWMAN)
+    37          27                    ROSEWOOD (BOWMAN)
+    38          27                    ROSEWOOD (BOWMAN)
+    39           4                    BOWMAN (ROSEWOOD)
+    40           4                    BOWMAN (ROSEWOOD)
+    41           4                    BOWMAN (RED BLUFF)
+    42           4                    BOWMAN (RED BLUFF)
+    43          26                    RED BLUFF (BOWMAN)
+    44           4                    BOWMAN (ROSEWOOD)
+    45           4                    BOWMAN (RED BLUFF)
+    46           4                    BOWMAN
+    47           4                    BOWMAN (RED BLUFF)
+    48          26                    RED BLUFF (BOWMAN)
+    49          26                    RED BLUFF (BOWMAN)
+    50          26                    RED BLUFF (BOWMAN)
+    51          26                    RED BLUFF
+    52           3                    BEND (RED BLUFF)
+    53           3                    BEND (ANTELOPE)
+    54          26                    RED BLUFF (BOWMAN)
+    55          26                    RED BLUFF
+    56          26                    RED BLUFF
+    57          26                    RED BLUFF
+    58          26                    RED BLUFF (BEND)
+    59          26                    RED BLUFF
+    60          26                    RED BLUFF
+    61          26                    RED BLUFF
+    62          26                    RED BLUFF
+    63          26                    RED BLUFF (BEND)
+    64           2                    ANTELOPE (RED BLUFF)
+    65          26                    RED BLUFF
+    66          26                    RED BLUFF
+    67          26                    RED BLUFF
+    68          26                    RED BLUFF
+    69          26                    RED BLUFF (ANTELOPE)
+    70           2                    ANTELOPE (RED BLUFF)
+    71          10                    DYE CREEK (ANTELOPE)
+    72          26                    RED BLUFF
+    73          26                    RED BLUFF
+    74          26                    RED BLUFF
+    75          26                    RED BLUFF
+    76          26                    RED BLUFF (ANTELOPE)
+    77          10                    DYE CREEK (RED BLUFF)
+    78          10                    DYE CREEK (LOS MOLINOS)
+    79          26                    RED BLUFF
+    80          26                    RED BLUFF
+    81          26                    RED BLUFF (CORNING)
+    82          26                    RED BLUFF (CORNING)
+    83          26                    RED BLUFF (LOS MOLINOS)
+    84          17                    LOS MOLINOS (DYE CREEK)
+    85          17                    LOS MOLINOS (DYE CREEK)
+    86          26                    RED BLUFF (CORNING)
+    87          26                    RED BLUFF (CORNING)
+    88           7                    CORNING (RED BLUFF)
+    89           7                    CORNING (RED BLUFF)
+    90           7                    CORNING (LOS MOLINOS)
+    91          17                    LOS MOLINOS (CORNING)
+    92          17                    LOS MOLINOS
+    93           7                    CORNING (RED BLUFF)
+    94           7                    CORNING (RED BLUFF)
+    95           7                    CORNING
+    96           7                    CORNING (VINA)
+    97          38                    VINA (LOS MOLINOS)
+    98          38                    VINA (LOS MOLINOS)
+    99           7                    CORNING (RED BLUFF)
+   100           7                    CORNING (RED BLUFF)
+   101           7                    CORNING
+   102           7                    CORNING
+   103           7                    CORNING (VINA)
+   104          38                    VINA (CORNING)
+   105          38                    VINA
+   106           7                    CORNING (RED BLUFF)
+   107           7                    CORNING (COLUSA)
+   108           7                    CORNING (COLUSA)
+   109           7                    CORNING (COLUSA)
+   110           7                    CORNING (COLUSA)
+   111           7                    CORNING (COLUSA)
+   112           7                    CORNING (VINA)
+   113          38                    VINA (CORNING)
+   114          38                    VINA
+   115          38                    VINA
+   116          38                    VINA
+   117          38                    VINA
+   118          38                    VINA
+   119          38                    VINA (WEST BUTTE)
+   120          38                    VINA (WEST BUTTE)
+   121           7                    CORNING
+   122           7                    CORNING (COLUSA)
+   123           6                    COLUSA (CORNING)
+   124           6                    COLUSA
+   125           6                    COLUSA (CORNING)
+   126           6                    COLUSA (CORNING)
+   127           6                    COLUSA
+   128           6                    COLUSA (WEST BUTTE)
+   129           7                    CORNING (COLUSA)
+   130          39                    WEST BUTTE (CORNING)
+   131          39                    WEST BUTTE (VINA)
+   132          39                    WEST BUTTE (VINA)
+   133          39                    WEST BUTTE (CORNING)
+   134          39                    WEST BUTTE
+   135          39                    WEST BUTTE (EAST BUTTE)
+   136          11                    EAST BUTTE (WEST BUTTE)
+   137           7                    CORNING (COLUSA)
+   138           6                    COLUSA (CORNING)
+   139           6                    COLUSA
+   140           6                    COLUSA
+   141           6                    COLUSA
+   142           6                    COLUSA
+   143           6                    COLUSA
+   144           6                    COLUSA
+   145           6                    COLUSA (WEST BUTTE)
+   146          39                    WEST BUTTE (COLUSA)
+   147          39                    WEST BUTTE
+   148          39                    WEST BUTTE
+   149          11                    EAST BUTTE (WEST BUTTE)
+   150          11                    EAST BUTTE
+   151          11                    EAST BUTTE
+   152          11                    EAST BUTTE
+   153          11                    EAST BUTTE
+   154          11                    EAST BUTTE
+   155          11                    EAST BUTTE
+   156           6                    COLUSA
+   157           6                    COLUSA
+   158           6                    COLUSA (WEST BUTTE)
+   159          39                    WEST BUTTE (COLUSA)
+   160          39                    WEST BUTTE
+   161          11                    EAST BUTTE (WEST BUTTE)
+   162          11                    EAST BUTTE
+   163          11                    EAST BUTTE
+   164          11                    EAST BUTTE
+   165          11                    EAST BUTTE
+   166           6                    COLUSA
+   167           6                    COLUSA
+   168           6                    COLUSA
+   169           6                    COLUSA
+   170           6                    COLUSA
+   171           6                    COLUSA
+   172           6                    COLUSA (WEST BUTTE)
+   173          39                    WEST BUTTE (COLUSA)
+   174          39                    WEST BUTTE (EAST BUTTE)
+   175          11                    EAST BUTTE (WEST BUTTE)
+   176          11                    EAST BUTTE
+   177          11                    EAST BUTTE
+   178          11                    EAST BUTTE
+   179          11                    EAST BUTTE
+   180           6                    COLUSA
+   181           6                    COLUSA
+   182           6                    COLUSA
+   183           6                    COLUSA
+   184           6                    COLUSA
+   185           6                    COLUSA
+   186           6                    COLUSA
+   187           6                    COLUSA (WEST BUTTE)
+   188          39                    WEST BUTTE (COLUSA)
+   189          39                    WEST BUTTE
+   190          39                    WEST BUTTE
+   191          11                    EAST BUTTE (WEST BUTTE)
+   192          11                    EAST BUTTE
+   193          11                    EAST BUTTE
+   194          11                    EAST BUTTE
+   195          11                    EAST BUTTE
+   196          23                    NORTH YUBA
+   197           6                    COLUSA
+   198           6                    COLUSA
+   199           6                    COLUSA
+   200           6                    COLUSA
+   201           6                    COLUSA (WEST BUTTE)
+   202           6                    COLUSA
+   203           6                    COLUSA
+   204           6                    COLUSA
+   205           6                    COLUSA
+   206           6                    COLUSA
+   207          39                    WEST BUTTE (COLUSA)
+   208          39                    WEST BUTTE (EAST BUTTE)
+   209          11                    EAST BUTTE (WEST BUTTE)
+   210          11                    EAST BUTTE
+   211          11                    EAST BUTTE
+   212          11                    EAST BUTTE (WEST BUTTE)
+   213          11                    EAST BUTTE
+   214          11                    EAST BUTTE
+   215          11                    EAST BUTTE (NORTH YUBA)
+   216          23                    NORTH YUBA (EAST BUTTE)
+   217           6                    COLUSA
+   218           6                    COLUSA
+   219           6                    COLUSA
+   220           6                    COLUSA
+   221           6                    COLUSA
+   222           6                    COLUSA
+   223           6                    COLUSA
+   224           6                    COLUSA (WEST BUTTE)
+   225          39                    WEST BUTTE (COLUSA)
+   226          39                    WEST BUTTE
+   227          11                    EAST BUTTE (WEST BUTTE)
+   228          11                    EAST BUTTE
+   229          11                    EAST BUTTE (SUTTER)
+   230          11                    EAST BUTTE (SUTTER)
+   231          23                    NORTH YUBA (SUTTER)
+   232          23                    NORTH YUBA
+   233           6                    COLUSA
+   234           6                    COLUSA
+   235           6                    COLUSA
+   236           6                    COLUSA
+   237           6                    COLUSA (WEST BUTTE)
+   238          39                    WEST BUTTE (COLUSA)
+   239          39                    WEST BUTTE (EAST BUTTE)
+   240          11                    EAST BUTTE (WEST BUTTE)
+   241           6                    COLUSA
+   242           6                    COLUSA
+   243           6                    COLUSA
+   244           6                    COLUSA
+   245           6                    COLUSA (WEST BUTTE)
+   246           6                    COLUSA (WEST BUTTE)
+   247          39                    WEST BUTTE (EAST BUTTE)
+   248          11                    EAST BUTTE (SUTTER)
+   249          33                    SUTTER
+   250          33                    SUTTER (NORTH YUBA)
+   251          23                    NORTH YUBA (SOUTH YUBA)
+   252          23                    NORTH YUBA (SOUTH YUBA)
+   253           6                    COLUSA
+   254           6                    COLUSA
+   255           6                    COLUSA
+   256           6                    COLUSA
+   257           6                    COLUSA
+   258           6                    COLUSA
+   259           6                    COLUSA (SUTTER)
+   260          33                    SUTTER (COLUSA)
+   261           6                    COLUSA
+   262           6                    COLUSA
+   263           6                    COLUSA
+   264           6                    COLUSA
+   265           6                    COLUSA
+   266           6                    COLUSA (SUTTER)
+   267          33                    SUTTER (COLUSA)
+   268          33                    SUTTER
+   269          33                    SUTTER
+   270          33                    SUTTER
+   271          33                    SUTTER
+   272          33                    SUTTER (NORTH YUBA)
+   273           6                    COLUSA
+   274           6                    COLUSA
+   275           6                    COLUSA
+   276           6                    COLUSA
+   277           6                    COLUSA (SUTTER)
+   278          33                    SUTTER (COLUSA)
+   279          33                    SUTTER
+   280          33                    SUTTER
+   281          33                    SUTTER (SOUTH YUBA)
+   282          31                    SOUTH YUBA (NORTH YUBA)
+   283          31                    SOUTH YUBA
+   284           6                    COLUSA
+   285           6                    COLUSA
+   286           6                    COLUSA
+   287           6                    COLUSA
+   288           6                    COLUSA
+   289           6                    COLUSA (SUTTER)
+   290           6                    COLUSA (SUTTER)
+   291          33                    SUTTER (COLUSA)
+   292          33                    SUTTER
+   293          33                    SUTTER
+   294          33                    SUTTER (SOUTH YUBA)
+   295          31                    SOUTH YUBA (SUTTER)
+   296          31                    SOUTH YUBA
+   297          31                    SOUTH YUBA
+   298           6                    COLUSA
+   299           6                    COLUSA
+   300           6                    COLUSA
+   301           6                    COLUSA (SUTTER)
+   302          33                    SUTTER (COLUSA)
+   303          33                    SUTTER
+   304          33                    SUTTER
+   305          33                    SUTTER (SOUTH YUBA)
+   306          31                    SOUTH YUBA (SUTTER)
+   307          31                    SOUTH YUBA
+   308          31                    SOUTH YUBA
+   309           6                    COLUSA
+   310           6                    COLUSA
+   311           6                    COLUSA
+   312           6                    COLUSA
+   313           6                    COLUSA (SUTTER)
+   314           6                    COLUSA (SUTTER)
+   315          33                    SUTTER (COLUSA)
+   316          33                    SUTTER
+   317          33                    SUTTER (SOUTH YUBA)
+   318          31                    SOUTH YUBA (NORTH AMERICAN)
+   319          31                    SOUTH YUBA
+   320          31                    SOUTH YUBA
+   321          31                    SOUTH YUBA
+   322           6                    COLUSA (YOLO)
+   323           6                    COLUSA
+   324           6                    COLUSA
+   325           6                    COLUSA
+   326           6                    COLUSA (SUTTER)
+   327           6                    COLUSA (SUTTER)
+   328          33                    SUTTER
+   329          33                    SUTTER
+   330          33                    SUTTER (NORTH AMERICAN)
+   331          22                    NORTH AMERICAN (SUTTER)
+   332          22                    NORTH AMERICAN (SOUTH YUBA)
+   333          22                    NORTH AMERICAN (SOUTH YUBA)
+   334          22                    NORTH AMERICAN (SOUTH YUBA)
+   335          22                    NORTH AMERICAN (SOUTH YUBA)
+   336          41                    YOLO (COLUSA)
+   337           6                    COLUSA
+   338           6                    COLUSA (YOLO)
+   339           6                    COLUSA (SUTTER)
+   340          33                    SUTTER (COLUSA)
+   341          22                    NORTH AMERICAN (SUTTER)
+   342          22                    NORTH AMERICAN
+   343          22                    NORTH AMERICAN
+   344          22                    NORTH AMERICAN
+   345          22                    NORTH AMERICAN
+   346          22                    NORTH AMERICAN
+   347          22                    NORTH AMERICAN
+   348          41                    YOLO (COLUSA)
+   349          41                    YOLO (COLUSA)
+   350           6                    COLUSA (YOLO)
+   351           6                    COLUSA (NORTH AMERICAN)
+   352           6                    COLUSA (NORTH AMERICAN)
+   353          22                    NORTH AMERICAN
+   354          41                    YOLO (COLUSA)
+   355          41                    YOLO (COLUSA)
+   356          41                    YOLO
+   357          41                    YOLO
+   358          41                    YOLO (NORTH AMERICAN)
+   359          22                    NORTH AMERICAN (YOLO)
+   360          22                    NORTH AMERICAN (COLUSA)
+   361          22                    NORTH AMERICAN (COLUSA)
+   362          22                    NORTH AMERICAN
+   363          22                    NORTH AMERICAN
+   364          22                    NORTH AMERICAN
+   365          22                    NORTH AMERICAN
+   366          22                    NORTH AMERICAN
+   367          22                    NORTH AMERICAN
+   368          22                    NORTH AMERICAN
+   369          22                    NORTH AMERICAN
+   370          22                    NORTH AMERICAN
+   371          22                    NORTH AMERICAN
+   372          22                    NORTH AMERICAN
+   373          22                    NORTH AMERICAN
+   374          22                    NORTH AMERICAN
+   375          22                    NORTH AMERICAN (YOLO)
+   376          22                    NORTH AMERICAN
+   377          22                    NORTH AMERICAN
+   378          22                    NORTH AMERICAN (SOUTH AMERICAN)
+   379          22                    NORTH AMERICAN
+   380          22                    NORTH AMERICAN
+   381          22                    NORTH AMERICAN
+   382          22                    NORTH AMERICAN
+   383          22                    NORTH AMERICAN
+   384          22                    NORTH AMERICAN
+   385          22                    NORTH AMERICAN (SOUTH AMERICAN)
+   386          22                    NORTH AMERICAN (SOUTH AMERICAN)
+   387          29                    SOUTH AMERICAN (NORTH AMERICAN)
+   388          22                    NORTH AMERICAN
+   389          22                    NORTH AMERICAN (SOUTH AMERICAN)
+   390          29                    SOUTH AMERICAN (NORTH AMERICAN)
+   391          29                    SOUTH AMERICAN (NORTH AMERICAN)
+   392          22                    NORTH AMERICAN (SOUTH AMERICAN)
+   393          22                    NORTH AMERICAN (SOUTH AMERICAN)
+   394          29                    SOUTH AMERICAN (NORTH AMERICAN)
+   395          29                    SOUTH AMERICAN
+   396          29                    SOUTH AMERICAN
+   397          29                    SOUTH AMERICAN
+   398          29                    SOUTH AMERICAN
+   399          29                    SOUTH AMERICAN
+   400          29                    SOUTH AMERICAN
+   401          29                    SOUTH AMERICAN
+   402          41                    YOLO
+   403          41                    YOLO
+   404          41                    YOLO
+   405          41                    YOLO
+   406          41                    YOLO
+   407          41                    YOLO
+   408          41                    YOLO (NORTH AMERICAN)
+   409          41                    YOLO
+   410          41                    YOLO
+   411          41                    YOLO
+   412          41                    YOLO (SOLANO)
+   413          41                    YOLO (SOLANO)
+   414          41                    YOLO
+   415          41                    YOLO (SOUTH AMERICAN)
+   416          29                    SOUTH AMERICAN (YOLO)
+   417          29                    SOUTH AMERICAN (NORTH AMERICAN)
+   418          29                    SOUTH AMERICAN (NORTH AMERICAN)
+   419          29                    SOUTH AMERICAN
+   420          29                    SOUTH AMERICAN (COSUMNES)
+   421           8                    COSUMNES (SOUTH AMERICAN)
+   422          29                    SOUTH AMERICAN (COSUMNES)
+   423          41                    YOLO (SOLANO)
+   424          28                    SOLANO (YOLO)
+   425          28                    SOLANO (YOLO)
+   426          28                    SOLANO (YOLO)
+   427          28                    SOLANO (YOLO)
+   428          28                    SOLANO (YOLO)
+   429          28                    SOLANO (YOLO)
+   430          28                    SOLANO (YOLO)
+   431          29                    SOUTH AMERICAN (YOLO)
+   432          29                    SOUTH AMERICAN
+   433          29                    SOUTH AMERICAN
+   434          29                    SOUTH AMERICAN (COSUMNES)
+   435           8                    COSUMNES (SOUTH AMERICAN)
+   436           8                    COSUMNES
+   437           8                    COSUMNES
+   438           8                    COSUMNES
+   439           8                    COSUMNES
+   440          28                    SOLANO
+   441          28                    SOLANO
+   442          28                    SOLANO
+   443          28                    SOLANO
+   444          28                    SOLANO
+   445          28                    SOLANO
+   446          28                    SOLANO
+   447          28                    SOLANO (SOUTH AMERICAN)
+   448          28                    SOLANO (SOUTH AMERICAN)
+   449          29                    SOUTH AMERICAN (SOLANO)
+   450          29                    SOUTH AMERICAN
+   451          29                    SOUTH AMERICAN
+   452          29                    SOUTH AMERICAN (COSUMNES)
+   453           8                    COSUMNES (SOUTH AMERICAN)
+   454           8                    COSUMNES
+   455           8                    COSUMNES
+   456           8                    COSUMNES
+   457           8                    COSUMNES
+   458           8                    COSUMNES
+   459           8                    COSUMNES
+   460           8                    COSUMNES
+   461           8                    COSUMNES
+   462          28                    SOLANO
+   463          28                    SOLANO
+   464          28                    SOLANO
+   465          28                    SOLANO
+   466          28                    SOLANO
+   467          28                    SOLANO
+   468          28                    SOLANO
+   469          28                    SOLANO (SOUTH AMERICAN)
+   470          29                    SOUTH AMERICAN (SOLANO)
+   471          29                    SOUTH AMERICAN
+   472          29                    SOUTH AMERICAN (COSUMNES)
+   473           8                    COSUMNES
+   474           8                    COSUMNES
+   475           8                    COSUMNES
+   476           8                    COSUMNES
+   477           8                    COSUMNES
+   478           8                    COSUMNES
+   479           8                    COSUMNES
+   480          32                    SUISUN-FAIRFIELD VALLEY (SOLANO)
+   481          32                    SUISUN-FAIRFIELD VALLEY (SOLANO)
+   482          28                    SOLANO
+   483          28                    SOLANO
+   484          28                    SOLANO
+   485          28                    SOLANO
+   486          28                    SOLANO (SOUTH AMERICAN)
+   487          28                    SOLANO (SOUTH AMERICAN)
+   488          28                    SOLANO (SOUTH AMERICAN)
+   489          29                    SOUTH AMERICAN (SOLANO)
+   490          29                    SOUTH AMERICAN
+   491          29                    SOUTH AMERICAN
+   492          29                    SOUTH AMERICAN
+   493          29                    SOUTH AMERICAN (COSUMNES)
+   494           8                    COSUMNES
+   495          32                    SUISUN-FAIRFIELD VALLEY
+   496          32                    SUISUN-FAIRFIELD VALLEY
+   497          32                    SUISUN-FAIRFIELD VALLEY (SOLANO)
+   498          28                    SOLANO (SUISUN-FAIRFIELD VALLEY)
+   499          28                    SOLANO
+   500          28                    SOLANO
+   501          28                    SOLANO
+   502          28                    SOLANO
+   503          28                    SOLANO (SOUTH AMERICAN)
+   504          28                    SOLANO (EASTERN SAN JOAQUIN)
+   505          29                    SOUTH AMERICAN (SOLANO)
+   506          12                    EASTERN SAN JOAQUIN (SOUTH AMERICAN)
+   507          12                    EASTERN SAN JOAQUIN (SOLANO)
+   508          12                    EASTERN SAN JOAQUIN (COSUMNES)
+   509          12                    EASTERN SAN JOAQUIN (COSUMNES)
+   510          12                    EASTERN SAN JOAQUIN
+   511           8                    COSUMNES (EASTERN SAN JOAQUIN)
+   512           8                    COSUMNES
+   513          12                    EASTERN SAN JOAQUIN (COSUMNES)
+   514           8                    COSUMNES (EASTERN SAN JOAQUIN)
+   515           8                    COSUMNES (EASTERN SAN JOAQUIN)
+   516           8                    COSUMNES (EASTERN SAN JOAQUIN)
+   517           8                    COSUMNES (EASTERN SAN JOAQUIN)
+   518           8                    COSUMNES (EASTERN SAN JOAQUIN)
+   519           8                    COSUMNES
+   520          12                    EASTERN SAN JOAQUIN
+   521          12                    EASTERN SAN JOAQUIN (COSUMNES)
+   522          12                    EASTERN SAN JOAQUIN (COSUMNES)
+   523          12                    EASTERN SAN JOAQUIN (COSUMNES)
+   524          12                    EASTERN SAN JOAQUIN (COSUMNES)
+   525          12                    EASTERN SAN JOAQUIN (COSUMNES)
+   526          12                    EASTERN SAN JOAQUIN (COSUMNES)
+   527          12                    EASTERN SAN JOAQUIN (COSUMNES)
+   528           8                    COSUMNES (EASTERN SAN JOAQUIN)
+   529           8                    COSUMNES
+   530          12                    EASTERN SAN JOAQUIN (COSUMNES)
+   531          12                    EASTERN SAN JOAQUIN (COSUMNES)
+   532          12                    EASTERN SAN JOAQUIN
+   533          32                    SUISUN-FAIRFIELD VALLEY (NAPA-SONOMA VOLCANIC HIGHLANDS)
+   534          32                    SUISUN-FAIRFIELD VALLEY
+   535          32                    SUISUN-FAIRFIELD VALLEY
+   536          32                    SUISUN-FAIRFIELD VALLEY (SOLANO)
+   537          28                    SOLANO (SUISUN-FAIRFIELD VALLEY)
+   538          28                    SOLANO
+   539          28                    SOLANO
+   540          28                    SOLANO (TRACY)
+   541          28                    SOLANO (EASTERN SAN JOAQUIN)
+   542          12                    EASTERN SAN JOAQUIN (SOLANO)
+   543          12                    EASTERN SAN JOAQUIN (TRACY)
+   544          12                    EASTERN SAN JOAQUIN
+   545          12                    EASTERN SAN JOAQUIN (TRACY)
+   546          12                    EASTERN SAN JOAQUIN
+   547          12                    EASTERN SAN JOAQUIN
+   548          12                    EASTERN SAN JOAQUIN
+   549          12                    EASTERN SAN JOAQUIN
+   550          12                    EASTERN SAN JOAQUIN
+   551          32                    SUISUN-FAIRFIELD VALLEY (SUISUN)
+   552          32                    SUISUN-FAIRFIELD VALLEY (SUISUN)
+   553          32                    SUISUN-FAIRFIELD VALLEY (SUISUN)
+   554          32                    SUISUN-FAIRFIELD VALLEY (PITTSBURG PLAIN)
+   555          28                    SOLANO (SUISUN)
+   556          28                    SOLANO
+   557          28                    SOLANO
+   558          34                    TRACY (SOLANO)
+   559          34                    TRACY (EASTERN SAN JOAQUIN)
+   560          34                    TRACY (EASTERN SAN JOAQUIN)
+   561          34                    TRACY (EASTERN SAN JOAQUIN)
+   562          34                    TRACY (EASTERN SAN JOAQUIN)
+   563          12                    EASTERN SAN JOAQUIN (TRACY)
+   564          12                    EASTERN SAN JOAQUIN
+   565          12                    EASTERN SAN JOAQUIN
+   566          12                    EASTERN SAN JOAQUIN
+   567          12                    EASTERN SAN JOAQUIN
+   568          12                    EASTERN SAN JOAQUIN
+   569          24                    PITTSBURG PLAIN
+   570          34                    TRACY (PITTSBURG PLAIN)
+   571          34                    TRACY (SOLANO)
+   572          34                    TRACY (SOLANO)
+   573          34                    TRACY (SOLANO)
+   574          34                    TRACY
+   575          34                    TRACY
+   576          34                    TRACY
+   577          34                    TRACY
+   578          34                    TRACY
+   579          34                    TRACY
+   580          34                    TRACY (EASTERN SAN JOAQUIN)
+   581          12                    EASTERN SAN JOAQUIN (TRACY)
+   582          12                    EASTERN SAN JOAQUIN
+   583          12                    EASTERN SAN JOAQUIN
+   584          12                    EASTERN SAN JOAQUIN
+   585          12                    EASTERN SAN JOAQUIN
+   586          12                    EASTERN SAN JOAQUIN
+   587          12                    EASTERN SAN JOAQUIN
+   588          34                    TRACY
+   589          34                    TRACY
+   590          34                    TRACY (EASTERN SAN JOAQUIN)
+   591          12                    EASTERN SAN JOAQUIN (TRACY)
+   592          12                    EASTERN SAN JOAQUIN
+   593          12                    EASTERN SAN JOAQUIN
+   594          12                    EASTERN SAN JOAQUIN
+   595          12                    EASTERN SAN JOAQUIN
+   596          12                    EASTERN SAN JOAQUIN
+   597          12                    EASTERN SAN JOAQUIN
+   598          12                    EASTERN SAN JOAQUIN
+   599          12                    EASTERN SAN JOAQUIN
+   600          12                    EASTERN SAN JOAQUIN
+   601          12                    EASTERN SAN JOAQUIN
+   602          12                    EASTERN SAN JOAQUIN
+   603          12                    EASTERN SAN JOAQUIN
+   604          34                    TRACY
+   605          34                    TRACY
+   606          34                    TRACY
+   607          34                    TRACY
+   608          34                    TRACY (EASTERN SAN JOAQUIN)
+   609          12                    EASTERN SAN JOAQUIN (TRACY)
+   610          12                    EASTERN SAN JOAQUIN
+   611          12                    EASTERN SAN JOAQUIN (MODESTO)
+   612          12                    EASTERN SAN JOAQUIN (MODESTO)
+   613          12                    EASTERN SAN JOAQUIN (MODESTO)
+   614          12                    EASTERN SAN JOAQUIN (MODESTO)
+   615          12                    EASTERN SAN JOAQUIN
+   616          12                    EASTERN SAN JOAQUIN (MODESTO)
+   617          12                    EASTERN SAN JOAQUIN
+   618          34                    TRACY
+   619          34                    TRACY
+   620          34                    TRACY
+   621          34                    TRACY (EASTERN SAN JOAQUIN)
+   622          34                    TRACY
+   623          34                    TRACY
+   624          34                    TRACY
+   625          34                    TRACY (EASTERN SAN JOAQUIN)
+   626          12                    EASTERN SAN JOAQUIN (MODESTO)
+   627          21                    MODESTO (EASTERN SAN JOAQUIN)
+   628          21                    MODESTO (EASTERN SAN JOAQUIN)
+   629          21                    MODESTO (EASTERN SAN JOAQUIN)
+   630          21                    MODESTO (EASTERN SAN JOAQUIN)
+   631          21                    MODESTO (EASTERN SAN JOAQUIN)
+   632          21                    MODESTO (EASTERN SAN JOAQUIN)
+   633          21                    MODESTO (EASTERN SAN JOAQUIN)
+   634           9                    DELTA-MENDOTA (TRACY)
+   635           9                    DELTA-MENDOTA (MODESTO)
+   636          21                    MODESTO (DELTA-MENDOTA)
+   637          21                    MODESTO (EASTERN SAN JOAQUIN)
+   638          21                    MODESTO
+   639          21                    MODESTO
+   640          21                    MODESTO
+   641          21                    MODESTO
+   642          21                    MODESTO
+   643          21                    MODESTO
+   644           9                    DELTA-MENDOTA
+   645           9                    DELTA-MENDOTA (TURLOCK)
+   646          37                    TURLOCK (MODESTO)
+   647          21                    MODESTO (TURLOCK)
+   648          21                    MODESTO (TURLOCK)
+   649          21                    MODESTO (TURLOCK)
+   650          21                    MODESTO (TURLOCK)
+   651          21                    MODESTO
+   652          21                    MODESTO
+   653          21                    MODESTO
+   654          21                    MODESTO
+   655          21                    MODESTO
+   656          21                    MODESTO (TURLOCK)
+   657          21                    MODESTO (TURLOCK)
+   658          21                    MODESTO (TURLOCK)
+   659          21                    MODESTO (TURLOCK)
+   660           9                    DELTA-MENDOTA
+   661           9                    DELTA-MENDOTA (TURLOCK)
+   662          37                    TURLOCK (DELTA-MENDOTA)
+   663          37                    TURLOCK (MODESTO)
+   664          37                    TURLOCK (MODESTO)
+   665          37                    TURLOCK
+   666          37                    TURLOCK
+   667          37                    TURLOCK
+   668          37                    TURLOCK
+   669          37                    TURLOCK (MODESTO)
+   670           9                    DELTA-MENDOTA
+   671           9                    DELTA-MENDOTA (TURLOCK)
+   672          37                    TURLOCK (DELTA-MENDOTA)
+   673          37                    TURLOCK
+   674          37                    TURLOCK
+   675          37                    TURLOCK
+   676          37                    TURLOCK
+   677          37                    TURLOCK
+   678          37                    TURLOCK
+   679          37                    TURLOCK
+   680           9                    DELTA-MENDOTA
+   681           9                    DELTA-MENDOTA
+   682           9                    DELTA-MENDOTA
+   683           9                    DELTA-MENDOTA (TURLOCK)
+   684          37                    TURLOCK (DELTA-MENDOTA)
+   685          37                    TURLOCK
+   686          37                    TURLOCK
+   687          37                    TURLOCK
+   688          37                    TURLOCK
+   689          37                    TURLOCK
+   690          37                    TURLOCK
+   691          37                    TURLOCK
+   692           9                    DELTA-MENDOTA
+   693           9                    DELTA-MENDOTA (TURLOCK)
+   694          37                    TURLOCK (MERCED)
+   695          37                    TURLOCK (MERCED)
+   696          37                    TURLOCK (MERCED)
+   697          37                    TURLOCK (MERCED)
+   698          37                    TURLOCK (MERCED)
+   699          37                    TURLOCK (MERCED)
+   700          37                    TURLOCK (MERCED)
+   701          37                    TURLOCK (MERCED)
+   702           9                    DELTA-MENDOTA (MERCED)
+   703          19                    MERCED (DELTA-MENDOTA)
+   704          19                    MERCED (TURLOCK)
+   705          19                    MERCED
+   706          19                    MERCED (TURLOCK)
+   707          19                    MERCED (TURLOCK)
+   708          19                    MERCED (TURLOCK)
+   709          19                    MERCED (TURLOCK)
+   710          19                    MERCED (TURLOCK)
+   711           9                    DELTA-MENDOTA
+   712           9                    DELTA-MENDOTA
+   713           9                    DELTA-MENDOTA
+   714          19                    MERCED (DELTA-MENDOTA)
+   715           9                    DELTA-MENDOTA (MERCED)
+   716          19                    MERCED (DELTA-MENDOTA)
+   717          19                    MERCED
+   718          19                    MERCED
+   719          19                    MERCED
+   720          19                    MERCED
+   721          19                    MERCED
+   722          19                    MERCED
+   723           9                    DELTA-MENDOTA
+   724           9                    DELTA-MENDOTA
+   725           9                    DELTA-MENDOTA
+   726           9                    DELTA-MENDOTA
+   727           9                    DELTA-MENDOTA (MERCED)
+   728          19                    MERCED (DELTA-MENDOTA)
+   729          19                    MERCED (DELTA-MENDOTA)
+   730          19                    MERCED
+   731          19                    MERCED
+   732          19                    MERCED
+   733          19                    MERCED
+   734          19                    MERCED
+   735          19                    MERCED
+   736          19                    MERCED
+   737          19                    MERCED
+   738          19                    MERCED
+   739          19                    MERCED
+   740          19                    MERCED
+   741          19                    MERCED
+   742          19                    MERCED
+   743          19                    MERCED
+   744          19                    MERCED
+   745          19                    MERCED
+   746          19                    MERCED
+   747          19                    MERCED
+   748           9                    DELTA-MENDOTA
+   749           9                    DELTA-MENDOTA
+   750           9                    DELTA-MENDOTA
+   751           9                    DELTA-MENDOTA
+   752           9                    DELTA-MENDOTA (MERCED)
+   753           9                    DELTA-MENDOTA
+   754          19                    MERCED (DELTA-MENDOTA)
+   755          19                    MERCED
+   756          19                    MERCED
+   757          19                    MERCED
+   758          19                    MERCED
+   759          19                    MERCED
+   760          19                    MERCED
+   761          19                    MERCED
+   762          19                    MERCED (DELTA-MENDOTA)
+   763          19                    MERCED (DELTA-MENDOTA)
+   764          19                    MERCED
+   765          19                    MERCED (CHOWCHILLA)
+   766          19                    MERCED (CHOWCHILLA)
+   767          19                    MERCED (CHOWCHILLA)
+   768           5                    CHOWCHILLA (MERCED)
+   769          19                    MERCED (CHOWCHILLA)
+   770          19                    MERCED
+   771          19                    MERCED
+   772          19                    MERCED
+   773           9                    DELTA-MENDOTA
+   774           9                    DELTA-MENDOTA
+   775           9                    DELTA-MENDOTA
+   776           9                    DELTA-MENDOTA
+   777           9                    DELTA-MENDOTA
+   778           9                    DELTA-MENDOTA
+   779           9                    DELTA-MENDOTA
+   780           9                    DELTA-MENDOTA (MERCED)
+   781          19                    MERCED (DELTA-MENDOTA)
+   782          19                    MERCED (CHOWCHILLA)
+   783           5                    CHOWCHILLA (MERCED)
+   784           5                    CHOWCHILLA
+   785           5                    CHOWCHILLA
+   786           5                    CHOWCHILLA (MERCED)
+   787           5                    CHOWCHILLA (MERCED)
+   788          19                    MERCED (CHOWCHILLA)
+   789          19                    MERCED (CHOWCHILLA)
+   790          19                    MERCED (MADERA)
+   791           9                    DELTA-MENDOTA
+   792           9                    DELTA-MENDOTA (MERCED)
+   793           9                    DELTA-MENDOTA
+   794           9                    DELTA-MENDOTA
+   795           9                    DELTA-MENDOTA
+   796           9                    DELTA-MENDOTA
+   797           9                    DELTA-MENDOTA
+   798           9                    DELTA-MENDOTA
+   799           9                    DELTA-MENDOTA
+   800           9                    DELTA-MENDOTA
+   801           9                    DELTA-MENDOTA
+   802           5                    CHOWCHILLA (DELTA-MENDOTA)
+   803           9                    DELTA-MENDOTA
+   804           9                    DELTA-MENDOTA (CHOWCHILLA)
+   805           5                    CHOWCHILLA (DELTA-MENDOTA)
+   806           5                    CHOWCHILLA (DELTA-MENDOTA)
+   807           5                    CHOWCHILLA
+   808           5                    CHOWCHILLA
+   809           5                    CHOWCHILLA
+   810           5                    CHOWCHILLA
+   811           5                    CHOWCHILLA
+   812           5                    CHOWCHILLA (MADERA)
+   813           5                    CHOWCHILLA
+   814           5                    CHOWCHILLA
+   815           5                    CHOWCHILLA (MADERA)
+   816          18                    MADERA (CHOWCHILLA)
+   817          18                    MADERA (CHOWCHILLA)
+   818           5                    CHOWCHILLA (MADERA)
+   819          18                    MADERA (CHOWCHILLA)
+   820          18                    MADERA (CHOWCHILLA)
+   821          18                    MADERA
+   822          18                    MADERA
+   823          18                    MADERA (CHOWCHILLA)
+   824          18                    MADERA
+   825          18                    MADERA
+   826          18                    MADERA
+   827          18                    MADERA
+   828           9                    DELTA-MENDOTA
+   829           9                    DELTA-MENDOTA
+   830           9                    DELTA-MENDOTA
+   831           9                    DELTA-MENDOTA
+   832           5                    CHOWCHILLA (DELTA-MENDOTA)
+   833           5                    CHOWCHILLA (MADERA)
+   834          18                    MADERA (CHOWCHILLA)
+   835          18                    MADERA
+   836          18                    MADERA
+   837          18                    MADERA
+   838          18                    MADERA
+   839          18                    MADERA
+   840           9                    DELTA-MENDOTA
+   841           9                    DELTA-MENDOTA
+   842           9                    DELTA-MENDOTA
+   843           9                    DELTA-MENDOTA
+   844           9                    DELTA-MENDOTA
+   845           9                    DELTA-MENDOTA
+   846           9                    DELTA-MENDOTA
+   847           9                    DELTA-MENDOTA (WESTSIDE)
+   848           9                    DELTA-MENDOTA (WESTSIDE)
+   849           9                    DELTA-MENDOTA (MADERA)
+   850           9                    DELTA-MENDOTA (MADERA)
+   851          18                    MADERA (DELTA-MENDOTA)
+   852          18                    MADERA
+   853          18                    MADERA
+   854          18                    MADERA
+   855          18                    MADERA
+   856          18                    MADERA
+   857          18                    MADERA
+   858           9                    DELTA-MENDOTA
+   859           9                    DELTA-MENDOTA (WESTSIDE)
+   860           9                    DELTA-MENDOTA (WESTSIDE)
+   861          40                    WESTSIDE (DELTA-MENDOTA)
+   862          40                    WESTSIDE (DELTA-MENDOTA)
+   863          40                    WESTSIDE (DELTA-MENDOTA)
+   864           9                    DELTA-MENDOTA (WESTSIDE)
+   865          40                    WESTSIDE
+   866          40                    WESTSIDE
+   867          40                    WESTSIDE
+   868          40                    WESTSIDE (DELTA-MENDOTA)
+   869           9                    DELTA-MENDOTA (WESTSIDE)
+   870           9                    DELTA-MENDOTA (MADERA)
+   871           9                    DELTA-MENDOTA (MADERA)
+   872          18                    MADERA (DELTA-MENDOTA)
+   873          18                    MADERA (DELTA-MENDOTA)
+   874          18                    MADERA
+   875          18                    MADERA (KINGS)
+   876          18                    MADERA (KINGS)
+   877          18                    MADERA (KINGS)
+   878          18                    MADERA (KINGS)
+   879          18                    MADERA
+   880          18                    MADERA
+   881          40                    WESTSIDE
+   882          40                    WESTSIDE
+   883          40                    WESTSIDE
+   884          40                    WESTSIDE (DELTA-MENDOTA)
+   885           9                    DELTA-MENDOTA (WESTSIDE)
+   886           9                    DELTA-MENDOTA (KINGS)
+   887          16                    KINGS (DELTA-MENDOTA)
+   888          16                    KINGS (MADERA)
+   889          16                    KINGS (MADERA)
+   890          16                    KINGS (MADERA)
+   891          16                    KINGS (MADERA)
+   892          16                    KINGS (MADERA)
+   893          16                    KINGS (MADERA)
+   894          16                    KINGS (MADERA)
+   895          18                    MADERA (KINGS)
+   896          40                    WESTSIDE
+   897          40                    WESTSIDE
+   898          40                    WESTSIDE
+   899          40                    WESTSIDE (DELTA-MENDOTA)
+   900           9                    DELTA-MENDOTA (WESTSIDE)
+   901           9                    DELTA-MENDOTA (KINGS)
+   902          40                    WESTSIDE
+   903          40                    WESTSIDE
+   904          40                    WESTSIDE
+   905          40                    WESTSIDE (DELTA-MENDOTA)
+   906           9                    DELTA-MENDOTA (WESTSIDE)
+   907          16                    KINGS (DELTA-MENDOTA)
+   908          16                    KINGS
+   909          16                    KINGS
+   910          16                    KINGS
+   911          16                    KINGS
+   912          16                    KINGS
+   913          16                    KINGS
+   914          16                    KINGS
+   915          16                    KINGS
+   916          16                    KINGS
+   917          40                    WESTSIDE
+   918          40                    WESTSIDE
+   919          40                    WESTSIDE
+   920          40                    WESTSIDE (DELTA-MENDOTA)
+   921           9                    DELTA-MENDOTA (WESTSIDE)
+   922          16                    KINGS (DELTA-MENDOTA)
+   923          16                    KINGS
+   924          16                    KINGS
+   925          16                    KINGS
+   926          16                    KINGS
+   927          16                    KINGS
+   928          16                    KINGS
+   929          16                    KINGS
+   930          16                    KINGS
+   931          16                    KINGS
+   932          16                    KINGS
+   933          16                    KINGS
+   934          40                    WESTSIDE
+   935          40                    WESTSIDE
+   936          40                    WESTSIDE
+   937          40                    WESTSIDE (KINGS)
+   938          16                    KINGS (DELTA-MENDOTA)
+   939          16                    KINGS (DELTA-MENDOTA)
+   940          16                    KINGS
+   941          16                    KINGS
+   942          16                    KINGS
+   943          40                    WESTSIDE
+   944          40                    WESTSIDE
+   945          40                    WESTSIDE
+   946          40                    WESTSIDE
+   947          16                    KINGS (WESTSIDE)
+   948          16                    KINGS
+   949          16                    KINGS
+   950          40                    WESTSIDE
+   951          40                    WESTSIDE
+   952          40                    WESTSIDE
+   953          40                    WESTSIDE (KINGS)
+   954          16                    KINGS (WESTSIDE)
+   955          16                    KINGS
+   956          16                    KINGS
+   957          16                    KINGS
+   958          40                    WESTSIDE
+   959          40                    WESTSIDE
+   960          40                    WESTSIDE
+   961          40                    WESTSIDE (KINGS)
+   962          16                    KINGS (WESTSIDE)
+   963          16                    KINGS
+   964          16                    KINGS
+   965          16                    KINGS
+   966          16                    KINGS
+   967          16                    KINGS
+   968          16                    KINGS
+   969          16                    KINGS
+   970          16                    KINGS
+   971          16                    KINGS
+   972          16                    KINGS
+   973          40                    WESTSIDE
+   974          40                    WESTSIDE
+   975          40                    WESTSIDE
+   976          40                    WESTSIDE (KINGS)
+   977          16                    KINGS (WESTSIDE)
+   978          16                    KINGS
+   979          16                    KINGS
+   980          16                    KINGS
+   981          16                    KINGS
+   982          16                    KINGS
+   983          16                    KINGS
+   984          16                    KINGS
+   985          16                    KINGS
+   986          16                    KINGS
+   987          16                    KINGS
+   988          16                    KINGS
+   989          16                    KINGS
+   990          16                    KINGS
+   991          40                    WESTSIDE
+   992          40                    WESTSIDE
+   993          40                    WESTSIDE
+   994          40                    WESTSIDE (KINGS)
+   995          16                    KINGS (WESTSIDE)
+   996          16                    KINGS
+   997          16                    KINGS
+   998          16                    KINGS
+   999          16                    KINGS
+  1000          16                    KINGS
+  1001          16                    KINGS
+  1002          16                    KINGS
+  1003          25                    PLEASANT VALLEY
+  1004          25                    PLEASANT VALLEY
+  1005          25                    PLEASANT VALLEY (WESTSIDE)
+  1006          25                    PLEASANT VALLEY (WESTSIDE)
+  1007          40                    WESTSIDE
+  1008          40                    WESTSIDE
+  1009          40                    WESTSIDE
+  1010          40                    WESTSIDE (KINGS)
+  1011          16                    KINGS (WESTSIDE)
+  1012          16                    KINGS
+  1013          16                    KINGS (TULARE LAKE)
+  1014          16                    KINGS
+  1015          16                    KINGS
+  1016          16                    KINGS
+  1017          16                    KINGS
+  1018          16                    KINGS
+  1019          16                    KINGS
+  1020          16                    KINGS
+  1021          16                    KINGS
+  1022          16                    KINGS
+  1023          16                    KINGS
+  1024          40                    WESTSIDE (PLEASANT VALLEY)
+  1025          40                    WESTSIDE
+  1026          40                    WESTSIDE
+  1027          40                    WESTSIDE (KINGS)
+  1028          16                    KINGS (WESTSIDE)
+  1029          16                    KINGS (TULARE LAKE)
+  1030          16                    KINGS (TULARE LAKE)
+  1031          16                    KINGS (TULARE LAKE)
+  1032          16                    KINGS (TULARE LAKE)
+  1033          16                    KINGS (TULARE LAKE)
+  1034          16                    KINGS (TULARE LAKE)
+  1035          40                    WESTSIDE (PLEASANT VALLEY)
+  1036          40                    WESTSIDE
+  1037          40                    WESTSIDE
+  1038          40                    WESTSIDE (TULARE LAKE)
+  1039          40                    WESTSIDE (KINGS)
+  1040          35                    TULARE LAKE (KINGS)
+  1041          35                    TULARE LAKE
+  1042          35                    TULARE LAKE
+  1043          35                    TULARE LAKE
+  1044          35                    TULARE LAKE
+  1045          16                    KINGS (TULARE LAKE)
+  1046          16                    KINGS
+  1047          16                    KINGS
+  1048          16                    KINGS
+  1049          16                    KINGS
+  1050          40                    WESTSIDE (PLEASANT VALLEY)
+  1051          40                    WESTSIDE
+  1052          40                    WESTSIDE
+  1053          40                    WESTSIDE
+  1054          35                    TULARE LAKE (WESTSIDE)
+  1055          35                    TULARE LAKE
+  1056          35                    TULARE LAKE
+  1057          35                    TULARE LAKE (KAWEAH)
+  1058          35                    TULARE LAKE (KAWEAH)
+  1059          16                    KINGS (KAWEAH)
+  1060          14                    KAWEAH (TULARE LAKE)
+  1061          16                    KINGS (KAWEAH)
+  1062          16                    KINGS
+  1063          16                    KINGS
+  1064          16                    KINGS
+  1065          16                    KINGS
+  1066          40                    WESTSIDE (PLEASANT VALLEY)
+  1067          40                    WESTSIDE (TULARE LAKE)
+  1068          40                    WESTSIDE
+  1069          35                    TULARE LAKE (WESTSIDE)
+  1070          35                    TULARE LAKE
+  1071          35                    TULARE LAKE
+  1072          14                    KAWEAH (TULARE LAKE)
+  1073          14                    KAWEAH (TULARE LAKE)
+  1074          14                    KAWEAH (TULARE LAKE)
+  1075          14                    KAWEAH (TULARE LAKE)
+  1076          14                    KAWEAH (KINGS)
+  1077          16                    KINGS
+  1078          16                    KINGS (KAWEAH)
+  1079          16                    KINGS
+  1080          16                    KINGS
+  1081          35                    TULARE LAKE
+  1082          35                    TULARE LAKE
+  1083          35                    TULARE LAKE (KAWEAH)
+  1084          35                    TULARE LAKE
+  1085          14                    KAWEAH (TULARE LAKE)
+  1086          14                    KAWEAH
+  1087          14                    KAWEAH
+  1088          14                    KAWEAH
+  1089          16                    KINGS (KAWEAH)
+  1090          16                    KINGS (KAWEAH)
+  1091          16                    KINGS (KAWEAH)
+  1092          14                    KAWEAH (KINGS)
+  1093          14                    KAWEAH (KINGS)
+  1094          14                    KAWEAH
+  1095          14                    KAWEAH
+  1096          14                    KAWEAH
+  1097          14                    KAWEAH
+  1098          14                    KAWEAH
+  1099          14                    KAWEAH
+  1100          14                    KAWEAH
+  1101          14                    KAWEAH
+  1102          14                    KAWEAH
+  1103          14                    KAWEAH
+  1104          14                    KAWEAH
+  1105          14                    KAWEAH
+  1106          35                    TULARE LAKE (WESTSIDE)
+  1107          35                    TULARE LAKE (WESTSIDE)
+  1108          35                    TULARE LAKE (WESTSIDE)
+  1109          35                    TULARE LAKE
+  1110          35                    TULARE LAKE
+  1111          35                    TULARE LAKE
+  1112          35                    TULARE LAKE (KAWEAH)
+  1113          35                    TULARE LAKE (KAWEAH)
+  1114          14                    KAWEAH (TULARE LAKE)
+  1115          14                    KAWEAH
+  1116          14                    KAWEAH
+  1117          14                    KAWEAH
+  1118          14                    KAWEAH
+  1119          14                    KAWEAH
+  1120          14                    KAWEAH
+  1121          14                    KAWEAH (TULARE LAKE)
+  1122          14                    KAWEAH (TULE)
+  1123          14                    KAWEAH
+  1124          14                    KAWEAH
+  1125          14                    KAWEAH
+  1126          14                    KAWEAH
+  1127          14                    KAWEAH
+  1128          14                    KAWEAH
+  1129          14                    KAWEAH (TULE)
+  1130          36                    TULE (KAWEAH)
+  1131          36                    TULE (KAWEAH)
+  1132          36                    TULE (KAWEAH)
+  1133          14                    KAWEAH (TULE)
+  1134          36                    TULE (TULARE LAKE)
+  1135          35                    TULARE LAKE
+  1136          35                    TULARE LAKE
+  1137          35                    TULARE LAKE
+  1138          35                    TULARE LAKE
+  1139          35                    TULARE LAKE
+  1140          35                    TULARE LAKE (PLEASANT VALLEY)
+  1141          35                    TULARE LAKE (PLEASANT VALLEY)
+  1142          35                    TULARE LAKE
+  1143          35                    TULARE LAKE
+  1144          35                    TULARE LAKE
+  1145          35                    TULARE LAKE
+  1146          35                    TULARE LAKE
+  1147          36                    TULE (TULARE LAKE)
+  1148          36                    TULE (TULARE LAKE)
+  1149          36                    TULE
+  1150          36                    TULE
+  1151          36                    TULE
+  1152          36                    TULE
+  1153          36                    TULE
+  1154          36                    TULE (KAWEAH)
+  1155          36                    TULE (KAWEAH)
+  1156          36                    TULE (KAWEAH)
+  1157          36                    TULE
+  1158          36                    TULE
+  1159          35                    TULARE LAKE (PLEASANT VALLEY)
+  1160          35                    TULARE LAKE (PLEASANT VALLEY)
+  1161          35                    TULARE LAKE
+  1162          35                    TULARE LAKE
+  1163          35                    TULARE LAKE
+  1164          35                    TULARE LAKE
+  1165          36                    TULE (TULARE LAKE)
+  1166          36                    TULE (TULARE LAKE)
+  1167          36                    TULE
+  1168          36                    TULE
+  1169          36                    TULE
+  1170          36                    TULE
+  1171          36                    TULE
+  1172          36                    TULE
+  1173          36                    TULE
+  1174          36                    TULE
+  1175          36                    TULE
+  1176          36                    TULE
+  1177          36                    TULE
+  1178          36                    TULE
+  1179          36                    TULE
+  1180          36                    TULE
+  1181          36                    TULE
+  1182          36                    TULE
+  1183          36                    TULE
+  1184          36                    TULE
+  1185          36                    TULE
+  1186          36                    TULE
+  1187          36                    TULE (TULARE LAKE)
+  1188          35                    TULARE LAKE (TULE)
+  1189          35                    TULARE LAKE
+  1190          35                    TULARE LAKE
+  1191          35                    TULARE LAKE (PLEASANT VALLEY)
+  1192          35                    TULARE LAKE
+  1193          35                    TULARE LAKE
+  1194          35                    TULARE LAKE (KERN COUNTY)
+  1195          35                    TULARE LAKE (KERN COUNTY)
+  1196          35                    TULARE LAKE (KERN COUNTY)
+  1197          35                    TULARE LAKE (KERN COUNTY)
+  1198          35                    TULARE LAKE (KERN COUNTY)
+  1199          36                    TULE (TULARE LAKE)
+  1200          36                    TULE
+  1201          36                    TULE
+  1202          36                    TULE
+  1203          36                    TULE
+  1204          36                    TULE (KERN COUNTY)
+  1205          36                    TULE (KERN COUNTY)
+  1206          36                    TULE (KERN COUNTY)
+  1207          36                    TULE (KERN COUNTY)
+  1208          36                    TULE (KERN COUNTY)
+  1209          36                    TULE (KERN COUNTY)
+  1210          36                    TULE (KERN COUNTY)
+  1211          36                    TULE (KERN COUNTY)
+  1212          15                    KERN COUNTY (PLEASANT VALLEY)
+  1213          15                    KERN COUNTY
+  1214          15                    KERN COUNTY
+  1215          15                    KERN COUNTY
+  1216          15                    KERN COUNTY
+  1217          15                    KERN COUNTY
+  1218          15                    KERN COUNTY
+  1219          15                    KERN COUNTY
+  1220          15                    KERN COUNTY
+  1221          15                    KERN COUNTY
+  1222          15                    KERN COUNTY
+  1223          15                    KERN COUNTY
+  1224          15                    KERN COUNTY
+  1225          15                    KERN COUNTY
+  1226          15                    KERN COUNTY
+  1227          15                    KERN COUNTY
+  1228          15                    KERN COUNTY
+  1229          15                    KERN COUNTY
+  1230          15                    KERN COUNTY
+  1231          15                    KERN COUNTY
+  1232          15                    KERN COUNTY
+  1233          15                    KERN COUNTY
+  1234          15                    KERN COUNTY
+  1235          15                    KERN COUNTY
+  1236          15                    KERN COUNTY
+  1237          15                    KERN COUNTY
+  1238          15                    KERN COUNTY
+  1239          15                    KERN COUNTY
+  1240          15                    KERN COUNTY
+  1241          15                    KERN COUNTY
+  1242          15                    KERN COUNTY
+  1243          15                    KERN COUNTY
+  1244          15                    KERN COUNTY
+  1245          15                    KERN COUNTY
+  1246          15                    KERN COUNTY
+  1247          15                    KERN COUNTY
+  1248          15                    KERN COUNTY
+  1249          15                    KERN COUNTY
+  1250          15                    KERN COUNTY
+  1251          15                    KERN COUNTY
+  1252          15                    KERN COUNTY
+  1253          15                    KERN COUNTY
+  1254          15                    KERN COUNTY
+  1255          15                    KERN COUNTY
+  1256          15                    KERN COUNTY
+  1257          15                    KERN COUNTY
+  1258          15                    KERN COUNTY
+  1259          15                    KERN COUNTY
+  1260          15                    KERN COUNTY
+  1261          15                    KERN COUNTY
+  1262          15                    KERN COUNTY
+  1263          15                    KERN COUNTY
+  1264          15                    KERN COUNTY
+  1265          15                    KERN COUNTY
+  1266          15                    KERN COUNTY
+  1267          15                    KERN COUNTY
+  1268          15                    KERN COUNTY
+  1269          15                    KERN COUNTY
+  1270          15                    KERN COUNTY
+  1271          15                    KERN COUNTY
+  1272          15                    KERN COUNTY
+  1273          15                    KERN COUNTY
+  1274          15                    KERN COUNTY
+  1275          15                    KERN COUNTY
+  1276          15                    KERN COUNTY
+  1277          15                    KERN COUNTY
+  1278          15                    KERN COUNTY
+  1279          15                    KERN COUNTY
+  1280          15                    KERN COUNTY
+  1281          15                    KERN COUNTY
+  1282          15                    KERN COUNTY
+  1283          15                    KERN COUNTY
+  1284          15                    KERN COUNTY
+  1285          15                    KERN COUNTY
+  1286          15                    KERN COUNTY
+  1287          15                    KERN COUNTY
+  1288          15                    KERN COUNTY
+  1289          15                    KERN COUNTY
+  1290          15                    KERN COUNTY
+  1291          15                    KERN COUNTY
+  1292          15                    KERN COUNTY
+  1293          15                    KERN COUNTY
+  1294          15                    KERN COUNTY
+  1295          15                    KERN COUNTY
+  1296          15                    KERN COUNTY
+  1297          15                    KERN COUNTY
+  1298          15                    KERN COUNTY
+  1299          15                    KERN COUNTY
+  1300          15                    KERN COUNTY
+  1301          15                    KERN COUNTY
+  1302          15                    KERN COUNTY
+  1303          15                    KERN COUNTY
+  1304          15                    KERN COUNTY
+  1305          15                    KERN COUNTY
+  1306          15                    KERN COUNTY
+  1307          15                    KERN COUNTY
+  1308          15                    KERN COUNTY
+  1309          15                    KERN COUNTY
+  1310          15                    KERN COUNTY
+  1311          15                    KERN COUNTY
+  1312          15                    KERN COUNTY
+  1313          15                    KERN COUNTY
+  1314          15                    KERN COUNTY
+  1315          15                    KERN COUNTY
+  1316          15                    KERN COUNTY
+  1317          15                    KERN COUNTY
+  1318          15                    KERN COUNTY
+  1319          15                    KERN COUNTY
+  1320          15                    KERN COUNTY
+  1321          15                    KERN COUNTY
+  1322          15                    KERN COUNTY
+  1323          15                    KERN COUNTY
+  1324          15                    KERN COUNTY
+  1325          15                    KERN COUNTY
+  1326          15                    KERN COUNTY
+  1327          15                    KERN COUNTY
+  1328          15                    KERN COUNTY
+  1329          15                    KERN COUNTY
+  1330          15                    KERN COUNTY
+  1331          15                    KERN COUNTY
+  1332          15                    KERN COUNTY
+  1333          15                    KERN COUNTY
+  1334          15                    KERN COUNTY
+  1335          15                    KERN COUNTY
+  1336          15                    KERN COUNTY
+  1337          15                    KERN COUNTY
+  1338          15                    KERN COUNTY
+  1339          15                    KERN COUNTY
+  1340          15                    KERN COUNTY
+  1341          15                    KERN COUNTY
+  1342          15                    KERN COUNTY
+  1343          15                    KERN COUNTY
+  1344          15                    KERN COUNTY
+  1345          15                    KERN COUNTY
+  1346          15                    KERN COUNTY
+  1347          15                    KERN COUNTY
+  1348          15                    KERN COUNTY
+  1349          15                    KERN COUNTY
+  1350          15                    KERN COUNTY
+  1351          15                    KERN COUNTY
+  1352          15                    KERN COUNTY
+  1353          15                    KERN COUNTY
+  1354          15                    KERN COUNTY
+  1355          15                    KERN COUNTY
+  1356          15                    KERN COUNTY
+  1357          15                    KERN COUNTY
+  1358          15                    KERN COUNTY
+  1359          15                    KERN COUNTY
+  1360          15                    KERN COUNTY
+  1361          15                    KERN COUNTY
+  1362          15                    KERN COUNTY
+  1363          15                    KERN COUNTY
+  1364          15                    KERN COUNTY
+  1365          15                    KERN COUNTY
+  1366          15                    KERN COUNTY
+  1367          15                    KERN COUNTY
+  1368          15                    KERN COUNTY
+  1369          15                    KERN COUNTY
+  1370          15                    KERN COUNTY
+  1371          15                    KERN COUNTY
+  1372          15                    KERN COUNTY
+  1373          15                    KERN COUNTY
+  1374          15                    KERN COUNTY
+  1375          15                    KERN COUNTY
+  1376          15                    KERN COUNTY
+  1377          15                    KERN COUNTY
+  1378          15                    KERN COUNTY
+  1379          15                    KERN COUNTY
+  1380          15                    KERN COUNTY
+  1381          15                    KERN COUNTY
+  1382          15                    KERN COUNTY
+  1383          15                    KERN COUNTY
+  1384          15                    KERN COUNTY
+  1385          15                    KERN COUNTY
+  1386          15                    KERN COUNTY
+  1387          15                    KERN COUNTY
+  1388          15                    KERN COUNTY
+  1389          15                    KERN COUNTY
+  1390          15                    KERN COUNTY
+  1391          15                    KERN COUNTY
+  1392          15                    KERN COUNTY
+  

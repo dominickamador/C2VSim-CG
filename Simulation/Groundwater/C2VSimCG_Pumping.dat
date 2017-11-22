@@ -1,0 +1,69 @@
+#4.0
+C *** DO NOT DELETE ABOVE LINE ***
+C
+C*******************************************************************************
+C
+C                  INTEGRATED WATER FLOW MODEL (IWFM)
+C                         *** Version 2015 ***
+C
+C*******************************************************************************
+C
+C                        PUMPING MAIN DATA FILE
+C                           Pumping Component
+C                          *** Version 4.0 ***
+C
+C
+C             Project:  C2VSIM: California Central Valley Groundwater-Surface Water Simulation Model
+C             Filename: CVGW_Pumping_MAIN.dat
+C             Version:  R385-2015 2014.12.23
+C
+C***********************************************************************
+C  California Central Valley Groundwater-Surface Water Flow Model (C2VSim)
+C  Copyright (C) 2012-2017
+C  State of California, Department of Water Resources 
+C
+C  This model is free. You can redistribute it and/or modify it 
+C  under the terms of the GNU General Public License as published 
+C  by the Free Software Foundation; either version 2 of the License, 
+C  or (at your option) any later version.
+C
+C  This model is distributed WITHOUT ANY WARRANTY; without even 
+C  the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+C  PARTICULAR PURPOSE.  See the GNU General Public License for 
+C  more details. (http://www.gnu.org/licenses/gpl.html)
+C
+C  The GNU General Public License is available from the Free Software
+C  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+C
+C  For tecnical support, e-mail: IWFMtechsupport@water.ca.gov 
+C
+C
+C  Principal Contact:
+C    Tariq N. Kadir, PE, Senior Engineer, DWR
+C       (916) 653-3513, kadir@water.ca.gov
+C
+C  Principal Developer and Technical Support:
+C    Charles F. Brush, PhD, PE, Engineer, DWR
+C       (916) 651-8705, cbrush@water.ca.gov
+C
+C
+C*******************************************************************************
+C                             File Description:
+C
+C   This data file contains the file names and other relevant data that are 
+C   used for the simulation of pumping.
+C
+C*******************************************************************************
+C
+C  WELLFL     ; Well pumping specifications data file (max. 1000 characters)
+C                  * Leave blank if no wells are simulated
+C  ELEMPUMPFL ; Element pumping specifications data file (max. 1000 characters)
+C                  * Leave blank if element pumping is not simulated
+C  PUMPFL     ; Time series pumping data file (max. 1000 characters)
+C
+C-------------------------------------------------------------------------------
+C     VALUE                                  / DESCRIPTION
+C-------------------------------------------------------------------------------
+  Groundwater\C2VSimCG_WellSpec.dat          / WELLFL
+  Groundwater\C2VSimCG_ElemPump.dat          / ELEMPUMPFL
+  Groundwater\C2VSimCG_PumpRates.dat         / PUMPFL
